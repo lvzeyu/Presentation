@@ -28,20 +28,25 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
-      - name: Install dependencies
-        working-directory: ./Other/otree_hosting
+      - name: Install dependencies for otree_hosting
+        working-directory: ./Other/2026/otree_hosting
         run: nci
 
-      - name: Build
-        working-directory: ./Other/otree_hosting
-        run: nr build --base /${{github.event.repository.name}}/
+      - name: Build otree_hosting
+        working-directory: ./Other/2026/otree_hosting
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/otree_hosting/
+
+      - name: Create output directory structure
+        run: |
+          mkdir -p public/Other/2026/otree_hosting
+          cp -r ./Other/2026/otree_hosting/dist/* public/Other/2026/otree_hosting/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./Other/otree_hosting/dist
+          path: public
 
   deploy:
     environment:
