@@ -248,7 +248,12 @@ layout: iframe
 url: https://yshimod.github.io/otree5-seminar/rendercom/
 ---
 
+---
+layout: section
+color: blue-light
+---
 
+# おまけ：`GCP`でサイトを公開する
 ---
 layout: top-title
 color: navy-light
