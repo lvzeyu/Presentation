@@ -30,23 +30,36 @@ selectable: true
 
 
 ---
+layout: section
+color: blue-light
+
+---
+
+# `ウェブサイト公開`の基本概念
+
+---
 layout: top-title
 color: navy-light
 ---
 
 :: title ::
 
-# oTreeで作った実験をサーバーへアップして動かす
+# ウェブサイト作成の手順
 
 :: content ::
 
-## Herokuで oTree を動かす
+<v-clicks depth="2">
 
-- Herokuへの登録とインストール
-- GitHubのリポジトリからHerokuへデプロイする
-- HerokuのCLIでHerokuへデプロイする
+- ウェブサイトのデザインを考える
+- デザイン案を元に自分の PC で HTML ファイルや CSS ファイルを作成する
+    - 通常では、HTML / CSS（＋JavaScript）を編集してページを作成する
+    - Otreeでは、：用意されたテンプレートを活用して、ページ作成の手間を減らせる
+- <span v-mark.circle.orange="8">作成したファイル（＝oTreeプロジェクト）をWebサーバーに配置して公開する</span>
+    - 今までは実験サイトを作成しても、自分のPCからしかアクセスできない
+    - oTreeで作成した実験サイトをインターネット上で公開することで、参加者はどこからでも（自宅・スマホ等）手軽に参加できる
 
-## 他のPaaSで oTree を動かす
+</v-clicks>
+
 
 ---
 layout: two-cols-title
@@ -223,13 +236,24 @@ color: navy-light
     - HTTPSの設定が必要
 </v-clicks>
 
+---
+layout: section
+color: blue-light
+---
+
+# `Render`でサイトを公開する
 
 ---
 layout: iframe
 url: https://yshimod.github.io/otree5-seminar/rendercom/
 ---
 
+---
+layout: section
+color: blue-light
+---
 
+# おまけ：`GCP`でサイトを公開する
 ---
 layout: iframe
 url: https://kscscr.com/archives/otree-google-cloud-platform.html
