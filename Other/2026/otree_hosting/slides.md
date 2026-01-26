@@ -248,6 +248,35 @@ layout: iframe
 url: https://yshimod.github.io/otree5-seminar/rendercom/
 ---
 
+
+---
+layout: top-title
+color: navy-light
+---
+
+:: title ::
+
+# Otreeの環境変数設定
+
+:: content ::    
+
+<v-clicks depth="2">
+
+- **環境変数とは**
+   - プログラムは指定した実行環境で動かすための設定情報
+
+- **oTreeに設定しておく環境変数**
+    - `PYTHON_VERSION`: 実行に使う Python のバージョン固定
+    - `OTREE_ADMIN_PASSWORD`: 管理画面に入るためのパスワード
+    - `OTREE_AUTH_LEVEL`
+        - `STUDY`: 配布した「スタートリンク」経由でのみ参加できるようにし、管理画面は適切に保護する運用に向きます
+        - `DEMO`: 誰でもデモ版をプレイできます
+    - `OTREE_PRODUCTION`: 未設定の場合、画面下部にデバッグ情報が表示されます
+    - `DATABASE_URL`: 接続する DB を指定
+</v-clicks>
+
+
+
 ---
 layout: section
 color: blue-light
