@@ -49,7 +49,7 @@ mermaid:
 
 ### 吕 泽宇 / Zeyu Lyu <a href="https://researchmap.jp/lyuzeyu?lang=ja" class="ns-c-iconlink"><mdi-open-in-new /></a>  
 
-2026年3月5日・日本大学
+2026年3月6日・日本大学
 
 <div style="margin-top: 3rem;">
 <QRCode value="https://lvzeyu.github.io/social_science_nlp_tutorial/southeastern_univ/" :size="100" render-as="svg" />
@@ -184,6 +184,25 @@ color: indigo-light
 
 
 ---
+layout: top-title
+color: indigo-light
+align: lt
+---
+:: title ::
+
+# 大規模言語モデルの作成
+
+:: content ::
+
+- **事前学習**: 大量の生テキストに基づく汎用的な言語能力を持つ基盤モデル(base model)を作成
+- **事後学習**: 基盤モデルを指示学習やアライメントを通じて特定な用途に適応したモデルを作成
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/1-chatgpt-training2.png" width="800" />
+</div>
+
+
+---
 layout: top-title-two-cols
 columns: is-6
 align: l-lt-lt
@@ -311,7 +330,216 @@ const toggleAttentionImage = () => {
 </div>
 
 
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
 
+:: title ::
+
+# 大規模言語モデルの事前学習
+
+:: content ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/llm-pre-train.png" width="1000" />
+</div>
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 大規模言語モデルの事後学習（Post-training）
+
+:: content ::
+
+- 事前学習モデルは、あくまで「次に来る単語（トークン）を予測する」目的で学習されたもの
+    - 次トークン予測 ≠ 相応しい応答
+> **入力**：日本大学文理学部キャンパスはどこですか？
+
+> **役にたつ出力**：東京都世田谷区桜上水3-25-40
+
+> **自然に見える出力**: どのような学部がありますか
+
+- Post-Trainingを通じて、大規模言語モデルが「特定の業務やタスクにおいて人間の要求に沿った回答ができるように出力を整える能力を身につける
+   - ファインチューニング
+   - 人間のフィードバックから学習
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 事後学習: 指示学習（Instruction Tuning）
+
+:: content ::
+
+<div class="relative w-full h-[520px]" style="margin-top: -5.5rem;">
+  <img
+    src="/Figure/llm-finetuning1.png"
+    class="absolute inset-0 mx-auto h-full object-contain"
+  />
+
+  <img
+    v-click
+    src="/Figure/llm-finetuning2.png"
+    class="absolute inset-0 mx-auto h-full object-contain"
+    style="transform: scale(1.08); transform-origin: center;"
+  />
+</div>
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 事後学習: アライメント
+
+:: content ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/rlhf-1.png" width="600" />
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/rlhf-2.png" width="600" />
+</div>
+
+---
+layout: full
+---
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/LLM_process.png" width="800" />
+</div>
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 大規模言語モデルの問題点
+
+:: content ::
+
+- 大規模言語モデルの学習とファインチューニングでは多くの計算リソースと時間がかかる
+- 最新情報・ローカル知識に弱い
+- 計算や厳密処理の弱さ
+    - strawberry問題
+- ハルシネーション 
+    - Prompt: Tell me about the book The Lost City of Atlantis by John Doe.
+    - 出力: The book The Lost City of Atlantis by John Doe explores the mythical city in great detail
+        - ❌ その本はそもそも存在しない
+    - LLMsの不適切な使用による学術研究にも問題を引き起こす：[GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers](https://gptzero.me/news/neurips/)
+
+
+---
+layout: top-title-two-cols
+color: indigo-light
+align: l-lt-lb
+---
+
+:: title ::
+
+# 大規模言語モデルに基づくエージェント (LLMs Agent)
+
+:: left ::
+
+🤖 **Agent: 環境を認識し、意思決定して行動する主体**
+
+- LLMs Agent: 大規模言語モデルを中核として推論・意思決定・行動を行うエージェント
+    - 記憶（Memory）：Agentが​過去経験を保存・検索する。​
+    - 計画（Planning）：Agentが​日常計画を策定・調整し、環境変化に応答する。
+    - ツール(Tool): Agentが呼び出すことができる外部機能
+ 
+
+- LLM Agentは自律的にに「目標達成のための一連の行動」を実行することで、複雑なタスクを対応することが可能となる
+
+:: right ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/LLM_agent.png" width="700" />
+</div>
+
+
+
+---
+layout: section
+color: indigo-light
+---
+
+### `大規模言語モデル`を用いるテキストマイニング
+
+<hr>
+
+---
+layout: top-title-two-cols
+color: indigo-light
+align: l-lt-lb
+columns: is-7
+---
+
+:: title ::
+
+# 社会科学におけるテキストマインング手法の応用
+
+:: left ::
+
+- SNS投稿、ニュース記事、議会会議録などに代表される言説データのデジタル化と蓄積により、人間行動および社会現象がテキストとして大規模に観測可能となった
+- テキストマイニングは社会科学研究に新たな分析可能性をもたらしている
+   - 従来は操作化・定量化が困難であった概念（態度、感情、フレーミング、道徳、社会規範など）を、言語表現に基づいて測定できるようになった
+   - 高頻度かつ高粒度の時系列分析が可能となった
+- 自然言語処理技術の発展と計算資源の高度化により、こうした手法は学術研究としても実装・運用可能な水準に達している
+
+
+:: right ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/text-as-data.png" width="150" />
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/mapping_text.jpg" width="150" />
+</div>
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# テキスト分類
+
+:: content ::
+
+- **テキスト分類**は、社会科学における多様な研究課題に広く応用可能である
+   - 感情分析・Stance Detection・Hate Speech Detection
+- テキスト分類手法は、自然言語処理の発展に伴い、高度化・多様化してきた
+   - 辞書ベース／ルールベース（〜2000年代）
+   - 特徴量ベースの機械学習（2000年代後半〜2010年代前半）
+   - 🌟転移学習（2018〜）  ([Wankmüller, 2022](https://journals.sagepub.com/doi/abs/10.1177/00491241221134527); [Wang, 2023](https://www.cambridge.org/core/journals/political-analysis/article/abs/topic-classification-for-political-texts-with-pretrained-language-models/9AA6401CAB1FA3D1EADC7A3D155BB265))
+      - 複雑なタスクに対応するためには、相応のアノテーション作業を人手で行い、学習データを作成する手間が必要となる。
+   - ▶️LLMsを用いるテキスト分類 ([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D);[Chae & Davidson, 2025](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243))
 ---
 layout: top-title
 color: indigo-light
@@ -334,6 +562,278 @@ align: lt
 | 質問応答   | 質問：Who wrote Hamlet?          | William Shakespeare           | Q: Who wrote Hamlet? A: ___                   |
 | 翻訳     | 英文：How are you?               | 仏文：Comment ça va ?            | Translate English to French: How are you? ___ |
 | 要約     | 文章：Artificial intelligence... | 簡潔な要約：AI is a branch of CS... | Summarize the following: Artificial... ___    |
+
+
+---
+layout: two-cols-title
+columns: is-6
+align: l-lt-lt
+---
+
+:: title ::
+
+# 大規模言語モデルの使用：ローカルLLM
+
+:: left ::
+
+- 自分のPC/サーバ上でLLMを動かして使う
+    - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソース LLMを取得可能
+    - 一般的的にはGPUを使うことが前提になる
+    - GPU環境は初期投資が大きいものの、利用量が増えるほど単価が下がり
+- 近年、オープンソース LLM の性能向上(Llama,Deepseek,Qwen3など)
+- 量子化技術を使うことで必要される計算リソースを大幅に減らせる
+- 自分の要件に合わせてカスタマイズ
+:: right ::
+
+VRAM別動かせるモデルの目安（[参照先](https://dev.classmethod.jp/articles/local-llm-guide-2026/)）
+
+|   VRAM | 動かせるモデル                                        |  量子化 |
+| -----: | ---------------------------------------------- | ---: |
+|    8GB | Qwen3-1.7B、Qwen 7B                             | 4bit |
+|   16GB | gpt-oss-20b、Qwen3-14B、Nemotron 3 Nano、Llama 8B | 8bit |
+|   24GB | Llama 70B 、Gemma 3-27B、GLM-4.7-Flash     | 4bit |
+|  48GB+ | Llama 405B                                     | 8bit |
+| 150GB+ | Qwen3-Coder-480B                        | 4bit |
+
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 大規模言語モデルの使用：ローカルLLM
+
+:: content ::
+
+- Hugging Face の [Transformers](https://huggingface.co/docs/transformers/en/index)ライブラリで動かす
+    - [HuggingFace Hub](https://huggingface.co/)からオープンソースLLMのリンクを取得
+- `AutoModel`や`pipeline`などの機能で手軽にオープンソースLLMを実装
+- [`bitsandbytes`](https://huggingface.co/docs/transformers/en/quantization/bitsandbytes) と組み合わせることで量子化を実装
+
+
+````md magic-move {lines: true}
+
+```py {3|4-9|10}
+import torch
+from transformers import pipeline
+model_dir = "model_path"
+gen = pipeline(
+    task="text-generation",
+    model=model_dir,
+    torch_dtype=torch.float16, 
+    device_map="auto",             # GPU/CPUへ自動割り当て
+)
+out = gen("日本語で自己紹介して。", max_new_tokens=128, do_sample=True, temperature=0.7)
+```
+
+```py {1-6|7}
+from transformers import AutoTokenizer, AutoModelForCausalLM
+model_dir = "model_path"
+tok = AutoTokenizer.from_pretrained(model_dir)
+model = AutoModelForCausalLM.from_pretrained(
+    model_dir,
+    device_map="auto",
+    load_in_4bit=True,   # 4bit量子化
+)
+```
+````
+
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 大規模言語モデルの使用：API
+
+:: content ::
+
+- OpenAIやGoogleなどの会社は、APIで独自のAIモデルを利用するサービスを提供している
+   - 事前に発行したAPIキーをリクエストに添えて送る形で利用する権限を取得して呼び出す
+   - 従量課金（pay-as-you-go）: 基本的には、入力トークンと出力トークンの長さによって課金される
+       - 一部モデルでは内部推論に相当するトークンがあり、見えなくても出力側として課金対象になる
+- Pythonライブラリで手軽に各社のLLMsサービスをAPIを経由して利用することができる
+
+````md magic-move {lines: true}
+
+```py {1-2|3-5|6-10|*}
+# 公式SDKを読み込む
+from openai import OpenAI
+# OpenAI API キーを設定
+api_key=XXX
+client = OpenAI(api_key=api_key)
+# LLMに入力を渡してテキスト生成を依頼する
+resp = client.responses.create(
+    model="gpt-4.1-mini",
+    input="LLM APIの使い方を説明しなさい"
+)
+```
+````
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+title: LLMsを用いるテキスト分類
+---
+
+:: title ::
+
+# LLMsを用いるテキスト分類
+
+:: content ::
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lvzeyu/css_nlp/blob/master/notebook/langchain_basic.ipynb)
+
+````md magic-move {lines: true}
+
+```py {*}
+def get_predictions(prompt_generator, texts, model):
+  """
+  Inference with the API for a model, a list of texts and a prompt format
+  """
+  results = []
+  for i,j in texts.items():
+    try:
+      print(f"\rRequest element {i}", end= "")
+      completion = client.chat.completions.create(
+        model=model,
+        messages=prompt_generator(j)
+      )
+      results.append(completion)
+    except Exception as e:
+      print(e)
+      results.append(None)
+  print("\rPrediction finished")
+  return [i.choices[0].message.content for i in results]
+```
+
+```py {*}
+def build_prompt(text):
+  system_prompt = (
+      "You are a strict sentiment classifier for Japanese text. "
+      "Output exactly one label from: NEGATIVE, NEUTRAL, POSITIVE. "
+      "No explanation, no punctuation, no extra words."
+  )
+
+  user_prompt = (
+      f"Text: {text}\n"
+      "Label (NEGATIVE/NEUTRAL/POSITIVE):"
+  )
+
+  return [{"role":"system",
+           "content":system_prompt,
+           },
+           {"role":"user",
+            "content": user_prompt,
+           },
+  ]
+```
+```py {*}
+
+r = get_predictions(
+    prompt_generator=build_prompt, #prompt you want to use
+    texts=sample_data["sentence"][0:5], #texts you want to classify (change or remove [0:5])
+    model="gpt-4o-mini" #model you want to use
+    )
+```
+
+````
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMを用いたテキスト分類の応用に向けた実践的アドバイス
+
+:: content ::
+
+- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
+    - 大規模なデータを処理するための費用が高い
+    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
+- オープンソースLLMの利用は、利用可能な計算資源に依存し、本体の性能も一般に商用LLMに及ばないが
+    - 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
+    - 複数モデルの比較と併用
+        - 精度の向上と特定モデルによるバイアスの軽減[(Than et al., 2025)](https://journals.sagepub.com/doi/full/10.1177/00491241251339188)
+    - ファインチューニングを通じて、一部のタスクでは比較的に小規模なモデルでも同等の精度を達成できる[(Chae & Davidson, 2025)](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243)
+        - 量子化技術とParameter efficient fine-tuning手法の発展により、ファインチューニングは従来よりも手軽に実施できるようになった
+
+
+
+---
+layout: top-title-two-cols
+color: indigo-light
+align: l-lt-lb
+columns: is-6
+---
+
+:: title ::
+
+# LLMを用いたテキスト分類の応用に向けた実践的アドバイス
+
+:: left ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/llm_usage_guide.png" width="700" />
+</div>
+
+- [Chae & Davidson (2025)](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243)より提案したLLMを用いたテキスト分類を行う際、タスクの特徴に基づく適切な方法を選定するロードマップ
+:: right ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/llm_human_in_loop.jpg" width="300" />
+</div>
+
+- 実践上は、LLMによる分類結果を人間が検証・修正する反復的プロセスを採用することで、より信頼性の高い結果が得られる[(Than et al., 2025)](https://journals.sagepub.com/doi/full/10.1177/00491241251339188)
+
+- LLMは、研究者の労力を低減しつつ分析を支援するツールとして位置づけるべきである
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMを活用するより高度的な手法
+
+:: content ::
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMsを用いるテキスト分類手法が応用上の注意点
+
+:: content ::
+
+- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
+    - 大規模なデータを処理するための費用が高い
+    - Prompt engineeringによる精度を高めるが、限界がある
+    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
+- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
+    - 比較的に小規模だが専門特化のLLMsを作成する
+       - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
+
 
 
 
@@ -784,3 +1284,114 @@ print(resp.output_text)
 
 ```
 ````
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+title: LLMsを用いるテキスト分類
+---
+
+:: title ::
+
+# LLMsを用いるテキスト分類
+
+:: content ::
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lvzeyu/css_nlp/blob/master/notebook/langchain_basic.ipynb)
+
+````md magic-move {lines: true}
+
+```py {*}
+def get_predictions(prompt_generator, texts, model):
+  """
+  Inference with the API for a model, a list of texts and a prompt format
+  """
+  results = []
+  for i,j in texts.items():
+    try:
+      print(f"\rRequest element {i}", end= "")
+      completion = client.chat.completions.create(
+        model=model,
+        messages=prompt_generator(j)
+      )
+      results.append(completion)
+    except Exception as e:
+      print(e)
+      results.append(None)
+  print("\rPrediction finished")
+  return [i.choices[0].message.content for i in results]
+```
+
+```py {*}
+def build_prompt(text):
+  system_prompt = (
+      "You are a strict sentiment classifier for Japanese text. "
+      "Output exactly one label from: NEGATIVE, NEUTRAL, POSITIVE. "
+      "No explanation, no punctuation, no extra words."
+  )
+
+  user_prompt = (
+      f"Text: {text}\n"
+      "Label (NEGATIVE/NEUTRAL/POSITIVE):"
+  )
+
+  return [{"role":"system",
+           "content":system_prompt,
+           },
+           {"role":"user",
+            "content": user_prompt,
+           },
+  ]
+```
+```py {*}
+
+r = get_predictions(
+    prompt_generator=build_prompt, #prompt you want to use
+    texts=sample_data["sentence"][0:5], #texts you want to classify (change or remove [0:5])
+    model="gpt-4o-mini" #model you want to use
+    )
+```
+
+````
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMsを用いるテキスト分類手法が応用上の注意点
+
+:: content ::
+
+- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
+    - 大規模なデータを処理するための費用が高い
+    - Prompt engineeringによる精度を高めるが、限界がある
+    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
+- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
+    - 比較的に小規模だが専門特化のLLMsを作成する
+       - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMsを用いるテキスト分類手法が応用上の注意点
+
+:: content ::
+
+- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
+    - 大規模なデータを処理するための費用が高い
+    - Prompt engineeringによる精度を高めるが、限界がある
+    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
+- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
+    - 比較的に小規模だが専門特化のLLMsを作成する
+       - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
