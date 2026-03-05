@@ -28,18 +28,18 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
-      - name: Install dependencies for otree_hosting
-        working-directory: ./Other/2026/otree_hosting
+      - name: Install dependencies for JAMS_2026
+        working-directory: ./Tutorial/2026/JAMS_2026
         run: nci
 
-      - name: Build otree_hosting
-        working-directory: ./Other/2026/otree_hosting
-        run: nr build --base /${{github.event.repository.name}}/Other/2026/otree_hosting/
+      - name: Build JAMS_2026
+        working-directory: ./Tutorial/2026/JAMS_2026
+        run: nr build --base /${{github.event.repository.name}}/Tutorial/2026/JAMS_2026/
 
       - name: Create output directory structure
         run: |
-          mkdir -p public/Other/2026/otree_hosting
-          cp -r ./Other/2026/otree_hosting/dist/* public/Other/2026/otree_hosting/
+          mkdir -p public/Tutorial/2026/JAMS_2026
+          cp -r ./Tutorial/2026/JAMS_2026/dist/* public/Tutorial/2026/JAMS_2026/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
