@@ -162,11 +162,9 @@ align: lt
 
 ## 大規模言語モデルの応用
 
-- 大規模言語モデルの取得
-    - APIで大規模言語モデルの利用
-- 大規模言語モデルの応用例
-    - 大規模言語モデルによるテキスト分類
-    - 大規模言語モデルによるシミュレーション
+
+- 大規模言語モデルによるテキスト分類
+- 大規模言語モデルによるシミュレーション
 
 </v-clicks>
 
@@ -303,7 +301,7 @@ const toggleAttentionImage = () => {
       <source src="./Figure/encoder_self_attention.mp4" type="video/mp4">
     </video>
     <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
-      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Attention机制</h3>
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Attention機構</h3>
     </div>
   </div>
 </div>
@@ -359,6 +357,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - 事前学習モデルは、あくまで「次に来る単語（トークン）を予測する」目的で学習されたもの
     - 次トークン予測 ≠ 相応しい応答
 > **入力**：日本大学文理学部キャンパスはどこですか？
@@ -370,6 +370,8 @@ align: lt
 - Post-Trainingを通じて、大規模言語モデルが「特定の業務やタスクにおいて人間の要求に沿った回答ができるように出力を整える能力を身につける
    - ファインチューニング
    - 人間のフィードバックから学習
+
+</v-click>
 
 
 ---
@@ -760,15 +762,15 @@ align: lt
 
 :: content ::
 
-- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
+- APIで高度なLLMsを用いて、複雑なタスクにおいても高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
     - 大規模なデータを処理するための費用が高い
     - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
-- オープンソースLLMの利用は、利用可能な計算資源に依存し、本体の性能も一般に商用LLMに及ばないが
-    - 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
+- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
     - 複数モデルの比較と併用
         - 精度の向上と特定モデルによるバイアスの軽減[(Than et al., 2025)](https://journals.sagepub.com/doi/full/10.1177/00491241251339188)
     - ファインチューニングを通じて、一部のタスクでは比較的に小規模なモデルでも同等の精度を達成できる[(Chae & Davidson, 2025)](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243)
         - 量子化技術とParameter efficient fine-tuning手法の発展により、ファインチューニングは従来よりも手軽に実施できるようになった
+    - - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
 
 
 
@@ -1215,39 +1217,59 @@ align: lt
    - 研究の再現可能性・透明性・解釈可能性の観点から、オープンソースLLM活用のポテンシャルは大きい
       - オープンソースLLMにおけるファインチューニング手法とActivation Steering手法の発展と有用性
       - 社会科学の理論と知見、蓄積されたデータが関連分野に貢献することが期待される
+
+
 ---
-layout: two-cols-title
-columns: is-6
-align: l-lt-lt
+layout: side-title
+side: l
+color: indigo-light
+titlewidth: is-4
+align: lm-lm
 ---
 
 :: title ::
 
-# 大規模言語モデルの使用：ローカルLLM
+## 質問への回答
 
-:: left ::
+LLMを社会科学に応用する際に、注意すること。例えば、LLMsによる社会シミュレーションに関して、Generative Agent（Generative Agents: Interactive Simulacra of Human Behavior）は社会シミュレーションにLLMを用いていますが、各エージェントのモデリングや相互作用における妥当性や、身体性がなく言語のみでシミュレーションを実施している点など、どこまで社会科学にLLMを利用できて、現在の限界や問題点は何なのか？
 
-- 自分のPC/サーバ上でLLMを動かして使う
-    - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソースLLMを取得可能
-    - 一般的的にはGPUを使うことが前提になる
-    - GPU環境は初期投資が大きいものの、利用量が増えるほど単価が下がり
-- 近年、オープンソース LLM の性能向上(Llama,Deepseek,Qwen3など)
-- 量子化技術を使うことで必要される計算リソースを大幅に減らせる
-- 自分の要件に合わせてカスタマイズ
-   - Parameter efficient fine-tuning手法の発展
+# <mdi-arrow-right />
 
-:: right ::
+:: content ::
 
-VRAM別動かせるモデルの目安（[参照先](https://dev.classmethod.jp/articles/local-llm-guide-2026/)）
+- [Kozlowski & Evans (2025)](https://journals.sagepub.com/doi/10.1177/00491241251337316) は、LLMs Agentを用いる社会シミュレーションを行う際の注意点をまとめている
 
-|   VRAM | 動かせるモデル                                        |  量子化 |
-| -----: | ---------------------------------------------- | ---: |
-|    8GB | Qwen3-1.7B、Qwen 7B                             | 4bit |
-|   16GB | gpt-oss-20b、Qwen3-14B、Nemotron 3 Nano、Llama 8B | 8bit |
-|   24GB | Llama 70B 、Gemma 3-27B、GLM-4.7-Flash     | 4bit |
-|  48GB+ | Llama 405B                                     | 8bit |
-| 150GB+ | Qwen3-Coder-480B                        | 4bit |
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/llm_weakness.png" width="360" />
+</div>
 
+- オープンソースLLMにおけるファインチューニング手法とActivation Steering手法を活用することで、一部の問題点の解決に寄与できる
+
+
+---
+layout: side-title
+side: l
+color: indigo-light
+titlewidth: is-3
+align: lm-lm
+---
+
+:: title ::
+
+## 質問への回答
+
+- LLMsは社会にとって、どういう存在になっているのか？AGIのような超知能としての社会インフラなのか、それともエージェントとして、社会の一員として捉えるのか？
+
+# <mdi-arrow-right />
+
+:: content ::
+
+- A new sociology of humans and machines [(Tsvetkova et al., 2024)](https://www.nature.com/articles/s41562-024-02001-8)
+    - これまでの研究（左側）は、機械を「媒介装置」として扱ってきたが、現在ではAIやアルゴリズムが「自律的な行為者」として社会的に振る舞う。そのため、人間と機械を「独立的」ではなく「共進化する社会的存在」として扱う新たな社会科学が必要。
+
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/AI-Human.png" width="690" />
+</div>
 
 
 ---
@@ -1258,80 +1280,112 @@ align: lt
 
 :: title ::
 
-# 大規模言語モデルの使用：ローカルLLM
+
+# AI Agentが人間の意思決定に影響を与える
 
 :: content ::
 
-- Hugging Face の [Transformers](https://huggingface.co/docs/transformers/en/index)ライブラリで動かす
-    - [HuggingFace Hub](https://huggingface.co/)からオープンソースLLMのリンクを取得
-- `AutoModel`や`pipeline`などの機能で手軽にオープンソースLLMを実装
-- [`bitsandbytes`](https://huggingface.co/docs/transformers/en/quantization/bitsandbytes) と組み合わせることで量子化を実装
-
-
-````md magic-move {lines: true}
-
-```py {3|4-9|10}
-import torch
-from transformers import pipeline
-model_dir = "model_path"
-gen = pipeline(
-    task="text-generation",
-    model=model_dir,
-    torch_dtype=torch.float16, 
-    device_map="auto",             # GPU/CPUへ自動割り当て
-)
-out = gen("日本語で自己紹介して。", max_new_tokens=128, do_sample=True, temperature=0.7)
-```
-
-```py {1-6|7}
-from transformers import AutoTokenizer, AutoModelForCausalLM
-model_dir = "model_path"
-tok = AutoTokenizer.from_pretrained(model_dir)
-model = AutoModelForCausalLM.from_pretrained(
-    model_dir,
-    device_map="auto",
-    load_in_4bit=True,   # 4bit量子化
-)
-```
-````
-
+- AIを仲介者として用い、人々の意見をまとめ、「共通点（common ground）」を抽出・提示することで、意見の隔たりを縮められるかを検証
+- AI 仲介による議論を経て、参加者は自身の立場を更新することが多く、グループ全体として意見のばらつきが減少する傾向が見られた([Tessler et al., 2024](https://www.science.org/doi/10.1126/science.adq2852))
+    - AIが民主社会に与える影響[(Summerfield et al., 2025)](https://www.nature.com/articles/s41562-025-02309-z)
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/habermas_machine.jpg" width="790" />
+</div>
 
 
 ---
-layout: top-title
+layout: side-title
+side: l
 color: indigo-light
-align: lt
+titlewidth: is-3
+align: lm-lm
 ---
 
 :: title ::
 
-# 大規模言語モデルの使用：API
+## 質問への回答
+
+言語を扱うLLMsのみでなく、近年では実環境で実態を持って動く、フィジカルAIも発展してきていると思います。言語を扱うLLMsにとどまらず、視覚、聴覚、触覚、そして、運動まで扱うフィジカルAIがより発展していったとき、社会科学でフィジカルAIはどのように応用できるか
+
+# <mdi-arrow-right />
 
 :: content ::
 
-- OpenAIやGoogleなどの会社は、APIで独自のAIモデルを利用するサービスを提供している
-   - 事前に発行したAPIキーをリクエストに添えて送る形で利用する権限を取得して呼び出す
-   - 従量課金（pay-as-you-go）: 基本的には、入力トークンと出力トークンの長さによって課金される
-       - 一部モデルでは内部推論に相当するトークンがあり、見えなくても出力側として課金対象になる
-- Pythonライブラリで手軽に各社のLLMsサービスをAPIを経由して利用することができる
+- 身体性がなく言語のみ(Disembodiment)はLLMsの重要の限界と考えられる
+   - 言語と他のモダリティが反映する社会的事実は、異なる可能性がある
+       - テキストよりも画像がより強いステレオタイプを反映する傾向がある[(Guilbeault et al., 2024)](https://www.nature.com/articles/s41586-024-07068-x)
+   - 声・表情・身ぶりといった非言語要素も、社会的相互作用の重要な側面であると考えられる[(Cartmill, 2022)](https://www.annualreviews.org/content/journals/10.1146/annurev-anthro-041420-104310)
+- Multimodalモデルの発展: テキスト、画像や映像など多様な情報を対応できる(GPT-4oやGemini 2)
+- 人間行動に関するMultimodalデータの蓄積[(Vong et al., 2024)](https://www.science.org/doi/full/10.1126/science.adi1374)
+- Multimodalモデルを用いて多様のデータを統合的に分析する可能性([Lokmanoglu & Walter, 2025](https://www.tandfonline.com/doi/full/10.1080/19312458.2025.2549707);[Ruyters et al., 2025](https://www.tandfonline.com/doi/full/10.1080/19312458.2025.2558736))
+- Multimodalモデルに基づく社会シミュレーションの可能性
 
-````md magic-move {lines: true}
+---
+layout: side-title
+side: l
+color: indigo-light
+titlewidth: is-3
+align: lm-lm
+---
 
-```py {1-2|3-5|6-10|*}
-# 公式SDKを読み込む
-from openai import OpenAI
-# OpenAI API キーを設定
-api_key=XXX
-client = OpenAI(api_key=api_key)
-# LLMに入力を渡してテキスト生成を依頼する
-resp = client.responses.create(
-    model="gpt-4.1-mini",
-    input="LLM APIの使い方を説明しなさい"
-)
-```
-````
+:: title ::
 
+## 質問への回答
 
+本気でLLMで研究するとなると、どのくらいのスペックのPCやグラボが必要になりますか？やはり結構お金がかかるのでしょうか？
+
+# <mdi-arrow-right />
+
+:: content ::
+
+- 研究目的に合わせて、商用LLM（GPTやGeminiなど）とオープンソースLLMを使用する必要性を検討する
+   - 商用LLMを利用する場合、性能やコストなどの要素を含めて適切なモデルを選ぶ
+   - オープンソースLLMを利用する場合
+      - GPUが搭載するサーバー: GPUではVRAM容量（載るモデルの上限）と帯域（計算速度）による価格が大きく異なる
+      - クラウドサービス：VMのGPU性能はサービスによって異なる
+
+---
+layout: side-title
+side: l
+color: indigo-light
+titlewidth: is-3
+align: lm-lm
+---
+
+:: title ::
+
+## 質問への回答
+
+LLMを、(A)意思決定ルール、(B)発話生成、(C)観測モデル（テキストの生成だけ） のどこに組み込むのが、現実との対応や検証可能性の観点で最も筋が良いでしょうか？
+
+# <mdi-arrow-right />
+
+:: content ::
+
+- 現実との対応について、実データとLLMの生成結果を比較することで検証されることが多い
+- Activation steeringを活用することで、特定の意思決定に関する内部状態を抽出し、その情報に基づいて意思決定ルールを検討することも可能である
+---
+layout: side-title
+side: l
+color: indigo-light
+titlewidth: is-3
+align: lm-lm
+---
+
+:: title ::
+
+## 質問への回答
+
+LLM研究のキャッチアップの仕方。進展が早すぎて、自分の専門と両立しつつ、キャッチアップが難しい
+
+# <mdi-arrow-right />
+
+:: content ::
+
+- 自分の研究にLLMをどのように応用するかを検討し、関連するLLM技術を特定する
+   - 関連する研究者・研究室の最新成果を定期的にチェックする
+   - 自然言語処理の主要国際会議（ACL、EMNLPなど）の関連研究動向を把握する
+- 公開されているコードを活用し、実際に手を動かして試してみる
 ---
 layout: section
 color: indigo-light
