@@ -815,27 +815,13 @@ align: lt
 
 
 ---
-layout: top-title
+layout: section
 color: indigo-light
-align: lt
 ---
 
-:: title ::
+### `大規模言語モデル`を用いる社会シミュレーション
 
-# LLMsを用いるテキスト分類手法が応用上の注意点
-
-:: content ::
-
-- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
-    - 大規模なデータを処理するための費用が高い
-    - Prompt engineeringによる精度を高めるが、限界がある
-    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
-- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
-    - 比較的に小規模だが専門特化のLLMsを作成する
-       - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
-
-
-
+<hr>
 
 
 ---
@@ -845,7 +831,7 @@ align: lt
 ---
 :: title ::
 
-# 社会シミュレーション：社会的事実の再現（？）
+# 社会シミュレーションの目標: 社会的事実の再現
 
 :: content ::
 
@@ -861,7 +847,7 @@ align: lt
 
 :: title ::
 
-# 社会科学における社会シミュレーションの着目点
+# 社社会シミュレーションの目標: 解釈
 
 :: content ::
 
@@ -899,6 +885,7 @@ Agentの特性と行動は数学的な形式化によって定義される
 </AdmonitionType>
 
 
+
 ---
 layout: top-title
 color: indigo-light
@@ -911,68 +898,37 @@ align: lt
 
 :: content ::
 
-<script setup>
-import { ref } from 'vue'
-const showFrameworkImage = ref(false)
-const toggleFrameworkImage = () => {
-  showFrameworkImage.value = !showFrameworkImage.value
-}
-</script>
-
-<div style="position: relative;">
-
-<div :style="{ opacity: showFrameworkImage ? 0.1 : 1, transition: 'opacity 0.3s' }">
-
-<v-clicks depth="4">
-
 - 社会シミュレーションの異なる方向性
   - **予測的シミュレーション**: 事実状況を可能な限り再現するシミュレーションを構築し、社会現象の将来動向を予測する
     - 例: 災害発生時の人口避難経路の予測
+    - 🌟現実の人間らしいAgentを精密的に定義する必要がある
   - **説明的シミュレーション**: シミュレーションを通じて社会現象の成因とメカニズムを理解・説明する
     - 例: Schellingモデルは、個人の選好が低くても高度に隔離された社会構造が生じうることを示した
+     - 🌟必要最小限の要素に絞ったAgentの方が解釈しやすい
 
-- 計算社会科学の目標: solution-oriented[(Watts, 2017)](https://www.nature.com/articles/s41599-023-01577-2?fromPaywallRec=false); 説明と予測の統合 [(Hofman et al., 2021)](https://www.nature.com/articles/s41586-021-03659-0)
+- 計算社会科学の目標: solution-oriented[(Watts, 2017)](https://www.nature.com/articles/s41599-023-01577-2?fromPaywallRec=false); 解釈と予測の統合 [(Hofman et al., 2021)](https://www.nature.com/articles/s41586-021-03659-0)
+    - 実証データに基づくAgent based model[(Bruch & Atwell, 2013)](https://journals.sagepub.com/doi/full/10.1177/0049124113506405?casa_token=np7Jikc1cbcAAAAA%3ApJrnC7bevG7hw7AXbx7M89E7FrQuJN62KhADQVNqReGwYymAM7C1WFLySpkoZyFvOI_K3rOzg85iPA#bibr37-0049124113506405)
 
-
-</v-clicks>
-
-</div>
-
-<div v-if="showFrameworkImage" @click="toggleFrameworkImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
-  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 80vh;">
-    <img src="./Figure/css_framework.png" alt="CSS Framework" style="max-width: 100%; max-height: 75vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
-  </div>
-</div>
-
-</div>
 
 ---
-layout: top-title-two-cols
+layout: top-title
 color: indigo-light
-align: l-lt-lb
+align: lt
 ---
 
 :: title ::
 
-# 大規模言語モデルに基づくエージェント (LLMs Agent)
+# LLM Agentがもたらす可能性
 
-:: left ::
+:: content ::
 
-🤖 **Agent: 環境を認識し、意思決定して行動する主体**
+- LLM AgentでルールベースのAgentを入れ替えることでシミュレーションを構築[(Gao et al., 2024)](https://www.nature.com/articles/s41599-024-03611-3)
 
-- LLMs Agent: 大規模言語モデルを中核として推論・意思決定・行動を行うエージェント
-    - 記憶（Memory）：Agentが​過去経験を保存・検索する。​
-    - 計画（Planning）：Agentが​日常計画を策定・調整し、環境変化に応答する。
-    - ツール(Tool): Agentが呼び出すことができる外部機能
- 
-
-- LLM Agentは複雑なタスクを処理し、人間の意思決定過程に近い判断と行動を生成・実行することが期待される。
-
-:: right ::
 
 <div style="display: flex; justify-content: center;">
-  <img src="/Figure/LLM_agent.png" width="700" />
+  <img src="/Figure/llm_agent_advantage.png" width="900" />
 </div>
+
 
 
 ---
@@ -990,7 +946,7 @@ align: lt
 <div grid="~ cols-2 gap-4">
 <div>
 
-- LLMs Agentを配置し、各エージェントにLLMsを通じて固有の背景情報・日常計画・行動目標を設定した [(Park et al., 2023)](https://dl.acm.org/doi/fullHtml/10.1145/3586183.3606763)。
+- LLMs Agentを配置し、各エージェントにLLMsを通じて属性・日常計画・行動目標を設定した [(Park et al., 2023)](https://dl.acm.org/doi/fullHtml/10.1145/3586183.3606763)
   - 記憶（Memory）：​自然言語形式で過去経験を保存・検索する。​
   - 省察（Reflection）：​記憶を統合して高次の洞察を形成し、将来の行動を導く。​
   - 計画（Planning）：​日常計画を策定・調整し、環境変化に応答する。
@@ -999,7 +955,6 @@ align: lt
 <Admonition title="社会シミュレーションにおいて" color="indigo-light" custom="text-lg font-bold" customTitle="text-red-500">
 Agentの行動と相互作用は、大規模言語モデルが生成する自然言語によって表現される
 </Admonition>
-
 
 </div>
 
@@ -1025,19 +980,241 @@ Agentの行動と相互作用は、大規模言語モデルが生成する自然
 
 
 ---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMs Agentの実装
+
+:: content ::
+
+- [Park et al., (2023)](https://dl.acm.org/doi/fullHtml/10.1145/3586183.3606763)の[実装デモ](https://reverie.herokuapp.com/UIST_Demo/)と[ソースコード](https://github.com/joonspk-research/generative_agents)
+
+````md magic-move {lines: true}
+
+```{1-7|8-12|13-16|13-16|17-18|20-21}
+~~~ prompt    ----------------------------------------------------
+# 属性の設定
+Name: Isabella Rodriguez
+Age: 34
+Innate traits: friendly, outgoing, hospitable
+Learned traits: Isabella Rodriguez is a cafe owner of Hobbs Cafe who loves to make people feel welcome. 
+She is always looking for ways to make the cafe a place where people can come to relax and enjoy themselves.
+# Memory
+Currently: Isabella Rodriguez is planning on having a Valentine Day party at Hobbs Cafe with 
+her customers on February 14th, 2023 at 5pm. She is gathering party material, and is telling everyone
+to join the party at Hobbs Cafe on February 14th, 2023, from 5pm to 7pm.
+Lifestyle: Isabella Rodriguez goes to bed around 11pm, awakes up around 6am.
+# Plan
+Daily plan requirement: Isabella Rodriguez opens Hobbs Cafe at 8am everyday, and works at the counter until 8pm, at which point she closes the cafe.
+Current Date: Monday February 13
+In general, Isabella Rodriguez goes to bed around 11pm, awakes up around 6am.
+# Act
+Isabella's wake up hour: 
+
+~~~ output    ----------------------------------------------------
+6 
+```
+
+
+````
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# LLMs Agentを用いる社会シミュレーションの問題点
+
+:: content ::
+
+- 学習データや設計によるLLMのバイアス
+    - LLMを用いて人間行動や意思決定を再現する際には、特定の社会属性（性別・人種など）や政治的立場に関する表現・判断が偏る傾向がある[(Kotek et al., 2023](https://dl.acm.org/doi/10.1145/3582269.3615599);[Bang et al., 2024](https://arxiv.org/abs/2403.18932))
+    - LLMは、集団を単一の「典型像」として表象してしまい、集団内の異質性が失われやすい([Wang et al., 2025](https://www.nature.com/articles/s42256-025-00986-z);[Bisbee et al., 2024](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE))
+    - 学習データには虚構的な場面の記述も含まれるため、LLMの出力が必ずしも現実社会の状況を正確に反映するとは限らない[(Kozlowski & Evans, 2025)](https://journals.sagepub.com/doi/10.1177/00491241251337316)
+- 再現性と透明性はLLMs Agentを用いる社会シミュレーションにおいても問題視されている
+   - 同じ設定でも、モデルやプロンプトの調整次第で結果が大きく変わることがある[(Bisbee et al., 2024)](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE)
+   - 学習データと学習プロセスを公開しないLLMも多くある
+      - 多くのLLMは「無害化」方向に調整されたかもしれんが、その影響で一部の社会シミュレーションには不向きな場合もある[(Bail, 2024)](https://www.pnas.org/doi/10.1073/pnas.2314021121)
+
+---
+layout: two-cols-title
+columns: is-7
+align: l-lt-lt
+---
+
+:: title ::
+
+# 社会シミュレーションと実証データの結合
+
+:: left ::
+
+### Agent Bank [(Park et al., 2024)](https://arxiv.org/abs/2411.10109)
+
+- **基本的アイデア**：特定の実在個人に関する詳細な情報を収集してLLMに与えることで、その人物をより確実に模したLLMエージェントを作成できる
+- AIによるインタビュアーを実施し、そのインタビュー記録を“Agentの記憶”としてプロンプトに入れる
+- 作成されたAgentに質問し、その回答結果を該当する人間と比較することで、Agentの性能を評価する
+    - General Social Surveyの質問への回答では、提案手法のほうがより整合性の高い結果を得た
+
+<AdmonitionType type="important" width="500px">
+実証データを組み込むプロンプト設計により、人間の振る舞いをより高精度に再現することが可能となる
+</AdmonitionType>
+
+:: right ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/agent_bank.png" width="360" />
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/agent_bank_results.png" width="360" />
+</div>
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# 社会科学研究に向けてLLMsのファインチューニング
+
+:: content ::
+
+- 蓄積された社会科学研究データを学習データとして用い、社会科学研究に特化したLLMを作成する試み([Kolluri et al., 2025](https://aclanthology.org/2025.emnlp-main.1530.pdf);[Suh et al., 2025](https://aclanthology.org/2025.acl-long.1028.pdf))
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start;">
+  <div style="display: flex; justify-content: center;">
+    <img src="./Figure/llm_social_ft1.png" width="350" />
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="./Figure/llm_social_ft2.png" width="360" />
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Kolluri et al., (2025)では、大量の社会科学実験に基づく「デモグラ（persona）＋実験条件（condition）＋アウトカム質問（outcome）→回答（response）」といった標準化データセットを構築し、それを用いてオープンソースLLMをファインチューニングすることでGPT-4oを超える性能を達成した</p>
+  </div>
+</div>
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# ファインチューニングの問題点
+
+:: content ::
+
+- 計算リソースの制限
+- 過学習のリスク [(Kozlowski & Evans, 2025)](https://journals.sagepub.com/doi/10.1177/00491241251337316)
+    - ある行動を学習させると、別の能力が落ちたり、他タスクで挙動が崩れることがある
+- **Activation Steering**: 言語モデルの内部表現を操作することで、モデルが指示に従うように制御する手法
+    - 計算コストの低減
+       - 基本的にはモデルのパラメータを更新せず
+    - 特定な状況に合わせるより精密な制御が可能となる
+    - 解釈可能性の向上
+
+
+
+---
+layout: two-cols-title
+columns: is-8
+align: l-lt-lt
+---
+
+:: title ::
+
+# Activation Steering [Rimsky et al., 2024](https://aclanthology.org/2024.acl-long.828/)
+
+:: left ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/steering1.png" width="500" />
+</div>
+
+- Transformerの中間表現には、特定な意味や文脈に対応する情報が埋め込まれている
+- 対比データから得た差分ベクトルでは、生成過程で特定の出力を決める計算に関与している
+  - 差分ベクトルの意味をを特定振る舞い・スタイル・方針に関連つげることは可能である
+
+:: right ::
+
+<div style="display: flex; justify-content: center;">
+  <img src="./Figure/steering2.png" width="360" />
+</div>
+
+- ゆえに、モデル推論時に適切な差分ベクトルを用いて中間表現を調整することで、特定の要求を満たす出力を生成させることが可能である
+
+
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
+
+:: title ::
+
+# Activation Steeringの応用
+
+:: content ::
+
+### 政治的立場に関するsteering vectorの特定と応用[(Kim et al., 2025)](https://arxiv.org/abs/2503.02080)
+
+- 議員を指定して、モデルに「その議員が言いそうな発言」を生成させる
+    - 各議員に対して、DW-NOMINATEでイデオロギー情報を付与する
+- 異なるイデオロギーを指示したモデルの内部表現を比較することで、steering vectorを特定する
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; align-items: start;">
+  <div style="display: flex; justify-content: center;">
+    <img src="./Figure/steering_political.png" style="width: 100%; max-width: 620px; object-fit: contain;" />
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <img src="./Figure/steering_political2.png" style="width: 100%; max-width: 310px; object-fit: contain;" />
+  </div>
+</div>
+
+
+---
 layout: section
 color: indigo-light
 ---
 
-# `大規模言語モデル`の応用
+
+# まとめ
 
 <hr>
 
-テキストマイニングと社会シミュレーションを例として
+---
+layout: top-title
+color: indigo-light
+align: lt
+---
 
+:: title ::
 
+# まとめ
 
+:: content ::
 
+- LLMsが社会科学の方法論に新しい可能性をもたらす
+  - その他の応用
+      - LLMsを用いる社会調査の実施 ([Wuttke et al., 2025](https://aclanthology.org/2025.latechclfl-1.17/);[Park et al., 2024](https://arxiv.org/abs/2411.10109))
+      - LLMsを用いる画像や映像などを含むmultimodalデータの解析([Rister et al., 2025](https://journals.sagepub.com/doi/full/10.1177/00491241251333372?casa_token=GsjrR6UOqI0AAAAA%3A_JjxGlOUaSy-smHhs-W18KPAH1QLKERrgEGrDymtVUPXFxGygfir0RvSuu_nyalAHUZQe-I8tOG8wg);[Liu et al., 2025](https://arxiv.org/abs/2506.00530))
+
+- 一方で、コストやモデル固有のバイアス、制約に起因する応用上の課題も残っている
+   - 研究目的に合わせて、商用LLM（GPTやGeminiなど）とオープンソースLLMの使用
+   - 研究の再現可能性・透明性・解釈可能性の観点から、オープンソースLLM活用のポテンシャルは大きい
+      - オープンソースLLMにおけるファインチューニング手法とActivation Steering手法の発展と有用性
+      - 社会科学の理論と知見、蓄積されたデータが関連分野に貢献することが期待される
 ---
 layout: two-cols-title
 columns: is-6
@@ -1051,7 +1228,7 @@ align: l-lt-lt
 :: left ::
 
 - 自分のPC/サーバ上でLLMを動かして使う
-    - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソース LLMを取得可能
+    - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソースLLMを取得可能
     - 一般的的にはGPUを使うことが前提になる
     - GPU環境は初期投資が大きいものの、利用量が増えるほど単価が下がり
 - 近年、オープンソース LLM の性能向上(Llama,Deepseek,Qwen3など)
@@ -1153,6 +1330,18 @@ resp = client.responses.create(
 )
 ```
 ````
+
+
+---
+layout: section
+color: indigo-light
+---
+
+
+# 補足資料
+
+<hr>
+
 
 ---
 title: OpenAI APIキー作成手順
