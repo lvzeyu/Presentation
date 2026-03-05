@@ -712,7 +712,7 @@ title: LLMsを用いるテキスト分類
 
 :: content ::
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lvzeyu/css_nlp/blob/master/notebook/langchain_basic.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lvzeyu/Presentation/blob/main/Tutorial/2026/JAMS_2026/classification_llm.ipynb)
 
 ````md magic-move {lines: true}
 
