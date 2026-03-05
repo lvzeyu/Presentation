@@ -371,7 +371,7 @@ align: lt
    - ファインチューニング
    - 人間のフィードバックから学習
 
-</v-click>
+</v-clicks>
 
 
 ---
@@ -441,6 +441,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - 大規模言語モデルの学習とファインチューニングでは多くの計算リソースと時間がかかる
 - 最新情報・ローカル知識に弱い
 - 計算や厳密処理の弱さ
@@ -451,6 +453,7 @@ align: lt
         - ❌ その本はそもそも存在しない
     - LLMsの不適切な使用による学術研究にも問題を引き起こす：[GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers](https://gptzero.me/news/neurips/)
 
+</v-clicks>
 
 ---
 layout: top-title-two-cols
@@ -464,6 +467,9 @@ align: l-lt-lb
 
 :: left ::
 
+<v-clicks depth="2">
+
+
 🤖 **Agent: 環境を認識し、意思決定して行動する主体**
 
 - LLMs Agent: 大規模言語モデルを中核として推論・意思決定・行動を行うエージェント
@@ -473,6 +479,8 @@ align: l-lt-lb
  
 
 - LLM Agentは自律的にに「目標達成のための一連の行動」を実行することで、複雑なタスクを対応することが可能となる
+
+</v-clicks>
 
 :: right ::
 
@@ -504,11 +512,14 @@ columns: is-7
 
 :: left ::
 
+<v-clicks depth="2">
+
 - SNS投稿、ニュース記事、議会会議録などに代表される言説データのデジタル化と蓄積により、人間行動および社会現象がテキストとして大規模に観測可能となった
 - テキストマイニングは社会科学研究に新たな分析可能性をもたらしている
    - 従来は操作化・定量化が困難であった概念（態度、感情、フレーミング、道徳、社会規範など）を、言語表現に基づいて測定できるようになった
    - 高頻度かつ高粒度の時系列分析が可能となった
 - 自然言語処理技術の発展と計算資源の高度化により、こうした手法は学術研究としても実装・運用可能な水準に達している
+</v-clicks>
 
 
 :: right ::
@@ -534,6 +545,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - **テキスト分類**は、社会科学における多様な研究課題に広く応用可能である
    - 感情分析・Stance Detection・Hate Speech Detection
 - テキスト分類手法は、自然言語処理の発展に伴い、高度化・多様化してきた
@@ -542,6 +555,8 @@ align: lt
    - 🌟転移学習（2018〜）  ([Wankmüller, 2022](https://journals.sagepub.com/doi/abs/10.1177/00491241221134527); [Wang, 2023](https://www.cambridge.org/core/journals/political-analysis/article/abs/topic-classification-for-political-texts-with-pretrained-language-models/9AA6401CAB1FA3D1EADC7A3D155BB265))
       - 複雑なタスクに対応するためには、相応のアノテーション作業を人手で行い、学習データを作成する手間が必要となる。
    - ▶️LLMsを用いるテキスト分類 ([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D);[Chae & Davidson, 2025](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243))
+</v-clicks>
+
 ---
 layout: top-title
 color: indigo-light
@@ -578,6 +593,8 @@ align: l-lt-lt
 
 :: left ::
 
+<v-clicks depth="2">
+
 - 自分のPC/サーバ上でLLMを動かして使う
     - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソース LLMを取得可能
     - 一般的的にはGPUを使うことが前提になる
@@ -585,6 +602,8 @@ align: l-lt-lt
 - 近年、オープンソース LLM の性能向上(Llama,Deepseek,Qwen3など)
 - 量子化技術を使うことで必要される計算リソースを大幅に減らせる
 - 自分の要件に合わせてカスタマイズ
+</v-clicks>
+
 :: right ::
 
 VRAM別動かせるモデルの目安（[参照先](https://dev.classmethod.jp/articles/local-llm-guide-2026/)）
@@ -762,6 +781,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - APIで高度なLLMsを用いて、複雑なタスクにおいても高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
     - 大規模なデータを処理するための費用が高い
     - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
@@ -772,6 +793,7 @@ align: lt
         - 量子化技術とParameter efficient fine-tuning手法の発展により、ファインチューニングは従来よりも手軽に実施できるようになった
     - - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
 
+</v-clicks>
 
 
 ---
@@ -779,6 +801,7 @@ layout: top-title-two-cols
 color: indigo-light
 align: l-lt-lb
 columns: is-6
+clicks: 2
 ---
 
 :: title ::
@@ -787,12 +810,18 @@ columns: is-6
 
 :: left ::
 
+<v-click at="1">
+
 <div style="display: flex; justify-content: center;">
   <img src="/Figure/llm_usage_guide.png" width="700" />
 </div>
 
 - [Chae & Davidson (2025)](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243)より提案したLLMを用いたテキスト分類を行う際、タスクの特徴に基づく適切な方法を選定するロードマップ
+</v-click>
+
 :: right ::
+
+<v-click at="2">
 
 <div style="display: flex; justify-content: center;">
   <img src="/Figure/llm_human_in_loop.jpg" width="300" />
@@ -802,18 +831,8 @@ columns: is-6
 
 - LLMは、研究者の労力を低減しつつ分析を支援するツールとして位置づけるべきである
 
+</v-click>
 
----
-layout: top-title
-color: indigo-light
-align: lt
----
-
-:: title ::
-
-# LLMを活用するより高度的な手法
-
-:: content ::
 
 
 ---
@@ -857,11 +876,15 @@ align: lt
   <img src="/Figure/mirco-macro.png" width="700" />
 </div>
 
+<v-clicks depth="2">
+
 社会シミュレーションによるメカニズムを説明する([Hedström & Swedberg, 1998](https://www.cambridge.org/core/books/social-mechanisms/F54BB7A4A77F7308D5FEA7D9C0EAD086);[瀧川, 2019](https://www.jstage.jst.go.jp/article/ojjams/34/1/34_47/_article/-char/ja/))
 
 - マクロレベルの制度・規範・文化・社会構造は個人行動に影響を与える
 - 個体間の相互作用は集団的行動を生み出す
 - 多数の個体行動が集積すると、新たなマクロ社会現象が形成される（bottom-up emergence）
+
+</v-clicks>
 
 ---
 layout: iframe-right
@@ -900,6 +923,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - 社会シミュレーションの異なる方向性
   - **予測的シミュレーション**: 事実状況を可能な限り再現するシミュレーションを構築し、社会現象の将来動向を予測する
     - 例: 災害発生時の人口避難経路の予測
@@ -910,6 +935,8 @@ align: lt
 
 - 計算社会科学の目標: solution-oriented[(Watts, 2017)](https://www.nature.com/articles/s41599-023-01577-2?fromPaywallRec=false); 解釈と予測の統合 [(Hofman et al., 2021)](https://www.nature.com/articles/s41586-021-03659-0)
     - 実証データに基づくAgent based model[(Bruch & Atwell, 2013)](https://journals.sagepub.com/doi/full/10.1177/0049124113506405?casa_token=np7Jikc1cbcAAAAA%3ApJrnC7bevG7hw7AXbx7M89E7FrQuJN62KhADQVNqReGwYymAM7C1WFLySpkoZyFvOI_K3rOzg85iPA#bibr37-0049124113506405)
+
+</v-clicks>
 
 
 ---
@@ -1037,6 +1064,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - 学習データや設計によるLLMのバイアス
     - LLMを用いて人間行動や意思決定を再現する際には、特定の社会属性（性別・人種など）や政治的立場に関する表現・判断が偏る傾向がある[(Kotek et al., 2023](https://dl.acm.org/doi/10.1145/3582269.3615599);[Bang et al., 2024](https://arxiv.org/abs/2403.18932))
     - LLMは、集団を単一の「典型像」として表象してしまい、集団内の異質性が失われやすい([Wang et al., 2025](https://www.nature.com/articles/s42256-025-00986-z);[Bisbee et al., 2024](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE))
@@ -1045,6 +1074,8 @@ align: lt
    - 同じ設定でも、モデルやプロンプトの調整次第で結果が大きく変わることがある[(Bisbee et al., 2024)](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE)
    - 学習データと学習プロセスを公開しないLLMも多くある
       - 多くのLLMは「無害化」方向に調整されたかもしれんが、その影響で一部の社会シミュレーションには不向きな場合もある[(Bail, 2024)](https://www.pnas.org/doi/10.1073/pnas.2314021121)
+
+</v-clicks>
 
 ---
 layout: two-cols-title
@@ -1059,6 +1090,7 @@ align: l-lt-lt
 :: left ::
 
 ### Agent Bank [(Park et al., 2024)](https://arxiv.org/abs/2411.10109)
+
 
 - **基本的アイデア**：特定の実在個人に関する詳細な情報を収集してLLMに与えることで、その人物をより確実に模したLLMエージェントを作成できる
 - AIによるインタビュアーを実施し、そのインタビュー記録を“Agentの記憶”としてプロンプトに入れる
@@ -1117,6 +1149,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - 計算リソースの制限
 - 過学習のリスク [(Kozlowski & Evans, 2025)](https://journals.sagepub.com/doi/10.1177/00491241251337316)
     - ある行動を学習させると、別の能力が落ちたり、他タスクで挙動が崩れることがある
@@ -1126,6 +1160,7 @@ align: lt
     - 特定な状況に合わせるより精密な制御が可能となる
     - 解釈可能性の向上
 
+</v-clicks>
 
 
 ---
@@ -1207,6 +1242,8 @@ align: lt
 
 :: content ::
 
+<v-clicks depth="2">
+
 - LLMsが社会科学の方法論に新しい可能性をもたらす
   - その他の応用
       - LLMsを用いる社会調査の実施 ([Wuttke et al., 2025](https://aclanthology.org/2025.latechclfl-1.17/);[Park et al., 2024](https://arxiv.org/abs/2411.10109))
@@ -1217,6 +1254,7 @@ align: lt
    - 研究の再現可能性・透明性・解釈可能性の観点から、オープンソースLLM活用のポテンシャルは大きい
       - オープンソースLLMにおけるファインチューニング手法とActivation Steering手法の発展と有用性
       - 社会科学の理論と知見、蓄積されたデータが関連分野に貢献することが期待される
+</v-clicks>
 
 
 ---
@@ -1527,114 +1565,3 @@ print(resp.output_text)
 
 ```
 ````
-
----
-layout: top-title
-color: indigo-light
-align: lt
-title: LLMsを用いるテキスト分類
----
-
-:: title ::
-
-# LLMsを用いるテキスト分類
-
-:: content ::
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lvzeyu/css_nlp/blob/master/notebook/langchain_basic.ipynb)
-
-````md magic-move {lines: true}
-
-```py {*}
-def get_predictions(prompt_generator, texts, model):
-  """
-  Inference with the API for a model, a list of texts and a prompt format
-  """
-  results = []
-  for i,j in texts.items():
-    try:
-      print(f"\rRequest element {i}", end= "")
-      completion = client.chat.completions.create(
-        model=model,
-        messages=prompt_generator(j)
-      )
-      results.append(completion)
-    except Exception as e:
-      print(e)
-      results.append(None)
-  print("\rPrediction finished")
-  return [i.choices[0].message.content for i in results]
-```
-
-```py {*}
-def build_prompt(text):
-  system_prompt = (
-      "You are a strict sentiment classifier for Japanese text. "
-      "Output exactly one label from: NEGATIVE, NEUTRAL, POSITIVE. "
-      "No explanation, no punctuation, no extra words."
-  )
-
-  user_prompt = (
-      f"Text: {text}\n"
-      "Label (NEGATIVE/NEUTRAL/POSITIVE):"
-  )
-
-  return [{"role":"system",
-           "content":system_prompt,
-           },
-           {"role":"user",
-            "content": user_prompt,
-           },
-  ]
-```
-```py {*}
-
-r = get_predictions(
-    prompt_generator=build_prompt, #prompt you want to use
-    texts=sample_data["sentence"][0:5], #texts you want to classify (change or remove [0:5])
-    model="gpt-4o-mini" #model you want to use
-    )
-```
-
-````
-
----
-layout: top-title
-color: indigo-light
-align: lt
----
-
-:: title ::
-
-# LLMsを用いるテキスト分類手法が応用上の注意点
-
-:: content ::
-
-- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
-    - 大規模なデータを処理するための費用が高い
-    - Prompt engineeringによる精度を高めるが、限界がある
-    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
-- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
-    - 比較的に小規模だが専門特化のLLMsを作成する
-       - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
-
-
----
-layout: top-title
-color: indigo-light
-align: lt
----
-
-:: title ::
-
-# LLMsを用いるテキスト分類手法が応用上の注意点
-
-:: content ::
-
-- APIで高度なLLMsを手軽に使用でき、複雑なタスクにおいても比較的に高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
-    - 大規模なデータを処理するための費用が高い
-    - Prompt engineeringによる精度を高めるが、限界がある
-    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
-- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
-    - 比較的に小規模だが専門特化のLLMsを作成する
-       - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
