@@ -549,7 +549,7 @@ const toggleChatgptMemoryImage = () => {
   - ツール(Tool): Agentが呼び出すことができる外部機能 <a @click="toggleStrawberryToolImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a> <a @click="toggleHallToolImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
  
 
-- LLM Agentは自律的にに「目標達成のための一連の行動」を実行することで、複雑なタスクを対応することが可能となる
+- LLM Agentは自律的に「目標達成のための一連の行動」を実行することで、複雑なタスクを対応することが可能となる
 
 </v-clicks>
 
@@ -619,7 +619,7 @@ columns: is-7
 
 :: title ::
 
-# 社会科学におけるテキストマインング手法の応用
+# 社会科学におけるテキストマイニング手法の応用
 
 :: left ::
 
@@ -749,7 +749,7 @@ const toggleQuantizationImage = () => {
 
 - 自分のPC/サーバ上でLLMを動かして使う
     - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソース LLMを取得可能
-    - **一般的的にはGPUを使うことが前提になる**
+    - **一般的にはGPUを使うことが前提になる**
     - GPU環境は初期投資が大きいものの、利用量が増えるほど単価が下がり
 - 近年、オープンソース LLM の性能向上(Llama,Deepseek,Qwen3など)
 - `量子化技術`を使うことで必要される計算リソースを大幅に減らせる <a @click="togglePrecisionsImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a> <a @click="toggleQuantizationImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
@@ -1766,7 +1766,7 @@ align: lt
 
 :: content ::
 
-## `.env`ファイルを使ってAPIキーをを環境変数として管理する
+## `.env`ファイルを使ってAPIキーを環境変数として管理する
 
 - プロジェクトのディレクトリ直下に`.env`ファイルを作成し、APIキーを記述
     - Gitで管理する場合、`.gitignore`にて`.env`ファイルを管理対象外に設定するのを忘れずに
