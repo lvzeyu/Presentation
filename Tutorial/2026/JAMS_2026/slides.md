@@ -52,7 +52,7 @@ mermaid:
 2026年3月6日・日本大学
 
 <div style="margin-top: 3rem;">
-<QRCode value="https://lvzeyu.github.io/social_science_nlp_tutorial/southeastern_univ/" :size="100" render-as="svg" />
+<QRCode value="https://lvzeyu.github.io/Presentation/Tutorial/2026/JAMS_2026" :size="100" render-as="svg" />
 </div>
 
 ---
@@ -180,6 +180,13 @@ color: indigo-light
 
 大規模言語モデルの基本原理と概念への理解
 
+---
+layout: full
+---
+
+<div style="display: flex; justify-content: center;">
+  <img src="/Figure/llm_history.png" width="1000" />
+</div>
 
 ---
 layout: top-title
@@ -192,7 +199,7 @@ align: lt
 
 :: content ::
 
-- **事前学習**: 大量の生テキストに基づく汎用的な言語能力を持つ基盤モデル(base model)を作成
+- **事前学習**: 大量のテキストに基づき、汎用的な言語能力を備えた基盤モデル(base model)を作成
 - **事後学習**: 基盤モデルを指示学習やアライメントを通じて特定な用途に適応したモデルを作成
 
 <div style="display: flex; justify-content: center;">
@@ -264,31 +271,37 @@ color: indigo-light
 import { ref } from 'vue'
 const showSeq2SeqImage = ref(false)
 const showAttentionImage = ref(false)
+const showQkvImage = ref(false)
 const toggleSeq2SeqImage = () => {
   showSeq2SeqImage.value = !showSeq2SeqImage.value
 }
 const toggleAttentionImage = () => {
   showAttentionImage.value = !showAttentionImage.value
 }
+const toggleQkvImage = () => {
+  showQkvImage.value = !showQkvImage.value
+}
 </script>
 
 <div style="position: relative;">
 
-<div :style="{ opacity: (showSeq2SeqImage || showAttentionImage) ? 0.1 : 1, transition: 'opacity 0.3s' }">
+<div :style="{ opacity: (showSeq2SeqImage || showAttentionImage || showQkvImage) ? 0.1 : 1, transition: 'opacity 0.3s' }">
 
-- Transformerは、Attentionメカニズムに基づくSeq2Seqアーキテクチャである
-- Seq2Seq <a @click="toggleSeq2SeqImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
-    - エンコーダ(Encoder): 入力系列(テキスト)を受け取り、意味を表す内部表現（ベクトル形式）に変換
-    - デコーダ(Decoder): 内部表現を参照しながら、出力系列(テキスト)を1トークンずつ生成
-- Attention <a @click="toggleAttentionImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
-    - 「いま処理している単語が、文中のどの単語をどれくらい参照すべきか」を重みとして計算し、全体にわたる依存関係を考慮する
-    - 並列処理により効率よく学習でき、大規模化しやすい
+- `Transformer`は、`Attention`メカニズムに基づく`Seq2Seq`アーキテクチャである
+- **Seq2Seq** <a @click="toggleSeq2SeqImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+    - **エンコーダ(Encoder)**: 入力系列(テキスト)を受け取り、意味を表す内部表現（ベクトル形式）に変換
+    - **デコーダ(Decoder)**: 内部表現を参照しながら、出力系列(テキスト)を1トークンずつ生成
+- **Attention** <a @click="toggleAttentionImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+  - 「いま処理している単語が、文中のどの単語をどれくらい参照すべきか」を重みとして計算し、**全体にわたる依存関係**を考慮する <a @click="toggleQkvImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+    - **並列処理**が可能なため、学習効率が高く、大規模化しやすい
 
 </div>
 
 <div v-if="showSeq2SeqImage" @click="toggleSeq2SeqImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
   <div style="display: flex; flex-direction: column; max-width: 95%; max-height: 70vh;">
-    <img src="./Figure/enc_dec-min.png" alt="Seq2Seq Architecture" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <video autoplay loop muted playsinline style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;">
+      <source src="./Figure/seq2seq_training_with_target.mp4" type="video/mp4">
+    </video>
     <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
       <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Seq2Seqの基本構造</h3>
     </div>
@@ -302,6 +315,15 @@ const toggleAttentionImage = () => {
     </video>
     <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
       <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Attention機構</h3>
+    </div>
+  </div>
+</div>
+
+<div v-if="showQkvImage" @click="toggleQkvImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/qkv_explained-min.png" alt="QKV Explained" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Attentionの計算</h3>
     </div>
   </div>
 </div>
@@ -367,9 +389,9 @@ align: lt
 
 > **自然に見える出力**: どのような学部がありますか
 
-- Post-Trainingを通じて、大規模言語モデルが「特定の業務やタスクにおいて人間の要求に沿った回答ができるように出力を整える能力を身につける
-   - ファインチューニング
-   - 人間のフィードバックから学習
+- Post-Trainingを通じて、大規模言語モデルが特定の業務やタスクにおいて**人間の要求に沿った回答**ができるように出力を整える能力を身につける
+   - `指示学習`
+   - `アライメント`
 
 </v-clicks>
 
@@ -441,19 +463,44 @@ align: lt
 
 :: content ::
 
+<script setup>
+import { ref } from 'vue'
+const showStrawberryImage = ref(false)
+const toggleStrawberryImage = () => {
+  showStrawberryImage.value = !showStrawberryImage.value
+}
+</script>
+
+<div style="position: relative;">
+
+<div :style="{ opacity: showStrawberryImage ? 0.1 : 1, transition: 'opacity 0.3s' }">
+
 <v-clicks depth="2">
 
 - 大規模言語モデルの学習とファインチューニングでは多くの計算リソースと時間がかかる
 - 最新情報・ローカル知識に弱い
 - 計算や厳密処理の弱さ
-    - strawberry問題
-- ハルシネーション 
+    - strawberry問題 <a @click="toggleStrawberryImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+- ハルシネーション(Hallucination)
     - Prompt: Tell me about the book The Lost City of Atlantis by John Doe.
     - 出力: The book The Lost City of Atlantis by John Doe explores the mythical city in great detail
         - ❌ その本はそもそも存在しない
     - LLMsの不適切な使用による学術研究にも問題を引き起こす：[GPTZero finds 100 new hallucinations in NeurIPS 2025 accepted papers](https://gptzero.me/news/neurips/)
 
 </v-clicks>
+
+</div>
+
+<div v-if="showStrawberryImage" @click="toggleStrawberryImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/straberry.png" alt="Strawberry Problem" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Strawberry問題</h3>
+    </div>
+  </div>
+</div>
+
+</div>
 
 ---
 layout: top-title-two-cols
@@ -467,20 +514,84 @@ align: l-lt-lb
 
 :: left ::
 
+<script setup>
+import { ref } from 'vue'
+const showStrawberryToolImage = ref(false)
+const showHallToolImage = ref(false)
+const showReactPaperImage = ref(false)
+const showChatgptMemoryImage = ref(false)
+const toggleStrawberryToolImage = () => {
+  showStrawberryToolImage.value = !showStrawberryToolImage.value
+}
+const toggleHallToolImage = () => {
+  showHallToolImage.value = !showHallToolImage.value
+}
+const toggleReactPaperImage = () => {
+  showReactPaperImage.value = !showReactPaperImage.value
+}
+const toggleChatgptMemoryImage = () => {
+  showChatgptMemoryImage.value = !showChatgptMemoryImage.value
+}
+</script>
+
+<div style="position: relative;">
+
+<div :style="{ opacity: (showStrawberryToolImage || showHallToolImage || showReactPaperImage || showChatgptMemoryImage) ? 0.1 : 1, transition: 'opacity 0.3s' }">
+
 <v-clicks depth="2">
 
 
 🤖 **Agent: 環境を認識し、意思決定して行動する主体**
 
 - LLMs Agent: 大規模言語モデルを中核として推論・意思決定・行動を行うエージェント
-    - 記憶（Memory）：Agentが​過去経験を保存・検索する。​
-    - 計画（Planning）：Agentが​日常計画を策定・調整し、環境変化に応答する。
-    - ツール(Tool): Agentが呼び出すことができる外部機能
+  - 記憶（Memory）：Agentが​過去経験を保存・検索する <a @click="toggleChatgptMemoryImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+  - 計画（Planning）：Agentが​計画を策定・調整し、環境変化に応答する <a @click="toggleReactPaperImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+  - ツール(Tool): Agentが呼び出すことができる外部機能 <a @click="toggleStrawberryToolImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a> <a @click="toggleHallToolImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
  
 
 - LLM Agentは自律的にに「目標達成のための一連の行動」を実行することで、複雑なタスクを対応することが可能となる
 
 </v-clicks>
+
+</div>
+
+<div v-if="showChatgptMemoryImage" @click="toggleChatgptMemoryImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/chatgpt_memory.png" alt="Memory Example" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Memoryの例</h3>
+    </div>
+  </div>
+</div>
+
+<div v-if="showReactPaperImage" @click="toggleReactPaperImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 96%; max-height: 82vh;">
+    <img src="./Figure/react-paper.png" alt="Planning Reference" style="max-width: 100%; max-height: 76vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Planningの例</h3>
+    </div>
+  </div>
+</div>
+
+<div v-if="showStrawberryToolImage" @click="toggleStrawberryToolImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/straberry_tool.png" alt="Tool Example Strawberry" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Toolの例 1</h3>
+    </div>
+  </div>
+</div>
+
+<div v-if="showHallToolImage" @click="toggleHallToolImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/hall_tool.png" alt="Tool Example Hall" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">Toolの例 2</h3>
+    </div>
+  </div>
+</div>
+
+</div>
 
 :: right ::
 
@@ -545,6 +656,18 @@ align: lt
 
 :: content ::
 
+<script setup>
+import { ref } from 'vue'
+const showPretrainingAdaptationImage = ref(false)
+const togglePretrainingAdaptationImage = () => {
+  showPretrainingAdaptationImage.value = !showPretrainingAdaptationImage.value
+}
+</script>
+
+<div style="position: relative;">
+
+<div :style="{ opacity: showPretrainingAdaptationImage ? 0.1 : 1, transition: 'opacity 0.3s' }">
+
 <v-clicks depth="2">
 
 - **テキスト分類**は、社会科学における多様な研究課題に広く応用可能である
@@ -552,10 +675,23 @@ align: lt
 - テキスト分類手法は、自然言語処理の発展に伴い、高度化・多様化してきた
    - 辞書ベース／ルールベース（〜2000年代）
    - 特徴量ベースの機械学習（2000年代後半〜2010年代前半）
-   - 🌟転移学習（2018〜）  ([Wankmüller, 2022](https://journals.sagepub.com/doi/abs/10.1177/00491241221134527); [Wang, 2023](https://www.cambridge.org/core/journals/political-analysis/article/abs/topic-classification-for-political-texts-with-pretrained-language-models/9AA6401CAB1FA3D1EADC7A3D155BB265))
+   - 🌟転移学習（2018〜）  ([Wankmüller, 2022](https://journals.sagepub.com/doi/abs/10.1177/00491241221134527); [Wang, 2023](https://www.cambridge.org/core/journals/political-analysis/article/abs/topic-classification-for-political-texts-with-pretrained-language-models/9AA6401CAB1FA3D1EADC7A3D155BB265)) <a @click="togglePretrainingAdaptationImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
       - 複雑なタスクに対応するためには、相応のアノテーション作業を人手で行い、学習データを作成する手間が必要となる。
-   - ▶️LLMsを用いるテキスト分類 ([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D);[Chae & Davidson, 2025](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243))
+   - ▶️ **LLMsを用いるテキスト分類** ([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D);[Chae & Davidson, 2025](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243))
 </v-clicks>
+
+</div>
+
+<div v-if="showPretrainingAdaptationImage" @click="togglePretrainingAdaptationImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/pretraining_adaptation.png" alt="Transfer Learning" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">転移学習とドメイン適応</h3>
+    </div>
+  </div>
+</div>
+
+</div>
 
 ---
 layout: top-title
@@ -593,16 +729,54 @@ align: l-lt-lt
 
 :: left ::
 
+<script setup>
+import { ref } from 'vue'
+const showPrecisionsImage = ref(false)
+const showQuantizationImage = ref(false)
+const togglePrecisionsImage = () => {
+  showPrecisionsImage.value = !showPrecisionsImage.value
+}
+const toggleQuantizationImage = () => {
+  showQuantizationImage.value = !showQuantizationImage.value
+}
+</script>
+
+<div style="position: relative;">
+
+<div :style="{ opacity: (showPrecisionsImage || showQuantizationImage) ? 0.1 : 1, transition: 'opacity 0.3s' }">
+
 <v-clicks depth="2">
 
 - 自分のPC/サーバ上でLLMを動かして使う
     - [HuggingFace Hub](https://huggingface.co/)から多くのオープンソース LLMを取得可能
-    - 一般的的にはGPUを使うことが前提になる
+    - **一般的的にはGPUを使うことが前提になる**
     - GPU環境は初期投資が大きいものの、利用量が増えるほど単価が下がり
 - 近年、オープンソース LLM の性能向上(Llama,Deepseek,Qwen3など)
-- 量子化技術を使うことで必要される計算リソースを大幅に減らせる
+- `量子化技術`を使うことで必要される計算リソースを大幅に減らせる <a @click="togglePrecisionsImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a> <a @click="toggleQuantizationImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
 - 自分の要件に合わせてカスタマイズ
 </v-clicks>
+
+</div>
+
+<div v-if="showPrecisionsImage" @click="togglePrecisionsImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/precisions.png" alt="Precision Comparison" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">量子化精度の比較</h3>
+    </div>
+  </div>
+</div>
+
+<div v-if="showQuantizationImage" @click="toggleQuantizationImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/quantization.png" alt="Quantization" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">量子化</h3>
+    </div>
+  </div>
+</div>
+
+</div>
 
 :: right ::
 
@@ -678,8 +852,8 @@ align: lt
 :: content ::
 
 - OpenAIやGoogleなどの会社は、APIで独自のAIモデルを利用するサービスを提供している
-   - 事前に発行したAPIキーをリクエストに添えて送る形で利用する権限を取得して呼び出す
-   - 従量課金（pay-as-you-go）: 基本的には、入力トークンと出力トークンの長さによって課金される
+   - 事前に発行した`APIキー`をリクエストに添えて送る形で利用する権限を取得して呼び出す
+   - **従量課金（pay-as-you-go）**: 基本的には、入力トークンと出力トークンの長さによって課金される
        - 一部モデルでは内部推論に相当するトークンがあり、見えなくても出力側として課金対象になる
 - Pythonライブラリで手軽に各社のLLMsサービスをAPIを経由して利用することができる
 
@@ -781,19 +955,57 @@ align: lt
 
 :: content ::
 
+<script setup>
+import { ref } from 'vue'
+const showLoraMemoryImage = ref(false)
+const showDebateImage = ref(false)
+const toggleLoraMemoryImage = () => {
+  showLoraMemoryImage.value = !showLoraMemoryImage.value
+}
+const toggleDebateImage = () => {
+  showDebateImage.value = !showDebateImage.value
+}
+</script>
+
+<div style="position: relative;">
+
+<div :style="{ opacity: (showLoraMemoryImage || showDebateImage) ? 0.1 : 1, transition: 'opacity 0.3s' }">
+
 <v-clicks depth="2">
 
 - APIで高度なLLMsを用いて、複雑なタスクにおいても高い精度を達成できるが([Griswold et al., 2025](https://www.cambridge.org/core/journals/political-analysis/article/stay-tuned-improving-sentiment-analysis-and-stance-detection-using-large-language-models/2D8F121012D3D1CB2259B6DD5EE32D0D))
     - 大規模なデータを処理するための費用が高い
-    - 再現性と透明性に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
-- 学術研究ではオープンソースLLMsを使うべきの呼びかけ[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
+    - **再現性**と**透明性**に問題点 ([Aiyappa et al., 2023](https://aclanthology.org/2023.trustnlp-1.5/);[Motoki et al., 2024](https://link.springer.com/article/10.1007/s11127-023-01097-2))
+- **学術研究ではオープンソースLLMsを使うべきの呼びかけ**[(Palmer et al., 2024)](https://www.nature.com/articles/s43588-023-00585-1)
     - 複数モデルの比較と併用
         - 精度の向上と特定モデルによるバイアスの軽減[(Than et al., 2025)](https://journals.sagepub.com/doi/full/10.1177/00491241251339188)
     - ファインチューニングを通じて、一部のタスクでは比較的に小規模なモデルでも同等の精度を達成できる[(Chae & Davidson, 2025)](https://journals.sagepub.com/doi/abs/10.1177/00491241251325243)
-        - 量子化技術とParameter efficient fine-tuning手法の発展により、ファインチューニングは従来よりも手軽に実施できるようになった
-    - - Political DEBATE[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13):多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる
+        - 量子化技術と`Parameter efficient fine-tuning`手法の発展により、ファインチューニングは従来よりも手軽に実施できるようになった <a @click="toggleLoraMemoryImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
+    - **専門特化のモデル**:多様な政治関連の分類タスクでファインチュニックすることで、関連分野における未知の分離タスクでも対応可能になる[(Burnham et al., 2026)](https://www.cambridge.org/core/journals/political-analysis/article/political-debate-efficient-zeroshot-and-fewshot-classifiers-for-political-text/8D0B3E2AAF711F4812E42466DE503A13) <a @click="toggleDebateImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
 
 </v-clicks>
+
+</div>
+
+<div v-if="showLoraMemoryImage" @click="toggleLoraMemoryImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/lora_memory.png" alt="LoRA Memory" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">LoRAによる学習効率の向上</h3>
+    </div>
+  </div>
+</div>
+
+<div v-if="showDebateImage" @click="toggleDebateImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/DEBATE.png" alt="Debate Model" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">専門特化モデルより関連分野のテキスト分類</h3>
+    </div>
+  </div>
+</div>
+
+</div>
 
 
 ---
@@ -829,7 +1041,7 @@ clicks: 2
 
 - 実践上は、LLMによる分類結果を人間が検証・修正する反復的プロセスを採用することで、より信頼性の高い結果が得られる[(Than et al., 2025)](https://journals.sagepub.com/doi/full/10.1177/00491241251339188)
 
-- LLMは、研究者の労力を低減しつつ分析を支援するツールとして位置づけるべきである
+- **LLMは、研究者の労力を低減しつつ分析を支援するツールとして位置づけるべきである**
 
 </v-click>
 
@@ -878,11 +1090,12 @@ align: lt
 
 <v-clicks depth="2">
 
-社会シミュレーションによるメカニズムを説明する([Hedström & Swedberg, 1998](https://www.cambridge.org/core/books/social-mechanisms/F54BB7A4A77F7308D5FEA7D9C0EAD086);[瀧川, 2019](https://www.jstage.jst.go.jp/article/ojjams/34/1/34_47/_article/-char/ja/))
+**社会シミュレーションによるメカニズムを説明する**([Hedström & Swedberg, 1998](https://www.cambridge.org/core/books/social-mechanisms/F54BB7A4A77F7308D5FEA7D9C0EAD086);[瀧川, 2019](https://www.jstage.jst.go.jp/article/ojjams/34/1/34_47/_article/-char/ja/))
 
 - マクロレベルの制度・規範・文化・社会構造は個人行動に影響を与える
 - 個体間の相互作用は集団的行動を生み出す
-- 多数の個体行動が集積すると、新たなマクロ社会現象が形成される（bottom-up emergence）
+- **多数の個体行動が集積すると、新たなマクロ社会現象が形成される**
+   - ⚠️ 個体間の相互作用と集積過程を把握することは難しい
 
 </v-clicks>
 
@@ -899,9 +1112,9 @@ slide_info: false
 
 # 社会科学における社会シミュレーション手法: Agent based Model
 
-- Agentは局所的ルールに従って独立に行動し、最終的にマクロな社会構造が生じる
+- **Agentは局所的ルールに従って独立に行動し、最終的にマクロな社会構造が生じる**
 
-- Agent=住民: 異なる人種の住民
+- Agent(=住民): 異なる人種の住民
   - 各住民は近傍における同類住民の割合を観察する
   - その割合が許容度を下回ると、住民は移動を選択する
 
@@ -923,6 +1136,18 @@ align: lt
 
 :: content ::
 
+<script setup>
+import { ref } from 'vue'
+const showAimImage = ref(false)
+const toggleAimImage = () => {
+  showAimImage.value = !showAimImage.value
+}
+</script>
+
+<div style="position: relative;">
+
+<div :style="{ opacity: showAimImage ? 0.1 : 1, transition: 'opacity 0.3s' }">
+
 <v-clicks depth="2">
 
 - 社会シミュレーションの異なる方向性
@@ -933,10 +1158,23 @@ align: lt
     - 例: Schellingモデルは、個人の選好が低くても高度に隔離された社会構造が生じうることを示した
      - 🌟必要最小限の要素に絞ったAgentの方が解釈しやすい
 
-- 計算社会科学の目標: solution-oriented[(Watts, 2017)](https://www.nature.com/articles/s41599-023-01577-2?fromPaywallRec=false); 解釈と予測の統合 [(Hofman et al., 2021)](https://www.nature.com/articles/s41586-021-03659-0)
+- 計算社会科学の目標: solution-oriented[(Watts, 2017)](https://www.nature.com/articles/s41599-023-01577-2?fromPaywallRec=false); 解釈と予測の統合 [(Hofman et al., 2021)](https://www.nature.com/articles/s41586-021-03659-0) <a @click="toggleAimImage" class="ns-c-iconlink" style="cursor: pointer;"><mdi-graph /></a>
     - 実証データに基づくAgent based model[(Bruch & Atwell, 2013)](https://journals.sagepub.com/doi/full/10.1177/0049124113506405?casa_token=np7Jikc1cbcAAAAA%3ApJrnC7bevG7hw7AXbx7M89E7FrQuJN62KhADQVNqReGwYymAM7C1WFLySpkoZyFvOI_K3rOzg85iPA#bibr37-0049124113506405)
 
 </v-clicks>
+
+</div>
+
+<div v-if="showAimImage" @click="toggleAimImage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; background-color: rgba(255, 255, 255, 0.95); padding: 2rem;">
+  <div style="display: flex; flex-direction: column; max-width: 90%; max-height: 70vh;">
+    <img src="./Figure/aim.png" alt="Integration of Interpretation and Prediction" style="max-width: 100%; max-height: 65vh; width: auto; height: auto; object-fit: contain; border-radius: 8px 8px 0 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); display: block; margin: 0 auto;" />
+    <div style="background-color: rgba(238, 242, 255, 0.98); padding: 1rem 1.5rem; border-radius: 0 0 12px 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); border: 2px solid rgba(99, 102, 241, 0.3); border-top: none; flex-shrink: 0;">
+      <h3 style="color: #4338ca; margin: 0; font-size: 1.2rem; font-weight: 600; text-align: center;">解釈と予測の統合</h3>
+    </div>
+  </div>
+</div>
+
+</div>
 
 
 ---
@@ -1066,9 +1304,9 @@ align: lt
 
 <v-clicks depth="2">
 
-- 学習データや設計によるLLMのバイアス
-    - LLMを用いて人間行動や意思決定を再現する際には、特定の社会属性（性別・人種など）や政治的立場に関する表現・判断が偏る傾向がある[(Kotek et al., 2023](https://dl.acm.org/doi/10.1145/3582269.3615599);[Bang et al., 2024](https://arxiv.org/abs/2403.18932))
-    - LLMは、集団を単一の「典型像」として表象してしまい、集団内の異質性が失われやすい([Wang et al., 2025](https://www.nature.com/articles/s42256-025-00986-z);[Bisbee et al., 2024](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE))
+- 学習データや設計による**LLMのバイアス**
+    - LLMを用いて人間行動や意思決定を再現する際には、**特定の社会属性（性別・人種など）や政治的立場に関する表現・判断が偏る傾向**がある[(Kotek et al., 2023](https://dl.acm.org/doi/10.1145/3582269.3615599);[Bang et al., 2024](https://arxiv.org/abs/2403.18932))
+    - LLMは、集団を単一の「典型像」として表象してしまい、**集団内の異質性が失われやすい**([Wang et al., 2025](https://www.nature.com/articles/s42256-025-00986-z);[Bisbee et al., 2024](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE))
     - 学習データには虚構的な場面の記述も含まれるため、LLMの出力が必ずしも現実社会の状況を正確に反映するとは限らない[(Kozlowski & Evans, 2025)](https://journals.sagepub.com/doi/10.1177/00491241251337316)
 - 再現性と透明性はLLMs Agentを用いる社会シミュレーションにおいても問題視されている
    - 同じ設定でも、モデルやプロンプトの調整次第で結果が大きく変わることがある[(Bisbee et al., 2024)](https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE)
@@ -1179,9 +1417,9 @@ align: l-lt-lt
   <img src="./Figure/steering1.png" width="500" />
 </div>
 
-- Transformerの中間表現には、特定な意味や文脈に対応する情報が埋め込まれている
-- 対比データから得た差分ベクトルでは、生成過程で特定の出力を決める計算に関与している
-  - 差分ベクトルの意味をを特定振る舞い・スタイル・方針に関連つげることは可能である
+- Transformerの中間表現には、特定の意味や文脈に対応する情報が埋め込まれている
+- 対比データから得られた差分ベクトルは、生成過程において特定の出力を決定する計算に関与している
+  - **差分ベクトルの意味を、特定の振る舞いやスタイル、方針に関連づけることは可能である**
 
 :: right ::
 
@@ -1189,7 +1427,7 @@ align: l-lt-lt
   <img src="./Figure/steering2.png" width="360" />
 </div>
 
-- ゆえに、モデル推論時に適切な差分ベクトルを用いて中間表現を調整することで、特定の要求を満たす出力を生成させることが可能である
+- ゆえに、モデル推論時に適切な差分ベクトルを用いて中間表現を調整することで、**特定の要求を満たす出力を生成させる**ことが可能である
 
 
 ---
