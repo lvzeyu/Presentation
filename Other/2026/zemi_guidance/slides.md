@@ -272,7 +272,7 @@ layout: default
 
 </div>
 <div>
-<iframe src="./template.pdf" class="w-full h-[400px] border-0" />
+<iframe src="/template.pdf" class="w-full h-[400px] border-0" />
 </div>
 </div>
 
@@ -285,13 +285,13 @@ layout: default
 
 <div class="grid grid-cols-3 gap-4 mt-4">
   <div>
-    <iframe src="./template1.pdf" class="w-full h-[400px] border-0" />
+    <iframe src="/template1.pdf" class="w-full h-[400px] border-0" />
   </div>
   <div>
-    <iframe src="./template2.pdf" class="w-full h-[400px] border-0" />
+    <iframe src="/template2.pdf" class="w-full h-[400px] border-0" />
   </div>
   <div>
-    <iframe src="./template3.pdf" class="w-full h-[400px] border-0" />
+    <iframe src="/template3.pdf" class="w-full h-[400px] border-0" />
   </div>
 </div>
 
