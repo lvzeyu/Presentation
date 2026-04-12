@@ -3,3 +3,11 @@
   flex-direction: column;
   justify-content: center;
 }
+
+/* apple-basic テーマの TOC サイドバーを非表示にする */
+.slidev-toc-left {
+  display: none !important;
+}
+.slidev-layout {
+  --slidev-content-left: 0 !important;
+}
