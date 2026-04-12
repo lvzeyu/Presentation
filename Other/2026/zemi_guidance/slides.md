@@ -1,9 +1,8 @@
-
 ---
+theme: apple-basic
 layout: intro
 mdc: true
 duration: 20min
-color: navy-light
 colorSchema: light
 ---
 
@@ -65,7 +64,7 @@ layout: default
   - タイトルを見ただけで内容がわかるとよい
 
 ---
-layout: bullets
+layout: default
 ---
 
 # 発表スライドのデザイン
@@ -90,7 +89,7 @@ layout: section
 # 発表の準備
 
 ---
-layout: bullets
+layout: default
 ---
 
 # 発表の練習
@@ -119,35 +118,45 @@ layout: section
 layout: default
 ---
 
-# 発表の内容：
+# 発表内容のあらすじを提示する
 
-- 聴衆に研究の**位置付け**と**意義**を伝えることが重要
-    - 研究全体の**ストーリー**を短く提示する
-    - 「何のための研究?」「何の役に立つの?」という疑念を生まないように
+<p class="text-base text-gray-700 -mt-2 mb-2">聴衆に研究の<strong>位置付け</strong>と<strong>意義</strong>を伝えることが重要</p>
+
+- 研究全体の**ストーリー**を短く提示する
+- 「何のための研究?」「何の役に立つの?」という疑念を生まないように
 
 <div class="grid grid-cols-2 gap-6 mt-4">
 
-<div v-click class="border border-red-300 bg-red-50 rounded-xl p-5 text-sm">
+<div v-click class="border border-red-300 bg-red-50 rounded-xl px-5 py-3">
 
-**❌ よくない例**
+<p class="text-xl font-bold mb-1">❌ よくない例</p>
 
-近年、SNSにおける意見の対立が深刻化しており、本研究は意見対立のメカニズムについて解析する
+<p class="text-sm">近年、SNSにおける意見の対立が深刻化しており、本研究は意見対立のメカニズムについて解析する</p>
 
-<hr class="my-3 border-red-200"/>
+<hr class="my-2 border-red-200"/>
 
-「なぜ重要か」「既存研究の何が足りないか」「何を明らかにするか」が不明のまま
+<ul class="text-l space-y-1 mt-1">
+  <li>❓ なぜ重要か</li>
+  <li>🔍 既存研究の何が足りないか</li>
+  <li>🎯 何を明らかにするか</li>
+</ul>
 
 </div>
 
-<div v-click class="border border-green-300 bg-green-50 rounded-xl p-5 text-sm">
+<div v-click class="border border-green-300 bg-green-50 rounded-xl px-5 py-3">
 
-**✅ いい例**
+<p class="text-xl font-bold mb-2">✅ いい例</p>
 
-SNS上での意見対立は政治的分極化の一因として注目されているが、LLMエージェントがこの対立をどのように変化させるかは**未解明**である。本研究では、LLMエージェントと人間が意見交換を行う実験環境を構築し、発話スタイルが意見変容に与える影響を検証した。その結果、中立的なトーンは収束を促し、対立的なトーンは分極化を加速させることが示された。
+<p class="text-sm leading-relaxed"><span :class="$clicks >= 3 ? 'bg-blue-200 rounded px-0.5' : ''">SNS上での意見対立は政治的分極化の一因として注目されているが</span>、<span :class="$clicks >= 4 ? 'bg-yellow-200 rounded px-0.5' : ''">LLMエージェントがこの対立に与える影響に関する<strong>実証的検証は不十分</strong>である</span>。<span :class="$clicks >= 5 ? 'bg-green-200 rounded px-0.5' : ''">本研究では、LLMエージェントと人間が意見交換を行う実験環境を構築し、発話スタイルが意見変容に与える影響を検証した。</span><span :class="$clicks >= 6 ? 'bg-orange-200 rounded px-0.5' : ''">その結果、中立的なトーンは収束を促し、対立的なトーンは分極化を加速させることが示された。</span></p>
 
 <hr class="my-3 border-green-200"/>
 
-研究背景、問題意識、研究手法と結果を明確に説明する
+<div class="flex flex-wrap gap-2">
+  <span v-click="3" class="text-xs font-semibold bg-blue-100 border border-blue-300 text-blue-700 px-2 py-1 rounded-full">研究背景</span>
+  <span v-click="4" class="text-xs font-semibold bg-yellow-100 border border-yellow-300 text-yellow-700 px-2 py-1 rounded-full">問題意識</span>
+  <span v-click="5" class="text-xs font-semibold bg-green-100 border border-green-300 text-green-700 px-2 py-1 rounded-full">研究手法</span>
+  <span v-click="6" class="text-xs font-semibold bg-orange-100 border border-orange-300 text-orange-700 px-2 py-1 rounded-full">結果</span>
+</div>
 
 </div>
 
@@ -375,5 +384,210 @@ LLMs と組み合わせることで LaTeX の執筆体験はさらに向上し�
 
 </div>
 
+</div>
+
+---
+layout: section
+---
+
+# Git/GitHubで修論・博論の管理
+
+---
+layout: default
+---
+
+# バージョン管理していないと…
+
+誰もが一度は経験する「最終」問題
+
+<div class="grid grid-cols-2 gap-8 mt-6">
+
+<div v-click class="border border-red-300 bg-red-50 rounded-xl p-5 text-sm font-mono">
+
+```
+thesis/
+├── 論文_draft.docx
+├── 論文_v2.docx
+├── 論文_v2_修正.docx
+├── 論文_最終.docx
+├── 論文_最終2.docx
+├── 論文_最終_先生コメント反映.docx
+├── 論文_最終_本当の最終.docx
+└── 論文_提出用_これが最終.docx
+```
+
+</div>
+
+<div class="flex flex-col gap-4 justify-center">
+
+<div v-click class="bg-gray-50 rounded-xl p-4 text-sm">
+
+**よくある問題**
+
+- どれが最新版かわからない
+- 以前の書き方に戻したいが差分がわからない
+- 指導教員のコメントがどこに反映されたか追えない
+- 共同作業で誰が何を変えたか不明
+
+</div>
+
+<div v-click class="border-l-4 border-blue-500 pl-4 text-sm text-gray-700">
+
+Git を使えば、すべての変更履歴が自動で記録される。「最終」ファイルは1つだけでよい。
+
+</div>
+
+</div>
+</div>
+
+---
+layout: default
+---
+
+# Git / GitHub とは
+
+<div class="grid grid-cols-2 gap-8 mt-4">
+
+<div v-click class="bg-blue-50 border border-blue-200 rounded-xl p-5">
+
+**Git**
+
+ファイルの変更履歴をローカルで管理するバージョン管理システム
+
+- いつ・何を・なぜ変更したかを記録
+- 任意の時点に巻き戻せる
+- 複数の作業ブランチを並行管理できる
+
+</div>
+
+<div v-click class="bg-green-50 border border-green-200 rounded-xl p-5">
+
+**GitHub**
+
+Git リポジトリをクラウドで管理・共有するプラットフォーム
+
+- リモートバックアップとして機能
+- 指導教員・共著者とのコード・文章共有
+- Issue でタスク・コメントを整理できる
+
+</div>
+
+</div>
+
+<div v-click class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm">
+
+**LaTeX との相性が抜群**：LaTeX はプレーンテキストなので、Git で一行単位の差分確認・コメント反映が可能。Word の「変更履歴」より遥かに強力。
+
+</div>
+
+---
+layout: default
+---
+
+# 「一つのフォルダで全てを完結させる」
+
+研究プロジェクトを一元管理する
+
+<div class="grid grid-cols-2 gap-8 mt-4">
+
+<div v-click>
+
+```
+卒業研究/
+├── references/    # 参考文献（論文 PDF など）
+├── data/          # 分析に使うデータ（生データ）
+├── scripts/       # 分析スクリプト（Python / R など）
+├── results/       # 分析結果（グラフ・表など）
+├── figures/       # 論文に載せる最終版の図・表
+├── thesis/        # 論文本体（LaTeX ソース）
+├── slides/        # 発表スライド
+├── notes/         # ゼミメモ・指導教員との記録
+└── .gitignore     # Git 管理から除外するファイルを指定
+```
+
+</div>
+
+<div class="flex flex-col gap-3 text-sm">
+
+<div v-click class="bg-gray-50 rounded-xl p-4">
+
+**なぜ一つにまとめるか**
+- 論文・データ・コードの対応関係が明確になる
+- フォルダごと GitHub に push してバックアップ完了
+- 数年後に見返しても再現できる
+
+</div>
+
+<div v-click class="bg-orange-50 border border-orange-200 rounded-xl p-4">
+
+**`.gitignore` で大きなファイルを除外**
+
+```bash
+data/raw/          # 生データは容量が大きい
+results/cache/     # 中間生成物
+*.pdf              # PDF は都度生成
+```
+
+大容量データは別途バックアップする
+
+</div>
+
+</div>
+</div>
+
+---
+layout: default
+---
+
+# Git の基本的な使い方
+
+はじめの一歩
+
+<div class="grid grid-cols-2 gap-8 mt-4">
+
+<div>
+
+**主要コマンド**
+
+```bash
+# リポジトリを初期化
+git init
+
+# 変更をステージング
+git add thesis/chapter1.tex
+
+# 変更を記録（コミット）
+git commit -m "第1章：研究背景を追記"
+
+# GitHub に送信
+git push origin main
+
+# 過去の変更履歴を確認
+git log --oneline
+```
+
+</div>
+
+<div class="flex flex-col gap-4">
+
+<div v-click class="bg-blue-50 rounded-xl p-4 text-sm">
+
+**コミットメッセージのコツ**
+
+「何を変えたか」ではなく「なぜ変えたか」を書く
+- ❌ `修正`
+- ❌ `update`
+- ✅ `第3章：先生のコメントを受けて考察を追記`
+- ✅ `図2：軸ラベルを日本語に変更`
+
+</div>
+
+<div v-click class="bg-green-50 border border-green-200 rounded-xl p-4 text-sm">
+
+**GitHub Desktop** を使えば GUI で操作できる。コマンドラインが苦手な場合はこちらから始めるのもよい。
+
+</div>
+
+</div>
 </div>
 
