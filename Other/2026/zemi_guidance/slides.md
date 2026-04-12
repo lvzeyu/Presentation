@@ -243,7 +243,7 @@ layout: default
 <div class="grid grid-cols-2 gap-6 mt-3">
 <div>
 
-```latex {1-3|5-10|11,17|14-16}
+```latex {|1-3|5-10|11,17|14-16}
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -310,7 +310,7 @@ layout: default
 
 **数式・記号の美しい表現**
 - 数式、ギリシャ文字、特殊記号を高品質で出力
-- Word の数式エディタと比べ圧倒的に読みやすい
+- Word の数式エディタと比べ圧倒的に使いやすい
 
 </div>
 
@@ -334,7 +334,7 @@ layout: default
 
 **バージョン管理との親和性**
 - テキストファイルなので Git で差分管理が可能
-- 指導教員とのコメント・修正履歴を明確に残せる
+- コメントや修正履歴を明確に残せる
 
 </div>
 
@@ -398,11 +398,13 @@ layout: default
 
 # バージョン管理していないと…
 
-誰もが一度は経験する「最終」問題
 
 <div class="grid grid-cols-2 gap-8 mt-6">
 
-<div v-click class="border border-red-300 bg-red-50 rounded-xl p-5 text-sm font-mono">
+
+<div v-click class="border rounded-xl px-4 py-3 text-sm font-mono">
+
+<p class="text-base font-bold mb-2">📁 ファイルが増えてカオスに…</p>
 
 ```
 thesis/
@@ -410,184 +412,93 @@ thesis/
 ├── 論文_v2.docx
 ├── 論文_v2_修正.docx
 ├── 論文_最終.docx
-├── 論文_最終2.docx
 ├── 論文_最終_先生コメント反映.docx
 ├── 論文_最終_本当の最終.docx
 └── 論文_提出用_これが最終.docx
 ```
 
-</div>
-
-<div class="flex flex-col gap-4 justify-center">
-
-<div v-click class="bg-gray-50 rounded-xl p-4 text-sm">
-
-**よくある問題**
+<div v-click class="bg-gray-100 rounded-xl px-3 py-2 text-base mt-2">
 
 - どれが最新版かわからない
 - 以前の書き方に戻したいが差分がわからない
-- 指導教員のコメントがどこに反映されたか追えない
-- 共同作業で誰が何を変えたか不明
-
-</div>
-
-<div v-click class="border-l-4 border-blue-500 pl-4 text-sm text-gray-700">
-
-Git を使えば、すべての変更履歴が自動で記録される。「最終」ファイルは1つだけでよい。
+- もらったコメントがどこに反映されたか追えない
 
 </div>
 
 </div>
+
+<div class="flex flex-col gap-3 justify-center">
+
+<div v-click class="border border-red-300 bg-red-50 rounded-xl px-4 py-3 text-sm">
+
+<p class="text-base font-bold mb-2">💀 バックアップなしで起きること</p>
+
+- 上書き保存で数日分の修正が**永久に消える**
+- 「前の方が良かった」と気づいても**戻せない**
+- PC 故障・紛失でデータが**すべて失う**
+
 </div>
+
+<div v-click class="border border-green-300 bg-green-50 rounded-xl px-4 py-3 text-sm">
+
+<p class="text-base font-bold mb-2">✅ Git/GitHub を使えば</p>
+
+- すべての変更が**自動で記録**・いつでも**巻き戻し可能**
+- GitHub に push すれば**クラウドバックアップ**にもなる
+
+</div>
+
+</div>
+</div>
+
 
 ---
-layout: default
+layout: two-cols-header
 ---
 
 # Git / GitHub とは
 
-<div class="grid grid-cols-2 gap-8 mt-4">
 
-<div v-click class="bg-blue-50 border border-blue-200 rounded-xl p-5">
+::left::
 
-**Git**
+- **いつ・誰が・何を**変えたか自動で記録
+- コミットメッセージで変更の理由も残せる
+- 変更前後を比較できる
+    - 追加行は <span class="text-green-600 font-bold">緑</span>、削除行は <span class="text-red-600 font-bold">赤</span> で表示
 
-ファイルの変更履歴をローカルで管理するバージョン管理システム
+<img src="./figure/git_diff.png" class="w-full h-auto" />
 
-- いつ・何を・なぜ変更したかを記録
-- 任意の時点に巻き戻せる
-- 複数の作業ブランチを並行管理できる
-
-</div>
-
-<div v-click class="bg-green-50 border border-green-200 rounded-xl p-5">
-
-**GitHub**
-
-Git リポジトリをクラウドで管理・共有するプラットフォーム
+::right::
 
 - リモートバックアップとして機能
-- 指導教員・共著者とのコード・文章共有
+- 指導教員・共著者とのコード・ファイル共有
 - Issue でタスク・コメントを整理できる
 
-</div>
-
-</div>
-
-<div v-click class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm">
-
-**LaTeX との相性が抜群**：LaTeX はプレーンテキストなので、Git で一行単位の差分確認・コメント反映が可能。Word の「変更履歴」より遥かに強力。
-
-</div>
+<img src="./figure/github_pull_push.png" class="w-3/4 h-auto mx-auto" />
 
 ---
 layout: default
 ---
 
-# 「一つのフォルダで全てを完結させる」
+# Git/GitHubをベースにプロジェクトを一元管理する
 
-研究プロジェクトを一元管理する
+一つのフォルダで全てを完結させる
 
-<div class="grid grid-cols-2 gap-8 mt-4">
+<img src="./figure/framework.png" class="mx-auto mt-8 h-80 object-contain" />
 
-<div v-click>
 
-```
-卒業研究/
-├── references/    # 参考文献（論文 PDF など）
-├── data/          # 分析に使うデータ（生データ）
-├── scripts/       # 分析スクリプト（Python / R など）
-├── results/       # 分析結果（グラフ・表など）
-├── figures/       # 論文に載せる最終版の図・表
-├── thesis/        # 論文本体（LaTeX ソース）
-├── slides/        # 発表スライド
-├── notes/         # ゼミメモ・指導教員との記録
-└── .gitignore     # Git 管理から除外するファイルを指定
-```
-
-</div>
-
-<div class="flex flex-col gap-3 text-sm">
-
-<div v-click class="bg-gray-50 rounded-xl p-4">
-
-**なぜ一つにまとめるか**
-- 論文・データ・コードの対応関係が明確になる
-- フォルダごと GitHub に push してバックアップ完了
-- 数年後に見返しても再現できる
-
-</div>
-
-<div v-click class="bg-orange-50 border border-orange-200 rounded-xl p-4">
-
-**`.gitignore` で大きなファイルを除外**
-
-```bash
-data/raw/          # 生データは容量が大きい
-results/cache/     # 中間生成物
-*.pdf              # PDF は都度生成
-```
-
-大容量データは別途バックアップする
-
-</div>
-
-</div>
-</div>
 
 ---
 layout: default
 ---
 
-# Git の基本的な使い方
+# Git/Githubの使い方
 
-はじめの一歩
+- 前期の水曜3限「行動科学演習・計算人文社会学研究演習」で2〜3回目の授業でGit/Githubの使い方を説明する
+    - [資料](https://lvzeyu.github.io/css_tohoku/python_css/git.html)は公開されている
+    - ネット上でも参考になる資料はたくさんある
+        - [Learn GitHub within GitHub](https://learn.github.com/skills)
+        - [Learn Git Branching](https://learngitbranching.js.org/?locale=ja)
 
-<div class="grid grid-cols-2 gap-8 mt-4">
-
-<div>
-
-**主要コマンド**
-
-```bash
-# リポジトリを初期化
-git init
-
-# 変更をステージング
-git add thesis/chapter1.tex
-
-# 変更を記録（コミット）
-git commit -m "第1章：研究背景を追記"
-
-# GitHub に送信
-git push origin main
-
-# 過去の変更履歴を確認
-git log --oneline
-```
-
-</div>
-
-<div class="flex flex-col gap-4">
-
-<div v-click class="bg-blue-50 rounded-xl p-4 text-sm">
-
-**コミットメッセージのコツ**
-
-「何を変えたか」ではなく「なぜ変えたか」を書く
-- ❌ `修正`
-- ❌ `update`
-- ✅ `第3章：先生のコメントを受けて考察を追記`
-- ✅ `図2：軸ラベルを日本語に変更`
-
-</div>
-
-<div v-click class="bg-green-50 border border-green-200 rounded-xl p-4 text-sm">
-
-**GitHub Desktop** を使えば GUI で操作できる。コマンドラインが苦手な場合はこちらから始めるのもよい。
-
-</div>
-
-</div>
-</div>
-
+- VSCode、CopilotやClaude Codeなどを組み合わせる使用するとさらに快適になる
+    - (2026年4月時点)学生も含む教育関係者なら[無料でCopilot Proを使える](https://qiita.com/melonsode/items/3602ea6441ca82e43c5a)！
