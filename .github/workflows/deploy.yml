@@ -36,10 +36,20 @@ jobs:
         working-directory: ./Tutorial/2026/JAMS_2026
         run: nr build --base /${{github.event.repository.name}}/Tutorial/2026/JAMS_2026/
 
+      - name: Install dependencies for zemi_guidance
+        working-directory: ./Other/2026/zemi_guidance
+        run: nci
+
+      - name: Build zemi_guidance
+        working-directory: ./Other/2026/zemi_guidance
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/zemi_guidance/
+
       - name: Create output directory structure
         run: |
           mkdir -p public/Tutorial/2026/JAMS_2026
           cp -r ./Tutorial/2026/JAMS_2026/dist/* public/Tutorial/2026/JAMS_2026/
+          mkdir -p public/Other/2026/zemi_guidance
+          cp -r ./Other/2026/zemi_guidance/dist/* public/Other/2026/zemi_guidance/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
