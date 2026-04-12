@@ -38,7 +38,7 @@ jobs:
 
       - name: Install dependencies for zemi_guidance
         working-directory: ./Other/2026/zemi_guidance
-        run: nci
+        run: ni
 
       - name: Build zemi_guidance
         working-directory: ./Other/2026/zemi_guidance
