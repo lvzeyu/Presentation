@@ -44,12 +44,22 @@ jobs:
         working-directory: ./Other/2026/zemi_guidance
         run: nr build --base /${{github.event.repository.name}}/Other/2026/zemi_guidance/
 
+      - name: Install dependencies for well_being_lecture
+        working-directory: ./Other/2026/well_being_lecture
+        run: ni
+
+      - name: Build well_being_lecture
+        working-directory: ./Other/2026/well_being_lecture
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/well_being_lecture/
+
       - name: Create output directory structure
         run: |
           mkdir -p public/Tutorial/2026/JAMS_2026
           cp -r ./Tutorial/2026/JAMS_2026/dist/* public/Tutorial/2026/JAMS_2026/
           mkdir -p public/Other/2026/zemi_guidance
           cp -r ./Other/2026/zemi_guidance/dist/* public/Other/2026/zemi_guidance/
+          mkdir -p public/Other/2026/well_being_lecture
+          cp -r ./Other/2026/well_being_lecture/dist/* public/Other/2026/well_being_lecture/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
