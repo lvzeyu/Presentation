@@ -34,7 +34,7 @@ jobs:
 
       - name: Build JAMS_2026
         working-directory: ./Tutorial/2026/JAMS_2026
-        run: nr build --base /${{github.event.repository.name}}/Tutorial/2026/JAMS_2026/ --spaRouting
+        run: nr build --base /${{github.event.repository.name}}/Tutorial/2026/JAMS_2026/
 
       - name: Install dependencies for zemi_guidance
         working-directory: ./Other/2026/zemi_guidance
@@ -42,7 +42,7 @@ jobs:
 
       - name: Build zemi_guidance
         working-directory: ./Other/2026/zemi_guidance
-        run: nr build --base /${{github.event.repository.name}}/Other/2026/zemi_guidance/ --spaRouting
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/zemi_guidance/
 
       - name: Install dependencies for well_being_lecture
         working-directory: ./Other/2026/well_being_lecture
@@ -50,7 +50,7 @@ jobs:
 
       - name: Build well_being_lecture
         working-directory: ./Other/2026/well_being_lecture
-        run: nr build --base /${{github.event.repository.name}}/Other/2026/well_being_lecture/ --spaRouting
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/well_being_lecture/
 
       - name: Create output directory structure
         run: |
