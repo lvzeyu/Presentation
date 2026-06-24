@@ -1,7 +1,7 @@
 ---
 theme: neversink
 title: 計算的手法によりウェルビーイングを測る
-info: Academic Slidev template for a lecture on well-being
+info: 計算的手法によりウェルビーイングを測る
 drawings:
   persist: false
 fonts:
