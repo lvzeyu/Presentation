@@ -38,7 +38,7 @@ mermaid:
   <div style="position:absolute; left:58px; right:58px; top:228px;">
     <h1 class="claim wide" style="font-size:58px; color:#000000; font-weight:800;">計算的手法によりウェルビーイングを測る</h1>
     <p style="font-size:28px; max-width:980px; margin-top:24px; color:#111827; font-weight:800; line-height:1.35;"></p>
-    <p style="font-size:35px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">東北大学文学研究科　計算人文社会学</p>
+    <p style="font-size:36px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">東北大学文学研究科　計算人文社会学</p>
     <p style="font-size:30px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">呂沢宇</p>
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:58px; color:#374151; font-size:22px; line-height:1.35; font-weight:700;"><br>
