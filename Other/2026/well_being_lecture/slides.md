@@ -537,13 +537,10 @@ graph TB
     <div class="metric" v-click="2">
       <div class="value">01</div>
       <div class="metric-copy">
-        <div class="label">ウェルビーイングの多次元性</div>
+        <div class="label">社会階層の多次元性</div>
         <div class="metric-desc">
           <ul>
-            <li>「Well-being」は、複雑で多次元的な概念である</li>
-            <li>Hedonic Well-being: 快楽の増加と苦痛の軽減を中心に捉え、短期的な満足や喜びを重視する</li>
-            <li>Eudaimonic Well-being: 自己実現、個人的成長、目的意識、意味感に注目し、幸福を単なる快楽ではなく、人間の潜在能力や内面的価値の実現として捉える</li>
-            <li>時代や社会的背景によって、人々が「Well-being」のどの側面を重視するかは変化しうる</li>
+            <li>社会階層は、単一の指標によって捉えられるものではなく、所得、職業、教育達成、社会的地位などが相互に関連する複雑かつ多次元的な概念</li>
           </ul>
         </div>
       </div>
@@ -551,14 +548,8 @@ graph TB
     <div class="metric" v-click="3">
       <div class="value">02</div>
       <div class="metric-copy">
-        <div class="label">データと通時的分析</div>
-        <div class="metric-desc">
-          <ul>
-            <li><a href="https://lab.ndl.go.jp/ngramviewer/" target="_blank" rel="noopener noreferrer">国立国会図書館 Ngram Viewer</a> が提供する、1910年代から1990年代に出版された雑誌・書籍・官報を含むコーパスを用いる</li>
-            <li>コーパスを年ごとに分割し、各時点に対応する単語ベクトルモデルを学習する</li>
-            <li>時期ごとの単語ベクトル空間を比較することで、Well-being に対する認識の重点がどのように変化したかを分析する</li>
-          </ul>
-        </div>
+        <div class="label">社会階層の概念変化</div>
+        <div class="metric-desc inline-desc">社会階層概念は、社会経済構造の変化に伴い、その捉え方が変容してきた</div>
       </div>
     </div>
   </div>
@@ -660,7 +651,7 @@ graph TB
         <div class="metric-desc">
           <ul>
             <li><a href="https://lab.ndl.go.jp/ngramviewer/" target="_blank" rel="noopener noreferrer">国立国会図書館</a>が提供する、1910年代〜1990年代に出版された雑誌・書籍・官報を含むコーパスを使用</li>
-            <li>年代ごとに分割し、各時間帯に対応する単語ベクトルモデルを訓練する</li>
+            <li>年ごとに分割し、各時間帯に対応する単語ベクトルモデルを訓練する</li>
           </ul>
         </div>
       </div>
@@ -676,173 +667,119 @@ graph TB
 ---
 
 <div class="page">
-  <div class="kicker">データの方法</div>
-  <h2 class="claim wide">Word2Vecが社会科学における応用</h2>
-  <p class="support"></p>
-
-  <div class="metric-rail vertical">
-    <div class="metric" v-click="1">
-      <div class="value">01</div>
-      <div class="metric-copy">
-        <div class="label">Word2Vecによるテキスト解析</div>
-        <div class="metric-desc">単語をベクトル表現に変換することで、テキストの意味的情報を捉え、様々な自然言語処理タスクに応用する</div>
-      </div>
-    </div>
-    <div class="metric metric-black" v-click="2">
-      <div class="value">02</div>
-      <div class="metric-copy">
-        <div class="label">Word2Vecを用いた概念への理解</div>
-        <div class="metric-desc">
-          <ul>
-            <li>Word2Vecでは、複雑な概念を系統的に解析することができる</li>
-            <li>Word2Vecにより、意味変化を捉えることができる</li>
-            <li>Word2Vecの単語ベクトル表現は学習コーパスに依存し、コーパス中に現れる単語の共起パターンと意味関係を反映する
-              <ul>
-                <li>異なる時代のコーパスは、その時代的背景における特定概念の意味的特質を反映できる</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>02</span></div>
-</div>
-
-<!--
-Speaker note:
-Replace the four blocks with the exact learning goals of your lecture.
--->
-
----
-
-<div class="page">
-  <div class="kicker">Concept</div>
-  <h2 class="claim wide">Well-being is more than the absence of distress.</h2>
-  <p class="support">Frame well-being as a multidimensional concept that combines subjective evaluations, emotional experience, functioning, and social context.</p>
-
-  <div class="two-column">
-    <div class="card" v-click="1">
-      <h3>Subjective well-being</h3>
-      <ul>
-        <li>Life satisfaction</li>
-        <li>Positive and negative affect</li>
-        <li>Domain-specific satisfaction</li>
-      </ul>
-    </div>
-    <div class="card green" v-click="2">
-      <h3>Eudaimonic well-being</h3>
-      <ul>
-        <li>Meaning and purpose</li>
-        <li>Autonomy and competence</li>
-        <li>Relationships and contribution</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer"><span>Conceptual framing</span><span>03</span></div>
-</div>
-
----
-
-<div class="page">
-  <div class="kicker">Measurement</div>
-  <h2 class="claim wide">A measurement choice is also a theory choice.</h2>
-  <p class="support">Use the matrix to compare competing indicators, datasets, or survey modules.</p>
-
-  <div class="matrix compact">
-    <div class="matrix-head">側面</div>
-    <div class="matrix-head">代表的な尺度・指標</div>
-    <div class="matrix-cell" v-click="1">主観的評価</div>
-    <div class="matrix-cell" v-click="1">生活満足度尺度（SWLS）、Cantril Ladder</div>
-    <div class="matrix-cell" v-click="2">感情的ウェルビーイング</div>
-    <div class="matrix-cell" v-click="2">PANAS、日々のポジティブ・ネガティブ感情</div>
-    <div class="matrix-cell" v-click="3">心理的・意味的側面</div>
-    <div class="matrix-cell" v-click="3">Ryff心理的ウェルビーイング尺度、人生の意味尺度</div>
-    <div class="matrix-cell" v-click="4">社会的ウェルビーイング</div>
-    <div class="matrix-cell" v-click="4">社会的支援、孤独感尺度、地域への信頼</div>
-    <div class="matrix-cell" v-click="5">身体的・健康的側面</div>
-    <div class="matrix-cell" v-click="5">主観的健康感、SF-12 / SF-36、睡眠・運動指標</div>
-  </div>
-  <div class="footer"><span>Operationalization</span><span>04</span></div>
-</div>
-
----
-
-<div class="page">
-  <div class="kicker">Mechanism</div>
-  <h2 class="claim wide">From social conditions to well-being outcomes.</h2>
+  <div class="kicker">ウェルビーイングへの解析</div>
+  <h2 class="claim wide">Word2Vecでウェルビーイングの解析</h2>
 
   <div class="flow">
     <div class="flow-step" v-click="1">
       <div class="num">01</div>
-      <div class="name">Resources</div>
-      <div class="desc">Income, time, health, relationships, institutional support.</div>
+      <div class="name">Word2Vecの学習</div>
+      <div class="desc">年ごとに分割し、各時間帯に対応する単語ベクトルモデルを訓練する.</div>
+      <div class="desc">各年の単語ベクトルは、該当する時代の単語の意味をうまく表現できることが期待される</div>
     </div>
     <div class="arrow" v-click="2">→</div>
     <div class="flow-step" v-click="2">
       <div class="num">02</div>
-      <div class="name">Capabilities</div>
-      <div class="desc">What people are realistically able to do and be.</div>
+      <div class="name">意味軸の構築</div>
+      <div class="desc">対義語のペアを用意し、ペア単語ベクトルの計算で埋め込み空間における意味軸を特定する</div>
+      <div class="desc">例えば、V(富)-V(貧困)という単語ベクトルの計算で「裕福」の意味軸を特定する</div>
+      <div class="desc">各意味軸は複数のペア単語を用いて平均の結果を採用する</div>
     </div>
     <div class="arrow" v-click="3">→</div>
     <div class="flow-step" v-click="3">
       <div class="num">03</div>
-      <div class="name">Evaluation</div>
-      <div class="desc">How people interpret their lives, emotions, and futures.</div>
+      <div class="name">意味軸の計算による構造と関係への理解</div>
+      <div class="desc">意味軸同士のベクトル類似性が高いほど、該当する要素では関連していると言える</div>
+　　　 <div class="desc">「幸福」軸と他の構成要素の軸の関係と変化に着目</div>
     </div>
   </div>
-  <div class="footer"><span>Analytical model</span><span>05</span></div>
+  <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>05</span></div>
 </div>
+
 
 ---
 
 <div class="page">
-  <div class="kicker">Evidence</div>
-  <h2 class="claim wide">Replace this slide with the key empirical result.</h2>
-  <p class="support">For a real lecture, insert a chart, table, or figure here and keep the takeaway sentence in the title.</p>
-
-  <div class="quote-panel" v-click="1">
-    <p>One result, one interpretation, one implication.</p>
-    <span>Suggested structure: finding → explanation → why it matters</span>
+  <div class="kicker">ウェルビーイングへの解析</div>
+  <h2 class="claim wide">日本におけるウェルビーイングの構成と変化</h2>
+  <p class="support wide">異なる年のWord2Vecモデルで意味軸間の計算を行い、その結果を年ごとに集計する</p>
+  <div class="content-split compact-split equal-split">
+    <ul class="body-list wide">
+      <li v-click="1">ウェルビーイングに関連する要素の特定
+        <ul>
+          <li><em>物質・身体的ウェルビーイング：「Affluence」「Health」「Play」</em></li>
+          <li><em>社会的ウェルビーイング：「Affiliation」</em></li>
+          <li><em>制度的ウェルビーイング：「Peace」「Democracy」</em></li>
+        </ul>
+      </li>
+      <li v-click="2">ウェルビーイングに関連する要素要素の変化
+        <ul>
+          <li><em>長年にわたって安定している構成要素：「Health」</em></li>
+          <li><em>時代とともに変化した構成要素：「Play」「Democarcy」</em></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="plain-figure zoomable-figure" v-click="4">
+      <input id="similarity-dynamics-zoom" class="zoom-check" type="checkbox" />
+      <label for="similarity-dynamics-zoom" class="zoom-label">
+        <img src="./image/similarity_dynamics_jp.png" alt="Kozlowski et al. changing relations among cultural dimensions" />
+      </label>
+    </div>
   </div>
-  <div class="footer"><span>Evidence placeholder</span><span>06</span></div>
+
+
+  <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
+
 
 ---
 
 <div class="page">
-  <div class="kicker">Discussion</div>
-  <h2 class="claim wide">Questions for class discussion.</h2>
-
-  <div class="two-column">
-    <div class="card amber" v-click="1">
-      <h3>Interpretation</h3>
-      <p>Which dimensions of well-being are emphasized or hidden by this framework?</p>
-    </div>
-    <div class="card rose" v-click="2">
-      <h3>Application</h3>
-      <p>What would change if the target group, institution, or cultural context changed?</p>
+  <div class="kicker">ウェルビーイングへの解析</div>
+  <h2 class="claim wide">日本におけるウェルビーイングの構成と変化</h2>
+  <p class="support wide">戦後の変化傾向に注目</p>
+  <div class="content-split compact-split equal-split">
+    <ul class="body-list wide">
+      <li v-click="1">「Play」とウェルビーイングの関連が強まった
+        <ul>
+          <li><em>余暇・娯楽・趣味・スポーツ・旅行などが、単なる休息ではなく、生活の質や自己実現を支える重要な要素として認識される</em></li>
+        </ul>
+      </li>
+      <li v-click="2">「Education」とウェルビーイングの関連が弱まった
+        <ul>
+          <li><em>教育は、社会移動や安定した職業への主要な経路であり、幸福や豊かな生活とも強く結びついていたが、教育拡大と高学歴化が進むにつれて、教育はかつてのように社会移動や幸福達成をもたらす明確な手段としての影響力を弱めていった</em></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="plain-figure zoomable-figure" v-click="4">
+      <input id="similarity-dynamics-zoom" class="zoom-check" type="checkbox" />
+      <label for="similarity-dynamics-zoom" class="zoom-label">
+        <img src="./image/similarity_dynamics_revised.png" alt="Kozlowski et al. changing relations among cultural dimensions" />
+      </label>
     </div>
   </div>
-  <div class="footer"><span>Discussion</span><span>07</span></div>
+
+
+  <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
+
 
 ---
 
 <div class="page">
-  <div class="kicker">Closing</div>
-  <h2 class="claim wide">Takeaway: well-being is both personal experience and social structure.</h2>
-  <p class="support">End with the one sentence students should remember, then connect it to the next lecture, assignment, or reading.</p>
+  <div class="kicker">まとめ</div>
+  <h2 class="claim wide">計算的手法によるウェルビーイングを解析する方法を解説した</h2>
 
   <div class="metric-rail vertical">
     <div class="metric">
-      <div class="value">Define</div>
-      <div class="label">Clarify the construct</div>
+      <div class="value">示唆</div>
+      <div class="label">従来の手法では考察することが難しい構造関係や時代的変化に新たな知見を提供した</div>
     </div>
     <div class="metric">
-      <div class="value">Measure</div>
-      <div class="label">Choose indicators carefully</div>
+      <div class="value">方法の拡張性</div>
+      <div class="label">複雑的な概念への理解ための手法として、多様の分野と研究ターマに応用することは可能である</div>
     </div>
   </div>
-  <div class="footer"><span>Thank you</span><span>08</span></div>
+  <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>08</span></div>
 </div>
+
