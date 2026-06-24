@@ -33,9 +33,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 18px;
+  height: 26px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;

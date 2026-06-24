@@ -36,20 +36,16 @@ mermaid:
   <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
   <div class="kicker">人文社会科学特別科目</div>
   <div style="position:absolute; left:58px; right:58px; top:228px;">
-    <h1 class="claim wide" style="font-size:52px; color:#000000;">計算的手法によりウェルビーイングを測る</h1>
+    <h1 class="claim wide" style="font-size:58px; color:#000000; font-weight:800;">計算的手法によりウェルビーイングを測る</h1>
     <p style="font-size:28px; max-width:980px; margin-top:24px; color:#111827; font-weight:800; line-height:1.35;"></p>
-    <p style="font-size:22px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">東北大学文学研究科　計算人文社会学</p>
-    <p style="font-size:22px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">呂沢宇</p>
+    <p style="font-size:35px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">東北大学文学研究科　計算人文社会学</p>
+    <p style="font-size:30px; max-width:980px; margin-top:34px; color:#111827; font-weight:500; line-height:1.35;">呂沢宇</p>
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:58px; color:#374151; font-size:22px; line-height:1.35; font-weight:700;"><br>
     <span style="font-size:20px; font-weight:600;">2026年6月25日</span>
   </div>
 </div>
 
-<!--
-Opening note:
-Introduce the lecture question and why well-being matters for today's audience.
--->
 
 ---
 
@@ -93,6 +89,7 @@ Introduce the lecture question and why well-being matters for today's audience.
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
@@ -131,7 +128,7 @@ Introduce the lecture question and why well-being matters for today's audience.
     </div>
     <div class="quote-panel compact green" v-click="2">
       <div class="quote-item">
-        <div>長期的な変化を捉えにくい<small>一時点の回答では、ライフコースまた歴史上の変化が見えにくい</small></div>
+        <div>長期的な変化を捉えにくい<small>一時点の回答では、ライフコースや歴史上の変化が見えにくい</small></div>
       </div>
     </div>
     <div class="quote-panel compact rose" v-click="3">
@@ -142,6 +139,7 @@ Introduce the lecture question and why well-being matters for today's audience.
   </div>
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>06</span></div>
 </div>
+
 
 ---
 
@@ -177,7 +175,7 @@ Introduce the lecture question and why well-being matters for today's audience.
   <p class="support wide">自然言語処理は、人間が日常的に使っている自然言語をコンピュータに処理させる技術</p>
 
   <ul class="body-list">
-    <li v-click="1">言語は人間にとって自然なものでも、コンピュータにとっては処理が難しい
+    <li v-click="1">言語は人間にとって自然なものであっても、コンピュータにとっては処理が難しい
       <ul>
         <li>自然言語は大量の非構造化データとして現れる</li>
         <li>意味の解釈には、常に明確な規則があるわけではない</li>
@@ -232,7 +230,7 @@ stateDiagram
         <div>「良い」単語分散表現とは
           <ul>
             <li>単語とベクトルの対応関係</li>
-            <li>ベクトルは単語の意味情報を表現することできる</li>
+            <li>ベクトルは単語の意味情報を表現することができる</li>
           </ul>
         </div>
       </div>
@@ -306,6 +304,7 @@ stateDiagram
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>06</span></div>
 </div>
 
+
 ---
 
 
@@ -353,6 +352,7 @@ stateDiagram
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>06</span></div>
 </div>
 
+
 ---
 
 
@@ -380,11 +380,12 @@ stateDiagram
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>06</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
-  <h2 class="claim wide">Word2Vecが社会科学研究の新しい手法としての応用可能性</h2>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
+  <h2 class="claim wide">Word2Vecの社会科学研究における新たな手法としての応用可能性</h2>
   <p class="support"></p>
 
   <div class="metric-rail vertical wide">
@@ -398,7 +399,7 @@ stateDiagram
     <div class="metric metric-black" v-click="2">
       <div class="value">02</div>
       <div class="metric-copy">
-        <div class="label">Word2Vecを用いた概念への理解</div>
+        <div class="label">Word2Vecを用いた概念の理解</div>
         <div class="metric-desc">
           <ul>
             <li>Word2Vecでは、複雑な概念を系統的に解析することができる</li>
@@ -419,11 +420,10 @@ stateDiagram
 </div>
 
 
-
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
   <h2 class="claim wide">Word2Vecに基づく意味変化の解析 <a href="https://www.pnas.org/doi/10.1073/pnas.1720347115" target="_blank" rel="noopener noreferrer">(Garg et al., 2018)</a></h2>
   <p class="support wide">単語分散表現を用いて、過去100年間のアメリカ社会におけるジェンダーおよび人種に関するステレオタイプの変化を定量的に分析した</p>
 
@@ -462,10 +462,11 @@ graph TB
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
   <h2 class="claim wide">Word2Vecに基づく意味変化の解析 <a href="https://www.pnas.org/doi/10.1073/pnas.1720347115" target="_blank" rel="noopener noreferrer">(Garg et al., 2018)</a></h2>
   <p class="support wide">単語分散表現を用いてステレオタイプを定量的に測定する</p>
 
@@ -492,12 +493,13 @@ graph TB
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
   <h2 class="claim wide">Word2Vecに基づく意味変化の解析 <a href="https://www.pnas.org/doi/10.1073/pnas.1720347115" target="_blank" rel="noopener noreferrer">(Garg et al., 2018)</a></h2>
-  <p class="support wide">単語ベクトルの意味空間における女性と男性は特定な職業に繋がりやすいのか?</p>
+  <p class="support wide">単語ベクトルの意味空間において、女性と男性は特定の職業と結びつきやすいのか？</p>
 
   <div class="pnas-figure-grid">
     <div class="pnas-figure-panel" v-click="1">
@@ -515,7 +517,7 @@ graph TB
         <img src="./image/pnas_fig02.jpeg" alt="PNAS figure showing changes in gender association gaps" />
       </label>
       <ul class="body-list compact">
-        <li>単語ベクトルに反映された職業に関するステレオタイプ傾向を、職業の性別比率の差の変化を比較する</li>
+        <li>単語ベクトルに反映された職業に関するステレオタイプ傾向と、職業の性別比率の差の変化を比較する</li>
       </ul>
     </div>
   </div>
@@ -523,10 +525,11 @@ graph TB
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
   <h2 class="claim wide">Word2Vecに基づく概念構造の解析 <a href="https://journals.sagepub.com/doi/full/10.1177/0003122419877135" target="_blank" rel="noopener noreferrer">(Kozlowski et al., 2019)</a></h2>
   <p class="support wide">Word2Vecを用いて、抽象的な概念を構成する意味的要素を抽出し、概念内部の構成と関係を分析</p>
 
@@ -558,10 +561,11 @@ graph TB
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
   <h2 class="claim wide">Word2Vecに基づく概念構造の解析 <a href="https://journals.sagepub.com/doi/full/10.1177/0003122419877135" target="_blank" rel="noopener noreferrer">(Kozlowski et al., 2019)</a></h2>
   <p class="support wide">Word2Vecを用いて、抽象的な概念を構成する意味的要素を抽出し、概念内部の構成と関係を分析</p>
 
@@ -590,10 +594,11 @@ graph TB
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">Word2Vecが社会科学における応用</div>
+  <div class="kicker">Word2Vecの社会科学における応用</div>
   <h2 class="claim wide">Word2Vecに基づく概念構造の解析 <a href="https://journals.sagepub.com/doi/full/10.1177/0003122419877135" target="_blank" rel="noopener noreferrer">(Kozlowski et al., 2019)</a></h2>
   <p class="support wide">異なる時代のコーパスを用いて学習したモデルの計算結果を比較し、構成要素次元の関係変化を解析</p>
 
@@ -618,11 +623,12 @@ graph TB
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>03</span></div>
 </div>
 
+
 ---
 
 <div class="page">
-  <div class="kicker">ウェルビーイングへの解析</div>
-  <h2 class="claim wide">Word2Vecでウェルビーイングの解析</h2>
+  <div class="kicker">ウェルビーイングの解析</div>
+  <h2 class="claim wide">Word2Vecによるウェルビーイングの解析</h2>
   <p class="support wide"><a href="https://journals.sagepub.com/doi/full/10.1177/0003122419877135" target="_blank" rel="noopener noreferrer">Kozlowski et al (2019)</a>の手法を、ウェルビーイングの構成要素、関係と変化の解析に応用</p>
 
 
@@ -633,7 +639,7 @@ graph TB
         <div class="label">ウェルビーイングの多次元性</div>
         <div class="metric-desc">
           <ul>
-            <li>「ウェルビーイング」はどのような要素による構成されるのか</li>
+            <li>「ウェルビーイング」はどのような要素によって構成されるのか</li>
           </ul>
         </div>
         <div class="label">時代・社会的背景に伴うウェルビーイングの変化</div>
@@ -647,7 +653,7 @@ graph TB
     <div class="metric" v-click="3">
       <div class="value">データと方法</div>
       <div class="metric-copy">
-        <div class="label">日本語の大規模コーパスを用いてWord２Vecモデルの学習と応用</div>
+        <div class="label">日本語の大規模コーパスを用いたWord2Vecモデルの学習と応用</div>
         <div class="metric-desc">
           <ul>
             <li><a href="https://lab.ndl.go.jp/ngramviewer/" target="_blank" rel="noopener noreferrer">国立国会図書館</a>が提供する、1910年代〜1990年代に出版された雑誌・書籍・官報を含むコーパスを使用</li>
@@ -663,18 +669,17 @@ graph TB
 </div>
 
 
-
 ---
 
 <div class="page">
-  <div class="kicker">ウェルビーイングへの解析</div>
-  <h2 class="claim wide">Word2Vecでウェルビーイングの解析</h2>
+  <div class="kicker">ウェルビーイングの解析</div>
+  <h2 class="claim wide">Word2Vecによるウェルビーイングの解析</h2>
 
   <div class="flow">
     <div class="flow-step" v-click="1">
       <div class="num">01</div>
       <div class="name">Word2Vecの学習</div>
-      <div class="desc">年ごとに分割し、各時間帯に対応する単語ベクトルモデルを訓練する.</div>
+      <div class="desc">年ごとに分割し、各時間帯に対応する単語ベクトルモデルを訓練する</div>
       <div class="desc">各年の単語ベクトルは、該当する時代の単語の意味をうまく表現できることが期待される</div>
     </div>
     <div class="arrow" v-click="2">→</div>
@@ -683,14 +688,14 @@ graph TB
       <div class="name">意味軸の構築</div>
       <div class="desc">対義語のペアを用意し、ペア単語ベクトルの計算で埋め込み空間における意味軸を特定する</div>
       <div class="desc">例えば、V(富)-V(貧困)という単語ベクトルの計算で「裕福」の意味軸を特定する</div>
-      <div class="desc">各意味軸は複数のペア単語を用いて平均の結果を採用する</div>
+      <div class="desc">各意味軸は複数のペア単語を用いた平均の結果を採用する</div>
     </div>
     <div class="arrow" v-click="3">→</div>
     <div class="flow-step" v-click="3">
       <div class="num">03</div>
       <div class="name">意味軸の計算による構造と関係への理解</div>
-      <div class="desc">意味軸同士のベクトル類似性が高いほど、該当する要素では関連していると言える</div>
-　　　 <div class="desc">「幸福」軸と他の構成要素の軸の関係と変化に着目</div>
+      <div class="desc">意味軸同士のベクトル類似性が高いほど、該当する要素間での関連が強いと言える</div>
+      <div class="desc">「幸福」軸と他の構成要素の軸との関係および変化に着目</div>
     </div>
   </div>
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>05</span></div>
@@ -700,9 +705,9 @@ graph TB
 ---
 
 <div class="page">
-  <div class="kicker">ウェルビーイングへの解析</div>
+  <div class="kicker">ウェルビーイングの解析</div>
   <h2 class="claim wide">日本におけるウェルビーイングの構成と変化</h2>
-  <p class="support wide">異なる年のWord2Vecモデルで意味軸間の計算を行い、その結果を年ごとに集計する</p>
+  <p class="support wide">異なる年のWord2Vecモデルを用いて意味軸間の計算を行い、その結果を年ごとに集計する</p>
   <div class="content-split compact-split equal-split">
     <ul class="body-list wide">
       <li v-click="1">ウェルビーイングに関連する要素の特定
@@ -712,14 +717,14 @@ graph TB
           <li><em>制度的ウェルビーイング：「Peace」「Democracy」</em></li>
         </ul>
       </li>
-      <li v-click="2">ウェルビーイングに関連する要素要素の変化
+      <li v-click="2">ウェルビーイングに関連する各要素の変化
         <ul>
           <li><em>長年にわたって安定している構成要素：「Health」</em></li>
-          <li><em>時代とともに変化した構成要素：「Play」「Democarcy」</em></li>
+          <li><em>時代とともに変化した構成要素：「Play」「Democracy」</em></li>
         </ul>
       </li>
     </ul>
-    <div class="plain-figure zoomable-figure" v-click="4">
+    <div class="plain-figure zoomable-figure" v-click="1">
       <input id="similarity-dynamics-zoom" class="zoom-check" type="checkbox" />
       <label for="similarity-dynamics-zoom" class="zoom-label">
         <img src="./image/similarity_dynamics_jp.png" alt="Kozlowski et al. changing relations among cultural dimensions" />
@@ -735,7 +740,7 @@ graph TB
 ---
 
 <div class="page">
-  <div class="kicker">ウェルビーイングへの解析</div>
+  <div class="kicker">ウェルビーイングの解析</div>
   <h2 class="claim wide">日本におけるウェルビーイングの構成と変化</h2>
   <p class="support wide">戦後の変化傾向に注目</p>
   <div class="content-split compact-split equal-split">
@@ -751,7 +756,7 @@ graph TB
         </ul>
       </li>
     </ul>
-    <div class="plain-figure zoomable-figure" v-click="4">
+    <div class="plain-figure zoomable-figure" v-click="1">
       <input id="similarity-dynamics-zoom" class="zoom-check" type="checkbox" />
       <label for="similarity-dynamics-zoom" class="zoom-label">
         <img src="./image/similarity_dynamics_revised.png" alt="Kozlowski et al. changing relations among cultural dimensions" />
@@ -768,16 +773,16 @@ graph TB
 
 <div class="page">
   <div class="kicker">まとめ</div>
-  <h2 class="claim wide">計算的手法によるウェルビーイングを解析する方法を解説した</h2>
+  <h2 class="claim wide">計算的手法によるウェルビーイングの解析方法を解説した</h2>
 
   <div class="metric-rail vertical">
     <div class="metric">
       <div class="value">示唆</div>
-      <div class="label">従来の手法では考察することが難しい構造関係や時代的変化に新たな知見を提供した</div>
+      <div class="label">従来の手法では考察することが難しい構造関係や時代的変化について、新たな知見を提供した</div>
     </div>
     <div class="metric">
       <div class="value">方法の拡張性</div>
-      <div class="label">複雑的な概念への理解ための手法として、多様の分野と研究ターマに応用することは可能である</div>
+      <div class="label">複雑な概念を理解するための手法として、多様な分野の研究テーマに応用することが可能である</div>
     </div>
   </div>
   <div class="footer"><span>人文社会科学特別科目「計算的手法によりウェルビーイングを測る」</span><span>08</span></div>
