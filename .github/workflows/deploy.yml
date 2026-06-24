@@ -52,6 +52,14 @@ jobs:
         working-directory: ./Other/2026/well_being_lecture
         run: nr build --base /${{github.event.repository.name}}/Other/2026/well_being_lecture/
 
+      - name: Install dependencies for otree_hosting
+        working-directory: ./Other/2026/otree_hosting
+        run: ni
+
+      - name: Build otree_hosting
+        working-directory: ./Other/2026/otree_hosting
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/otree_hosting/
+
       - name: Create output directory structure
         run: |
           mkdir -p public/Tutorial/2026/JAMS_2026
@@ -60,6 +68,8 @@ jobs:
           cp -r ./Other/2026/zemi_guidance/dist/* public/Other/2026/zemi_guidance/
           mkdir -p public/Other/2026/well_being_lecture
           cp -r ./Other/2026/well_being_lecture/dist/* public/Other/2026/well_being_lecture/
+          mkdir -p public/Other/2026/otree_hosting
+          cp -r ./Other/2026/otree_hosting/dist/* public/Other/2026/otree_hosting/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
