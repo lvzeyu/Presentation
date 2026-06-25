@@ -10,7 +10,7 @@
     "export:pdf": "slidev export --format pdf"
   },
   "dependencies": {
-    "@slidev/cli": "^52.0.0",
+    "@slidev/cli": "52.13.0",
     "@slidev/theme-default": "^0.25.0",
     "slidev-theme-neversink": "^0.4.1",
     "vue": "^3.5.0"

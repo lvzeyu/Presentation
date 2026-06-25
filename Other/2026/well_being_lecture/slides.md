@@ -28,7 +28,6 @@ mermaid:
     lineColor: '#6366f1'
     secondaryColor: '#f0fdfa'
     tertiaryColor: '#fff'
-routerMode: hash
 ---
 
 <style src="./style.css"></style>
