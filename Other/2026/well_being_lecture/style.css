@@ -702,3 +702,7 @@ p {
   line-height: 1.45;
   font-weight: 600;
 }
+
+#slidev-goto-dialog.-top-20 {
+  display: none;
+}

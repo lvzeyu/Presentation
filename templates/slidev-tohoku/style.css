@@ -280,3 +280,8 @@ p {
   color: #cbd5e1;
   font-size: 18px;
 }
+
+/* Hide Slidev's goto dialog until it is opened with the G key. */
+#slidev-goto-dialog.-top-20 {
+  display: none;
+}

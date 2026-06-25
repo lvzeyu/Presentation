@@ -11,3 +11,8 @@
 .slidev-layout {
   --slidev-content-left: 0 !important;
 }
+
+/* Hide Slidev's goto dialog until it is opened with the G key. */
+#slidev-goto-dialog.-top-20 {
+  display: none;
+}
