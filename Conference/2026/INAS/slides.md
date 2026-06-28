@@ -1,662 +1,430 @@
 ---
-# try also 'default' to start simple
 theme: neversink
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
+title: Emergence and Evolution of Social Norms among LLM Agents
+info: Conference presentation on social norm emergence in multi-agent LLM systems
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
+fonts:
+  sans: 'Inter, Noto Sans JP, Noto Sans SC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+  serif: 'Noto Serif JP, Noto Serif SC, serif'
+  mono: 'Roboto Mono, monospace'
+  provider: google
+  weights: '300,400,500,600,700,800'
+aspectRatio: 16/9
+canvasWidth: 1280
 transition: slide-left
-# enable Comark Syntax: https://comark.dev/syntax/markdown
-comark: true
-# duration of the presentation
-duration: 35min
+color: navy-light
+colorSchema: light
+css: unocss
+mdc: true
+mermaid:
+  theme: neutral
+  themeVariables:
+    primaryColor: '#eef2ff'
+    primaryTextColor: '#4338ca'
+    primaryBorderColor: '#6366f1'
+    lineColor: '#6366f1'
+    secondaryColor: '#f0fdfa'
+    tertiaryColor: '#fff'
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>`, `<BlueSky/>`, and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you press <kbd>space</kbd> or <kbd>right</kbd>, or click outside the slide on the right.
-
-```html
-<div v-click>This shows up when you trigger a click animation.</div>
-```
-
-</div>
-
-<p v-click>
-You can also add modifiers to change the animation:
-</p>
-
-<div class="grid gap-3 mt-4 text-sm" style="grid-template-columns: repeat(3, 1fr) 1.5fr 1fr">
-  <div v-after.up class="p-3 rounded border border-primary/20 bg-primary/10">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.up</div>
-    <div>Slide from bottom</div>
+<style src="./style.css"></style>
+
+<!-- Title slide: HTML needed for absolute-positioned layout -->
+<div class="title-page">
+  <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
+  <div class="kicker" style="position:absolute; top:46px; left:58px;">INAS 2026</div>
+  <div style="position:absolute; left:58px; right:200px; top:220px;">
+    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Emergence and Evolution of Social Norms among LLM Agents</h1>
+    <p style="font-size:26px; margin-top:28px; color:##4338ca; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
+    <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700;">Zeyu Lyu</p>
   </div>
-  <div v-click.fade-in class="p-3 rounded border border-primary/30 bg-primary/15">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade-in</div>
-    <div>Fade in</div>
-  </div>
-  <div v-click.fade class="p-3 rounded border border-primary/40 bg-primary/20">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade</div>
-    <div>Dim (0.5 opacity)</div>
-  </div>
-  <div v-click.fade.right.scale class="p-3 rounded border border-primary/50 bg-primary/25">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade.right.scale</div>
-    <div>Composed</div>
-  </div>
-  <div v-click.none class="p-3 rounded border border-primary/60 bg-primary/30">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.none</div>
-    <div>No transition</div>
+  <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
+    Annual Conference of the International Network of Analytical Sociology @ Oxford<br>
+    <span style="font-size:18px; font-weight:600;">3rd July 2026</span>
   </div>
 </div>
 
-<v-click>
-
-The <span v-mark.red="7"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="8">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div v-click mt-12>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
 ---
 
-# Motions
+<div class="kicker">Overview</div>
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+## Key Takeaways
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
+<p class="support wide">This presentation covers [1] improving reproducibility and interpretability of LLM-agent social simulation, and [2] simulating the formation and transformation of social norms via systematic control of LLM agents.</p>
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
+<div class="two-column">
+  <div class="card" v-click="1">
+    <h3>Reproducibility & interpretability</h3>
+    <ul>
+      <li>Use activation steering to control the behavior and decision-making of LLM agents.</li>
+    </ul>
   </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+  <div class="card green" v-click="2">
+    <h3>Simulation of social norms</h3>
+    <ul>
+      <li>Activation-steered agents for controlling personality and preference in social simulation.</li>
+    </ul>
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>02</span></div>
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+---
 
+<div class="kicker">Introduction</div>
+
+## LLM Agents in Social Simulation
+
+<p class="support wide">LLM agents show great promise in social simulation by providing an efficient way to model heterogeneous individuals, generate realistic interactions, and explore complex social dynamics</p>
+
+<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="1">LLM agents are promising for social simulation
+      <ul>
+        <li>Can produce context-dependent and human-like behavior (<a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a>, <a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a>)</li>
+      </ul>
+    </li>
+    <li v-click="2">Prompt based Application of LLMs agent
+      <ul>
+        <li>Define the characteristic and behavios of agent in a simple prompt based way</li>
+        <li>Further incorporate human-like cognitive patterns such as memory, planing, reflection can ne implemented as prompts</li>
+      </ul>
+    </li>
+  </ul>
+  <img v-click="1" src="./image/Generative_AI.png" style="width:70%; border-radius:6px;" />
 </div>
 
----
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
 
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
 
 ---
 
-# Diagrams
+<div class="kicker">Introduction</div>
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+## Limitations of LLMs Agents
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+<p class="support wide">Despite their promise, LLM agents remain difficult to reproduce, control, and explain.</p>
 
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+<v-clicks>
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
+- Societal and Representational Biases
+    - Explicit and implicit stereotypes related to race, gender, religion, and culture. ([Acerbi et al., 2025](https://www.pnas.org/doi/10.1073/pnas.2416228122); [Gallegos et al., 2024](https://doi.org/10.1162/coli_a_00524); [Kotek et al., 2024](https://arxiv.org/abs/2403.14727))
+    - Models are typically trained to be “helpful and harmless”, thus filter conflictual, aggressive, or “dark” social dynamics even when such behaviors are realistic and essential for understanding phenomena([Bail, 2024](https://www.pnas.org/doi/10.1073/pnas.2314021121)).
 
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
+- Convergence towards the “Average Persona”
+    - LLM agents may produce responses that are plausible on average but fail to capture the full heterogeneity of real human populations. ([Argyle et al., 2023](https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49); [Wu et al., 2025](https://arxiv.org/abs/2506.19806))
 
-```plantuml {scale: 0.7}
-@startuml
+- Challenges in the reproducibility and interpretability of LLMs agents
+    - Sensitive to the prompt formulation [(Loya et al., 2023)](https://aclanthology.org/2023.findings-emnlp.241/)
+    - Black-box nature makes diffculities in verifying the reliability and validity of the simulation’s results.
 
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
+</v-clicks>
 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
 
-cloud {
-  [Example 1]
-}
 
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
+---
 
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
+<div class="kicker">Introduction</div>
 
-@enduml
-```
+## Mapping the "Mind" of LLMs
 
+<p class="support wide">The output of LLMs may be controlled by the intervention on its internal representations</p>
+
+<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="1">Internal representations may encode knowledge, concepts,style and preferences of LLMs
+      <ul>
+        <li>Can produce context-dependent and human-like behavior (<a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a>, <a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a>)</li>
+      </ul>
+    </li>
+    <li  v-click="2">Representation engineering the control of LLM agents by intervening in internal representations
+      <ul>
+        <li>Control LLMs from inside the model rather than only through external prompts</li>
+      </ul>
+    </li>
+  </ul>
+  <img v-click="1" src="./image/golden_bridge.png " style="width:100%; border-radius:6px;" />
 </div>
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
 
 ---
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
 
-# Draggable Elements
+<div class="kicker">Introduction</div>
 
-Double-click on the draggable elements to edit their positions.
+## Activation Steering
 
-<br>
+<p class="support wide">Identify specified representations and manipulate these representations during inference to control LLMs</p>
 
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
+<div style="display:grid; grid-template-columns:3.55fr 2fr; gap:40px; margin-top:28px; align-items:start;">
+  <div>
+    <img src="./image/steering1.png" style="width:100%; border-radius:4px;" />
+    <ul class="caption-list">
+      <li>Construct paired prompts that differ along exactly one conceptual dimension.</li>
+      <li>Record the residual stream activations in the model and compute the difference between the two conditions</li>
+    </ul>
   </div>
-</v-drag>
+  <div>
+    <img src="./image/steering2.png" style="width:100%; border-radius:4px;" />
+    <ul class="caption-list">
+      <li>Adding a concept vector to the current hidden state, thereby shifting subsequent generation toward behaviors associated with the target concept.</li>
+    </ul>
+  </div>
+</div>
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
 
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
 
 ---
 
-# Monaco Editor
+<div class="kicker">Research Question</div>
 
-Slidev provides built-in Monaco Editor support.
+## Issues in the Simulation of Norm with LLM Agents
 
-Add `{monaco}` to the code block to turn it into an editor:
+<div class="quote-panel">
+  <p>Key research question in the social simulation of norm </p>
+  <span style="font-size:24px;">How do norms emerge, stabilize, and change through interactions among agents?</span>
+</div>
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+<v-clicks>
 
-const arr = ref(emptyArray(10))
-```
+- Reproductability
+    - Prompt-based manipulation of agent characteristics and norm context is inherently instable
+- Interpretability
+    - Black box nature of LLMs makes it difficult to determine whether they norm from interaction-driven norm dynamics or from the model’s pre-existing internal biases
+</v-clicks>
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
 
 ---
-layout: center
-class: text-center
+
+<div class="kicker">Research Question</div>
+
+## Activation-steered Agents for Simulation of Norm
+
+<v-clicks>
+
+- Conduct activation steering and simulation based on <em>Qwen-3.5 8B</em>.
+- How the personality of agents affect the outcome of norm?
+    - Construct the steering vector to control the extend of altruism of agent.
+    - Examine how the extend of altruism affect the outcome across various behavioral experiments
+
+- How the increasing of minority of agents with different belief can lead to change of norm?
+    - Construct the steering vector to control the agent's belief toward a specific issue.
+    - Examine how interactions among agents lead to the change of norm.
+</v-clicks>
+
+<div class="quote-panel" v-click="4">
+  <span style="font-size:26px;"><strong style="color:white; font-weight:800;">Main Purpose:</strong> Rather than providing implications of norm, this study tends to show how activation-steered agents can address issues in social simulation</span>
+</div>
+
+
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
+
 ---
 
-# Learn More
+<div class="kicker">Research Question</div>
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+## Steering Activation that Controls the Altruisness of Agent
 
-<PoweredBySlidev mt-10 />
+<v-clicks>
+
+- Contrastive scenarios pairs that are identically except for altruistic or selfish behaviors
+    - *I donated to charity to get a tax deduction*
+    - *I donated to charity to help people in need*
+- Extract residual stream activations by computing the difference
+
+$$\mathbf{v}^{(l)} = \frac{1}{N} \sum_{i=1}^{N} \left( \mathbf{a}^{(l)}(x_i^+) - \mathbf{a}^{(l)}(x_i^-) \right)$$
+
+- Applying the steering vector with a scalar coefficient $\alpha$
+    - $\alpha > 0$: steer toward altruism
+    - $\alpha < 0$: steer toward selfishness
+
+$$\mathbf{a}^{(l)}_\text{steered} = \mathbf{a}^{(l)} + \alpha \cdot \mathbf{v}^{(l)}$$
+</v-clicks>
+
+
+
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
+
+---
+clicks: 3
+---
+
+<div class="kicker">Results</div>
+
+## Activation-steered Agents in Behavioral Experiement
+
+<p class="support wide">The output of LLMs may be controlled by the intervention on its internal representations</p>
+
+<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="1">Experiments that outcomes are typically influenced by the altruisness of agent
+      <ul>
+        <li>Prompt the LLMs agent to engage the experienment and describe their decision and reasons.</li>
+        <li>Use an external LLMs(GPT-5.5) to evaluate the extent of altruisness of agent's decision</li>
+      </ul>
+    </li>
+    <li v-click="2">Adjust of steering coefficient can control the simulation results
+      <ul>
+        <li v-show="$clicks >= 2">Lower value of steering coefficient lead to more selfish behaviors</li>
+        <li v-show="$clicks >= 3">Increasing value of steering coefficient lead to more altruistic behaviors</li>
+      </ul>
+    </li>
+  </ul>
+  <img v-show="$clicks == 1" src="./image/figure3a_altruism_ratings_by_game-1.png" style="width:100%; border-radius:6px;" />
+  <img v-show="$clicks === 2" src="./image/figure3a_altruism_ratings_by_game-2.png" style="width:100%; border-radius:6px;" />
+  <img v-show="$clicks >= 3" src="./image/figure3a_altruism_ratings_by_game-3.png" style="width:100%; border-radius:6px;" />
+</div>
+
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
+
+
+---
+clicks: 4
+---
+
+<div class="kicker">Results</div>
+
+## Activation-steered Agents for Simulation of Norm
+
+<p class="support wide">Aim to control the pontential bias of belief for simulation of norm changes</p>
+
+<div v-click="1">
+
+- Context: *Whether payment should be shared or rotated among participants*
+    - Agents(Human) decide their payment behavior based on their preference and behaviors they observe from others.
+    - Over repeated interactions, such adaptive decision-making processes can facilitate the emergence, stabilization, and transformation of payment norms.
+
+</div>
+
+<div style="display:grid; grid-template-columns:3.5fr 2fr; gap:10px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="2">Use activation steering to manipulate preferences, enabling more controlled social simulations.
+      <ul>
+        <li>The original LLM tends to overwhelmingly choose shared payment.</li>
+        <li>Use activation steering can adjust agents' preferences on payment.</li>
+      </ul>
+    </li>
+  </ul>
+  <div style="position:relative;">
+    <img v-show="$clicks === 2" src="./image/p_share_vs_alpha_barplot-1.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks === 3" src="./image/p_share_vs_alpha_barplot-2.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks >= 4" src="./image/p_share_vs_alpha_barplot-3.png" style="width:100%; border-radius:6px;" />
+    <div v-click="3" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+    <div v-click="4" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+  </div>
+</div>
+
+
+
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>06</span></div>
+
+
+---
+clicks: 4
+---
+
+<div class="kicker">Results</div>
+
+## Activation-steered Agents for Simulation of Norm
+
+<p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
+
+<div v-click="1">
+
+- Simulation of norm changes based on LLM agents
+    - 50 agents are connected in a small world network.
+    - In each round, agent update their choice on  shared or rotated payment based on their preference and observations. 
+
+</div>
+
+<div style="display:grid; grid-template-columns:2fr 2fr; gap:10px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="2">Different agents leads to different outcomes.
+      <ul>
+        <li>Due to the bias preference toward share payment, agents based on original LLM always lead to a share payment norm.</li>
+        <li>Simulation based on activation-steered agents can lead to different outcomes.</li>
+      </ul>
+    </li>
+  </ul>
+  <div style="position:relative;">
+    <img v-show="$clicks === 2" src="./image/m0_control_trajectories-1.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks === 3" src="./image/m0_control_trajectories-2.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks >= 4" src="./image/m0_control_trajectories-3.png" style="width:100%; border-radius:6px;" />
+    <div v-click="3" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+    <div v-click="4" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+  </div>
+</div>
+
+
+
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>06</span></div>
+
+
+---
+clicks: 4
+---
+
+<div class="kicker">Results</div>
+
+## Activation-steered Agents for Simulation of Norm
+
+<p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
+
+
+<div style="display:grid; grid-template-columns:2.5fr 2fr; gap:5px; margin-top:8px; align-items:start;">
+  <ul>
+    <li v-click="1">Simulation of how an increasing minority with contrasting preferences can affect norm change.
+      <ul>
+        <li>The majority refers to agents support share payment, while minority refers agents support rotate payment</li>
+        <li>50 agents are connected in a small world network.</li>
+        <li>Number of majority changes across different scenarios.</li>
+        <li>Agents' commitment to norms is controlled by activation steering.</li>
+      </ul>
+    </li>
+    <li v-click="2">Changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs.
+    </li>
+  </ul>
+  <div>
+    <img v-click="2" src="./image/smallworld_proprior_trajectories-1.png" style="width:72%; border-radius:4px;" />
+    <img v-click="3" src="./image/smallworld_proprior_trajectories-2.png" style="width:72%; border-radius:4px; margin-top:8px;" />
+  </div>
+</div>
+
+
+
+<div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>06</span></div>
+
+
+---
+
+<div class="kicker">Summary</div>
+
+## Activation steering in Social Simulation
+
+<p class="support wide"></p>
+
+
+<div class="card" v-click="1">
+    <h3>Activation steering represents a promising method for improving the reproducibility and interpretability of social simulations based on LLM agents</h3>
+    <ul>
+      <li>Activation steering enable the contorl of agents like personality and belief</li>
+      <li>Reduce the influence of model- and prompt-level variations on simulation outcomes.</li>
+      <li>Enhance interpretability by clarifying the relationship between controlled conditions and simulation outcomes.</li>
+    </ul>
+</div>
+
+<div class="card rose" v-click="2">
+    <h3>Activation steering is not always effective </h3>
+    <ul>
+      <li>Relevant concepts may be distributed across multiple layers and intertwined with other representations, making it difficult for a single steering vector to reliably control the model’s behavior (<a href="https://arxiv.org/abs/2505.22637">Braun et al., 2025</a>).</li>
+      <li>Activation steering is context-sensitive to models.</li>
+    </ul>
+  </div>
+
+
+
