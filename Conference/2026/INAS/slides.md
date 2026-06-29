@@ -33,14 +33,13 @@ mermaid:
 <!-- Title slide: HTML needed for absolute-positioned layout -->
 <div class="title-page">
   <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
-  <div class="kicker" style="position:absolute; top:46px; left:58px;">INAS 2026</div>
   <div style="position:absolute; left:58px; right:200px; top:220px;">
     <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Emergence and Evolution of Social Norms among LLM Agents</h1>
-    <p style="font-size:26px; margin-top:28px; color:##4338ca; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
+    <p style="font-size:26px; margin-top:18px; color:##4338ca; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
     <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700;">Zeyu Lyu</p>
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
-    Annual Conference of the International Network of Analytical Sociology @ Oxford<br>
+    Annual Conference of the International Network of Analytical Sociology, Oxford<br>
     <span style="font-size:18px; font-weight:600;">3rd July 2026</span>
   </div>
 </div>
@@ -86,10 +85,10 @@ mermaid:
         <li>Can produce context-dependent and human-like behavior (<a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a>, <a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a>)</li>
       </ul>
     </li>
-    <li v-click="2">Prompt based Application of LLMs agent
+    <li v-click="2">Prompt-Based Application of LLM Agents
       <ul>
-        <li>Define the characteristic and behavios of agent in a simple prompt based way</li>
-        <li>Further incorporate human-like cognitive patterns such as memory, planing, reflection can ne implemented as prompts</li>
+        <li>Define the characteristics and behaviors of agents in a simple, prompt-based way</li>
+        <li>Human-like cognitive patterns such as memory, planning, and reflection can further be incorporated as prompts</li>
       </ul>
     </li>
   </ul>
@@ -103,7 +102,7 @@ mermaid:
 
 <div class="kicker">Introduction</div>
 
-## Limitations of LLMs Agents
+## Limitations of LLM Agents
 
 <p class="support wide">Despite their promise, LLM agents remain difficult to reproduce, control, and explain.</p>
 
@@ -116,9 +115,9 @@ mermaid:
 - Convergence towards the “Average Persona”
     - LLM agents may produce responses that are plausible on average but fail to capture the full heterogeneity of real human populations. ([Argyle et al., 2023](https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49); [Wu et al., 2025](https://arxiv.org/abs/2506.19806))
 
-- Challenges in the reproducibility and interpretability of LLMs agents
+- Challenges in Reproducibility and Interpretability of LLM Agents
     - Sensitive to the prompt formulation [(Loya et al., 2023)](https://aclanthology.org/2023.findings-emnlp.241/)
-    - Black-box nature makes diffculities in verifying the reliability and validity of the simulation’s results.
+    - The black-box nature creates difficulties in verifying the reliability and validity of simulation results.
 
 </v-clicks>
 
@@ -135,12 +134,12 @@ mermaid:
 
 <div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
   <ul>
-    <li v-click="1">Internal representations may encode knowledge, concepts,style and preferences of LLMs
+    <li v-click="1">Internal representations may encode the knowledge, concepts, style, and preferences of LLMs
       <ul>
         <li>Can produce context-dependent and human-like behavior (<a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a>, <a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a>)</li>
       </ul>
     </li>
-    <li  v-click="2">Representation engineering the control of LLM agents by intervening in internal representations
+    <li v-click="2">Representation engineering enables the control of LLM agents by intervening in their internal representations
       <ul>
         <li>Control LLMs from inside the model rather than only through external prompts</li>
       </ul>
@@ -170,7 +169,7 @@ mermaid:
   <div>
     <img src="./image/steering2.png" style="width:100%; border-radius:4px;" />
     <ul class="caption-list">
-      <li>Adding a concept vector to the current hidden state, thereby shifting subsequent generation toward behaviors associated with the target concept.</li>
+      <li>Add a concept vector to the current hidden state, thereby shifting subsequent generation toward behaviors associated with the target concept.</li>
     </ul>
   </div>
 </div>
@@ -182,19 +181,19 @@ mermaid:
 
 <div class="kicker">Research Question</div>
 
-## Issues in the Simulation of Norm with LLM Agents
+## Issues in the Simulation of Norms with LLM Agents
 
 <div class="quote-panel">
-  <p>Key research question in the social simulation of norm </p>
+  <p>Key research question in the social simulation of norms</p>
   <span style="font-size:24px;">How do norms emerge, stabilize, and change through interactions among agents?</span>
 </div>
 
 <v-clicks>
 
-- Reproductability
-    - Prompt-based manipulation of agent characteristics and norm context is inherently instable
+- Reproducibility
+    - Prompt-based manipulation of agent characteristics and norm context is inherently unstable
 - Interpretability
-    - Black box nature of LLMs makes it difficult to determine whether they norm from interaction-driven norm dynamics or from the model’s pre-existing internal biases
+    - The black-box nature of LLMs makes it difficult to determine whether norms emerge from interaction-driven dynamics or from the model’s pre-existing internal biases
 </v-clicks>
 
 <div class="footer"><span>Annual Conference of the International Network of Analytical Sociology</span><span>04</span></div>
@@ -203,22 +202,22 @@ mermaid:
 
 <div class="kicker">Research Question</div>
 
-## Activation-steered Agents for Simulation of Norm
+## Activation-steered Agents for Simulation of Norms
 
 <v-clicks>
 
-- Conduct activation steering and simulation based on <em>Qwen-3.5 8B</em>.
-- How the personality of agents affect the outcome of norm?
-    - Construct the steering vector to control the extend of altruism of agent.
-    - Examine how the extend of altruism affect the outcome across various behavioral experiments
+- Conduct activation steering and simulation based on <em>meta-llama/Llama-3.1-8B-Instruct</em>.
+- How does the personality of agents affect norm outcomes?
+    - Construct the steering vector to control the degree of altruism of agents.
+    - Examine how the degree of altruism affects outcomes across various behavioral experiments
 
-- How the increasing of minority of agents with different belief can lead to change of norm?
-    - Construct the steering vector to control the agent's belief toward a specific issue.
-    - Examine how interactions among agents lead to the change of norm.
+- How can an increasing minority of agents with different beliefs lead to norm change?
+    - Construct the steering vector to control agents' beliefs toward a specific issue.
+    - Examine how interactions among agents lead to norm change.
 </v-clicks>
 
 <div class="quote-panel" v-click="4">
-  <span style="font-size:26px;"><strong style="color:white; font-weight:800;">Main Purpose:</strong> Rather than providing implications of norm, this study tends to show how activation-steered agents can address issues in social simulation</span>
+  <span style="font-size:26px;"><strong style="color:white; font-weight:800;">Main Purpose:</strong> Rather than providing substantive findings about norms, this study aims to demonstrate how activation-steered agents can address core issues in social simulation</span>
 </div>
 
 
@@ -228,18 +227,18 @@ mermaid:
 
 <div class="kicker">Research Question</div>
 
-## Steering Activation that Controls the Altruisness of Agent
+## Steering Activation that Controls the Altruism of Agents
 
 <v-clicks>
 
-- Contrastive scenarios pairs that are identically except for altruistic or selfish behaviors
+- Contrastive scenario pairs that are identical except for altruistic or selfish behaviors
     - *I donated to charity to get a tax deduction*
     - *I donated to charity to help people in need*
 - Extract residual stream activations by computing the difference
 
 $$\mathbf{v}^{(l)} = \frac{1}{N} \sum_{i=1}^{N} \left( \mathbf{a}^{(l)}(x_i^+) - \mathbf{a}^{(l)}(x_i^-) \right)$$
 
-- Applying the steering vector with a scalar coefficient $\alpha$
+- Apply the steering vector with a scalar coefficient $\alpha$
     - $\alpha > 0$: steer toward altruism
     - $\alpha < 0$: steer toward selfishness
 
@@ -256,22 +255,22 @@ clicks: 3
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents in Behavioral Experiement
+## Activation-steered Agents in Behavioral Experiment
 
-<p class="support wide">The output of LLMs may be controlled by the intervention on its internal representations</p>
+<p class="support wide">The output of LLMs may be controlled by intervention on their internal representations</p>
 
 <div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
   <ul>
-    <li v-click="1">Experiments that outcomes are typically influenced by the altruisness of agent
+    <li v-click="1">Experiments whose outcomes are typically influenced by the altruism of agents
       <ul>
-        <li>Prompt the LLMs agent to engage the experienment and describe their decision and reasons.</li>
-        <li>Use an external LLMs(GPT-5.5) to evaluate the extent of altruisness of agent's decision</li>
+        <li>Prompt the LLM agent to engage in the experiment and describe their decisions and reasoning.</li>
+        <li>Use an external LLM (GPT-4) to evaluate the extent of altruism in agents' decisions</li>
       </ul>
     </li>
-    <li v-click="2">Adjust of steering coefficient can control the simulation results
+    <li v-click="2">Adjustment of the steering coefficient can control simulation results
       <ul>
-        <li v-show="$clicks >= 2">Lower value of steering coefficient lead to more selfish behaviors</li>
-        <li v-show="$clicks >= 3">Increasing value of steering coefficient lead to more altruistic behaviors</li>
+        <li v-show="$clicks >= 2">Lower values of the steering coefficient lead to more selfish behaviors</li>
+        <li v-show="$clicks >= 3">Higher values of the steering coefficient lead to more altruistic behaviors</li>
       </ul>
     </li>
   </ul>
@@ -289,14 +288,14 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents for Simulation of Norm
+## Activation-steered Agents for Simulation of Norms
 
-<p class="support wide">Aim to control the pontential bias of belief for simulation of norm changes</p>
+<p class="support wide">Aim to control the potential bias of belief for the simulation of norm changes</p>
 
 <div v-click="1">
 
 - Context: *Whether payment should be shared or rotated among participants*
-    - Agents(Human) decide their payment behavior based on their preference and behaviors they observe from others.
+    - Agents decide their payment behavior based on their preferences and the behaviors they observe from others.
     - Over repeated interactions, such adaptive decision-making processes can facilitate the emergence, stabilization, and transformation of payment norms.
 
 </div>
@@ -306,7 +305,7 @@ clicks: 4
     <li v-click="2">Use activation steering to manipulate preferences, enabling more controlled social simulations.
       <ul>
         <li>The original LLM tends to overwhelmingly choose shared payment.</li>
-        <li>Use activation steering can adjust agents' preferences on payment.</li>
+        <li>Activation steering can adjust agents' preferences regarding payment.</li>
       </ul>
     </li>
   </ul>
@@ -330,24 +329,24 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents for Simulation of Norm
+## Activation-steered Agents for Simulation of Norms
 
 <p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
 
 <div v-click="1">
 
-- Simulation of norm changes based on LLM agents
-    - 50 agents are connected in a small world network.
-    - In each round, agent update their choice on  shared or rotated payment based on their preference and observations. 
+- Simulation of norm changes using LLM agents
+    - 50 agents are connected in a small-world network.
+    - In each round, agents update their choice of shared or rotated payment based on their preferences and observations.
 
 </div>
 
 <div style="display:grid; grid-template-columns:2fr 2fr; gap:10px; margin-top:28px; align-items:start;">
   <ul>
-    <li v-click="2">Different agents leads to different outcomes.
+    <li v-click="2">Different agent configurations lead to different outcomes.
       <ul>
-        <li>Due to the bias preference toward share payment, agents based on original LLM always lead to a share payment norm.</li>
-        <li>Simulation based on activation-steered agents can lead to different outcomes.</li>
+        <li>Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.</li>
+        <li>Simulations based on activation-steered agents can lead to different outcomes.</li>
       </ul>
     </li>
   </ul>
@@ -371,7 +370,7 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents for Simulation of Norm
+## Activation-steered Agents for Simulation of Norms
 
 <p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
 
@@ -380,9 +379,9 @@ clicks: 4
   <ul>
     <li v-click="1">Simulation of how an increasing minority with contrasting preferences can affect norm change.
       <ul>
-        <li>The majority refers to agents support share payment, while minority refers agents support rotate payment</li>
-        <li>50 agents are connected in a small world network.</li>
-        <li>Number of majority changes across different scenarios.</li>
+        <li>The majority refers to agents supporting shared payment, while the minority refers to agents supporting rotated payment</li>
+        <li>50 agents are connected in a small-world network.</li>
+        <li>The number of majority agents varies across different scenarios.</li>
         <li>Agents' commitment to norms is controlled by activation steering.</li>
       </ul>
     </li>
@@ -404,7 +403,7 @@ clicks: 4
 
 <div class="kicker">Summary</div>
 
-## Activation steering in Social Simulation
+## Activation Steering in Social Simulation
 
 <p class="support wide"></p>
 
@@ -412,9 +411,9 @@ clicks: 4
 <div class="card" v-click="1">
     <h3>Activation steering represents a promising method for improving the reproducibility and interpretability of social simulations based on LLM agents</h3>
     <ul>
-      <li>Activation steering enable the contorl of agents like personality and belief</li>
-      <li>Reduce the influence of model- and prompt-level variations on simulation outcomes.</li>
-      <li>Enhance interpretability by clarifying the relationship between controlled conditions and simulation outcomes.</li>
+      <li>Activation steering enables the control of agent properties such as personality and belief</li>
+      <li>Reduces the influence of model- and prompt-level variations on simulation outcomes.</li>
+      <li>Enhances interpretability by clarifying the relationship between controlled conditions and simulation outcomes.</li>
     </ul>
 </div>
 
@@ -422,7 +421,7 @@ clicks: 4
     <h3>Activation steering is not always effective </h3>
     <ul>
       <li>Relevant concepts may be distributed across multiple layers and intertwined with other representations, making it difficult for a single steering vector to reliably control the model’s behavior (<a href="https://arxiv.org/abs/2505.22637">Braun et al., 2025</a>).</li>
-      <li>Activation steering is context-sensitive to models.</li>
+      <li>Activation steering is both context-sensitive and model-dependent.</li>
     </ul>
   </div>
 

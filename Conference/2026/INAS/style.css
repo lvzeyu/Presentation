@@ -133,6 +133,10 @@ h1, h2, h3, p { margin: 0; }
   background: var(--paper);
 }
 
+.title-page h1 {
+  border-bottom-color: #4338ca !important;
+}
+
 /* ── Two-column card layout ── */
 .two-column {
   margin-top: 40px;
