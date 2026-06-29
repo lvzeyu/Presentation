@@ -8,6 +8,12 @@
 
 ## Conference
 
+### 2026
+
+| 発表 | スライド | 資料 |
+|------|----------|------|
+| Emergence and Evolution of Social Norms among LLM Agents (INAS 2026) | [GitHub Pages](https://lvzeyu.github.io/Presentation/Conference/2026/INAS/) | [Conference/2026/INAS/](Conference/2026/INAS/) |
+
 ### 2025
 
 | 発表 | 資料 |

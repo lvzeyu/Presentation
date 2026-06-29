@@ -1,0 +1,292 @@
+:root {
+  --paper: #f9fafb;
+  --ink: #243033;
+  --muted: #5f6b73;
+  --faint: #d1d5db;
+  --blue: #4338ca;
+  --blue-soft: #eef2ff;
+  --green: #0f766e;
+  --green-soft: #ccfbf1;
+  --amber: #f59e0b;
+  --amber-soft: #fef3c7;
+  --rose: #be123c;
+  --rose-soft: #ffe4e6;
+  --dark: #1f2937;
+}
+
+.slidev-layout {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", "Noto Sans JP", "Noto Sans SC", "Hiragino Sans", "Yu Gothic", sans-serif;
+  /* padding leaves room for the absolutely-positioned footer */
+  padding: 46px 58px 60px;
+  position: relative;
+}
+
+/* ── Markdown heading → claim style ── */
+.slidev-layout h2 {
+  margin: 20px 0 0;
+  max-width: 1120px;
+  font-family: "Noto Serif JP", "Noto Serif SC", "Yu Mincho", serif;
+  font-size: 48px;
+  line-height: 1.08;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* ── Support paragraph (also auto-applied to first p after h2) ── */
+.support,
+.slidev-layout h2 + p {
+  max-width: 820px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 21px;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+.support.wide {
+  max-width: 1120px;
+}
+
+/* ── Markdown bullet list ── */
+.slidev-layout ul {
+  margin-top: 28px;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+.slidev-layout ul > li {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.slidev-layout ul > li > ul {
+  margin-top: 8px;
+  padding-left: 1.3em;
+  list-style: circle;
+}
+
+.slidev-layout ul > li > ul > li {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* ── Kicker: top-left section label ── */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--blue);
+}
+
+h1, h2, h3, p { margin: 0; }
+
+/* ── Footer: bottom bar ── */
+.footer {
+  position: absolute;
+  left: 58px;
+  right: 58px;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--faint);
+  padding-top: 10px;
+  color: #6b7280;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+/* ── Logo: top-right corner ── */
+.logo {
+  position: absolute;
+  top: 44px;
+  right: 58px;
+  height: 104px;
+  width: auto;
+}
+
+/* ── Title slide wrapper (escapes layout padding) ── */
+.title-page {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.title-page h1 {
+  border-bottom-color: #4338ca !important;
+}
+
+/* ── Two-column card layout ── */
+.two-column {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+}
+
+.card {
+  min-height: 210px;
+  padding: 28px 30px;
+  background: rgba(255, 255, 255, 0.52);
+  border-top: 4px solid var(--blue);
+  box-shadow: 0 12px 28px rgba(31, 41, 55, 0.06);
+}
+
+.card.green  { border-color: var(--green); }
+.card.amber  { border-color: var(--amber); }
+.card.rose   { border-color: var(--rose); }
+
+.card h3 {
+  font-size: 26px;
+  line-height: 1.18;
+  font-weight: 850;
+}
+
+.card p, .card li {
+  color: var(--muted) !important;
+  font-size: 19px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+.card ul {
+  margin: 18px 0 0;
+  padding-left: 1.2em;
+}
+
+/* ── Step-flow diagram ── */
+.flow {
+  margin-top: 54px;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr 60px 1fr;
+  align-items: center;
+}
+
+.flow-step {
+  min-height: 154px;
+  border-top: 2px solid var(--ink);
+  padding-top: 18px;
+}
+
+.flow-step .num  { color: var(--blue); font-size: 28px; font-weight: 900; }
+.flow-step .name { margin-top: 12px; font-size: 25px; line-height: 1.18; font-weight: 850; }
+.flow-step .desc { margin-top: 10px; color: var(--muted); font-size: 20px; line-height: 1.45; }
+
+.arrow { color: var(--amber); font-size: 34px; text-align: center; font-weight: 900; }
+
+/* ── Two-column table ── */
+.matrix {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 2px solid var(--ink);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.matrix-head {
+  padding: 16px 22px;
+  background: var(--dark);
+  color: white;
+  font-size: 19px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.matrix-head:nth-child(1),
+.matrix-cell:nth-child(odd) { border-right: 2px solid var(--ink); }
+
+.matrix-cell {
+  min-height: 110px;
+  padding: 24px 28px;
+  border-top: 2px solid var(--faint);
+  font-size: 25px;
+  line-height: 1.22;
+  font-weight: 800;
+}
+
+.matrix-cell:nth-child(4n+3),
+.matrix-cell:nth-child(4n+4) { background: rgba(238, 242, 255, 0.62); }
+
+/* ── Dark quote panel ── */
+.quote-panel {
+  margin-top: 48px;
+  padding: 34px 42px;
+  background: var(--dark);
+  color: white;
+}
+
+.quote-panel p  { font-size: 33px; line-height: 1.25; font-weight: 850; }
+.quote-panel span { display: block; margin-top: 18px; color: #cbd5e1; font-size: 19px; }
+
+/* ── Metric rail (conclusion / roadmap) ── */
+.metric-rail {
+  position: absolute;
+  left: 58px;
+  right: 58px;
+  bottom: 82px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.metric { border-left: 3px solid var(--blue); padding-left: 16px; }
+.metric:nth-child(2) { border-color: var(--green); }
+.metric:nth-child(3) { border-color: var(--amber); }
+.metric:nth-child(4) { border-color: var(--rose); }
+
+.metric .value { font-size: 34px; line-height: 1; font-weight: 900; }
+.metric .label { margin-top: 10px; color: var(--ink); font-size: 20px; line-height: 1.35; font-weight: 700; }
+
+.metric-list {
+  margin-top: 8px !important;
+  padding-left: 1.1em !important;
+  list-style: disc !important;
+}
+
+.metric-list > li {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 2px !important;
+}
+
+/* ── Figure caption list ── */
+.caption-list {
+  margin-top: 8px !important;
+  padding-left: 1.2em !important;
+  list-style: disc !important;
+}
+
+.caption-list > li {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 2px !important;
+}
+
+/* Hide Slidev's goto dialog until opened with G key */
+#slidev-goto-dialog.-top-20 { display: none; }

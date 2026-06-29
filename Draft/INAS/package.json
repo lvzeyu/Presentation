@@ -1,0 +1,21 @@
+{
+  "name": "inas_llm_social_norms",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export --format pptx",
+    "export:pdf": "slidev export --format pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.0.0",
+    "@slidev/theme-default": "^0.25.0",
+    "slidev-theme-neversink": "^0.4.1",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.52.0"
+  }
+}

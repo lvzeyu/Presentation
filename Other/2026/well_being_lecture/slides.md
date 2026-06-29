@@ -144,7 +144,7 @@ mermaid:
 ---
 
 <div class="page">
-  <div class="kicker">イントロ</div>
+  <div class="kicker">Introduction</div>
   <h2 class="claim wide">計算的手法によるウェルビーイングの測定</h2>
   <p class="support wide">計算人文社会科学は、社会や文化、言語、歴史、人間行動に関する問題を、デジタルデータや計算モデルを用いて分析する</p>
 
