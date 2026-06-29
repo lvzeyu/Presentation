@@ -37,6 +37,38 @@
   pointer-events: none;
 }
 
+.slidev-layout img:not(.logo):not(.title-qr) {
+  cursor: zoom-in;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px;
+  background: rgba(17, 24, 39, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 160ms ease;
+  cursor: zoom-out;
+}
+
+.image-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-lightbox img {
+  max-width: min(94vw, 1180px);
+  max-height: 90vh;
+  background: white;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+  object-fit: contain;
+}
+
 /* ── Markdown heading → claim style ── */
 .slidev-layout h2 {
   margin: 20px 0 0;
