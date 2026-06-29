@@ -32,6 +32,7 @@ mermaid:
 
 <!-- Title slide: HTML needed for absolute-positioned layout -->
 <div class="title-page">
+  <img class="title-qr" src="./assets/presentation-qr.svg" alt="Presentation QR code" />
   <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
   <div style="position:absolute; left:58px; right:200px; top:220px;">
     <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Emergence and Evolution of Social Norms among LLM Agents</h1>
@@ -216,8 +217,8 @@ mermaid:
     - Examine how interactions among agents lead to norm change.
 </v-clicks>
 
-<div class="quote-panel" v-click="4">
-  <span style="font-size:26px;"><strong style="color:white; font-weight:800;">Main Purpose:</strong> Rather than providing substantive findings about norms, this study aims to demonstrate how activation-steered agents can address core issues in social simulation</span>
+<div class="quote-panel" style="margin-top:28px; padding-top:22px; padding-bottom:22px;" v-click="4">
+  <span style="font-size:26px;"><strong style="color:white; font-weight:850;">Main Purpose:</strong> Rather than providing implications about norms, this study aims to demonstrate how activation-steered agents can address core issues in social simulation</span>
 </div>
 
 
@@ -424,6 +425,3 @@ clicks: 4
       <li>Activation steering is both context-sensitive and model-dependent.</li>
     </ul>
   </div>
-
-
-
