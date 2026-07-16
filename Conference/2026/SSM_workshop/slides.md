@@ -35,9 +35,9 @@ mermaid:
   <img class="title-qr" src="./assets/presentation-qr.svg" alt="Presentation QR code" />
   <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
   <div style="position:absolute; left:58px; right:200px; top:220px;">
-    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Emergence and Evolution of Social Norms among LLM Agents</h1>
-    <p style="font-size:26px; margin-top:18px; color:##4338ca; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
-    <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700; display:flex; align-items:center; gap:8px;">Zeyu Lyu <a href="https://lvzeyu.github.io/" target="_blank" style="display:inline-flex; color:#6b7280;"><mdi-web style="font-size:20px;" /></a></p>
+    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Aligning the Personality and Preferences of LLMs through Representation Engineering</h1>
+    <p style="font-size:26px; margin-top:18px; color:#000; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
+    <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700; display:flex; align-items:center; gap:8px;">Zeyu Lyu <a href="https://lvzeyu.github.io/" target="_blank" style="display:inline-flex; color:#6b7280;"><mdi-web style="font-size:20px;" /></a><a href="mailto:lyu.zeyu.e8@tohoku.ac.jp" style="display:inline-flex; color:#6b7280;"><mdi-email-outline style="font-size:20px;" /></a></p>
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
     Social Stratification and Mobility 3rd International Workshop, The University of Tokyo<br>
@@ -55,18 +55,18 @@ mermaid:
 
 ## Key Takeaways
 
-<p class="support wide">This presentation covers [1] improving reproducibility and interpretability of the application of LLM-agent in social science, and [2] simulating the formation and transformation of social norms via systematic control of LLM agents.</p>
+<p class="support wide">This presentation covers [1] improving the reproducibility and interpretability of LLM-agent applications in social science and [2] simulating the formation and transformation of social norms through the systematic control of LLM agents.</p>
 
 <div class="two-column">
   <div class="card" v-click="1">
     <h3>Reproducibility & Interpretability</h3>
     <ul>
-      <li>Reproducibility and interpretability is great challenge in the application of LLM in social science.</li> 
+      <li>Reproducibility and interpretability are significant challenges in the application of LLM agents in social science.</li>
       <li>Use activation steering to control the behavior and decision-making of LLM agents.</li>
     </ul>
   </div>
   <div class="card green" v-click="2">
-    <h3>Simulation of social norms (as an example)</h3>
+    <h3>Simulation of Social Norms: An Example</h3>
     <ul>
       <li>Activation-steered agents for controlling personality and preference in social simulation.</li>
     </ul>
@@ -76,11 +76,11 @@ mermaid:
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>02</span></div>
 
 <!--
-First of all, I would lile to have the main takeaways of the presentation.
+First of all, I would like to have the main takeaways of the presentation.
 
-[click] First, we want to show why reproducibility and interpretability are important challenges when we use LLM agents for social simulation. And here we aim to address how activation steering can be considered as a promising method to control agent behavior and thus address these issues.
+[click] First, we want to show why reproducibility and interpretability are important challenges when we apply LLM agents in social science. And here we aim to address how activation steering can be considered as a promising method to control agent behavior and thus address these issues.
 
-[click] Also, We used this method to simulate social norms. In particular, I will show how sterring activation can help us control personality-related and belief-related properties of agents in social simulation.
+[click] Also, we implent this method to conduct social simulation related to social norm. With this application example, I want to show how activation steering can help us control personality-related and belief-related properties of agents in social simulation.
 
 -->
 
@@ -90,18 +90,18 @@ First of all, I would lile to have the main takeaways of the presentation.
 
 ## LLM Agents as a Silicon Sample
 
-<p class="support wide">LLM agents show potential to to simulate human responses in social surveys and experienment</p>
+<p class="support wide">LLM agents show potential for simulating human responses in social surveys and experiments.</p>
 
 <div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
   <ul>
-    <li v-click="1">Replicate the response of human populations in social survey
+    <li v-click="1">Replicate the responses of human populations in social surveys
       <ul>
-        <li>LLMs can be prompted to act as respondents with specific demographic characteristics and generate consistent answers.(<span class="tooltip"><a href="https://aclanthology.org/2026.acl-long.1927/">Ahnert et al., 2026</a><span class="tooltip-box">Ahnert, G., Haensch, A.-C., Plank, B., &amp; Strohmaier, M. (2026). Survey response generation: Generating closed-ended survey responses in-silico with large language models. <em>ACL 2026</em>.</span></span>, <span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49">Argyle et al., 2023</a><span class="tooltip-box">Argyle, L. P., Busby, E. C., Fulda, N., et al. (2023). Out of one, many: Using language models to simulate human samples. <em>Political Analysis</em>, 31(3), 337–351.</span></span>, <span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE">Bisbee et al., 2024</a><span class="tooltip-box">Bisbee, J., Clinton, J. D., Dorff, C., et al. (2024). Synthetic replacements for human survey data? The perils of large language models. <em>Political Analysis</em>, 32(4), 401–416.</span></span>)</li>
+        <li>An LLM can be prompted to act as a respondent with specific demographic characteristics and generate consistent answers. (<span class="tooltip"><a href="https://aclanthology.org/2026.acl-long.1927/">Ahnert et al., 2026</a><span class="tooltip-box">Ahnert, G., Haensch, A.-C., Plank, B., &amp; Strohmaier, M. (2026). Survey response generation: Generating closed-ended survey responses in-silico with large language models. <em>ACL 2026</em>.</span></span>, <span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49">Argyle et al., 2023</a><span class="tooltip-box">Argyle, L. P., Busby, E. C., Fulda, N., et al. (2023). Out of one, many: Using language models to simulate human samples. <em>Political Analysis</em>, 31(3), 337–351.</span></span>, <span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE">Bisbee et al., 2024</a><span class="tooltip-box">Bisbee, J., Clinton, J. D., Dorff, C., et al. (2024). Synthetic replacements for human survey data? The perils of large language models. <em>Political Analysis</em>, 32(4), 401–416.</span></span>)</li>
       </ul>
     </li>
-    <li v-click="2">Generate human-like responses in social science surveys and psychological experiments.
+    <li v-click="2">Generate human-like responses in social science surveys and psychological experiments
       <ul>
-        <li>LLM predictions show high correlattion with original treatment effects in social science experiments conducted with human population(<span class="tooltip"><a href="https://www.nature.com/articles/s43588-025-00840-7">Cui et al., 2025</a><span class="tooltip-box">Cui, Z., Li, N., &amp; Zhou, H. (2025). A large-scale replication of scenario-based experiments in psychology and management using large language models. <em>Nature Computational Science</em>, 5, 627–634.</span></span>, <span class="tooltip"><a href="https://www.nature.com/articles/s41586-026-10742-x">Hewitt et al., 2026</a><span class="tooltip-box">Hewitt, L., Ashokkumar, A., Ghezae, I., et al. (2026). Large language models can predict the results of social science experiments. <em>Nature</em>.</span></span>)</li>
+        <li>LLM predictions show high correlation with original treatment effects in social science experiments conducted with human population (<span class="tooltip"><a href="https://www.nature.com/articles/s43588-025-00840-7">Cui et al., 2025</a><span class="tooltip-box">Cui, Z., Li, N., &amp; Zhou, H. (2025). A large-scale replication of scenario-based experiments in psychology and management using large language models. <em>Nature Computational Science</em>, 5, 627–634.</span></span>, <span class="tooltip"><a href="https://www.nature.com/articles/s41586-026-10742-x">Hewitt et al., 2026</a><span class="tooltip-box">Hewitt, L., Ashokkumar, A., Ghezae, I., et al. (2026). Large language models can predict the results of social science experiments. <em>Nature</em>.</span></span>)</li>
       </ul>
     </li>
   </ul>
@@ -112,7 +112,14 @@ First of all, I would lile to have the main takeaways of the presentation.
 
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
+<!--
 
+LLMs have opened up many new methodological possibilities for social science. In particular, LLM agents can serve as “silicon samples” to simulate human responses in surveys and experiments. 
+
+[click] By assigning an LLM specific demographic or persona characteristics, researchers can prompt it to act as a particular type of respondent. We can then ask it the same questions used in social surveys and compare its responses with those of human participants. This allows us to examine whether the LLM produces answers that are consistent with its assigned characteristics.
+
+[click] LLM agents can also participate in social surveys and psychological experiments as simulated subjects. Indeed, several studies have suggested that LLM agents can produce human-like responses in social surveys and experiments.
+-->
 
 
 ---
@@ -121,19 +128,19 @@ First of all, I would lile to have the main takeaways of the presentation.
 
 ## LLM Agents in Social Simulation
 
-<p class="support wide">LLM agents show great promise in social simulation by providing an efficient way to model heterogeneous individuals, generate realistic interactions, and explore complex social dynamics</p>
+<p class="support wide">LLM agents show great promise for social simulation by providing an efficient way to model heterogeneous individuals, generate realistic interactions, and explore complex social dynamics.</p>
 
 <div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
   <ul>
     <li v-click="1">LLM agents are promising for social simulation
       <ul>
-        <li>Can produce context-dependent and human-like behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a><span class="tooltip-box">Anthis, J. R., Liu, R., Richardson, S. M., et al. (2025). LLM social simulations are a promising research method. <em>ICML 2025</em>.</span></span>, <span class="tooltip"><a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a><span class="tooltip-box">Park, J. S., O'Brien, J. C., Cai, C. J., et al. (2023). Generative agents: Interactive simulacra of human behavior. <em>UIST 2023</em>.</span></span>)</li>
+        <li>Produce context-dependent, human-like behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a><span class="tooltip-box">Anthis, J. R., Liu, R., Richardson, S. M., et al. (2025). LLM social simulations are a promising research method. <em>ICML 2025</em>.</span></span>, <span class="tooltip"><a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a><span class="tooltip-box">Park, J. S., O'Brien, J. C., Cai, C. J., et al. (2023). Generative agents: Interactive simulacra of human behavior. <em>UIST 2023</em>.</span></span>)</li>
       </ul>
     </li>
-    <li v-click="2">Prompt-Based application of LLM agents
+    <li v-click="2">Prompt-based application of LLM agents
       <ul>
-        <li>Define the characteristics and behaviors of agents in a simple, prompt-based way</li>
-        <li>Human-like cognitive patterns such as memory, planning, and reflection can further be incorporated as prompts</li>
+        <li>Define agents' characteristics and behaviors through simple prompts</li>
+        <li>Incorporate human-like cognitive processes such as memory, planning, and reflection through prompts (<span class="tooltip"><a href="https://arxiv.org/abs/2305.10250">Zhong et al., 2024</a><span class="tooltip-box">Zhong, W., Guo, L., Gao, Q., et al. (2024). MemoryBank: Enhancing large language models with long-term memory. <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>, 38(17), 19724–19731.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2210.03629">Yao et al., 2023</a><span class="tooltip-box">Yao, S., Zhao, J., Yu, D., et al. (2023). ReAct: Synergizing reasoning and acting in language models. <em>International Conference on Learning Representations</em>.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2305.04091">Wang et al., 2023</a><span class="tooltip-box">Wang, L., Xu, W., Lan, Y., et al. (2023). Plan-and-solve prompting: Improving zero-shot chain-of-thought reasoning by large language models. <em>Proceedings of ACL 2023</em>.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2303.17651">Madaan et al., 2023</a><span class="tooltip-box">Madaan, A., Tandon, N., Gupta, P., et al. (2023). Self-refine: Iterative refinement with self-feedback. <em>Advances in Neural Information Processing Systems</em>.</span></span>)</li>
       </ul>
     </li>
   </ul>
@@ -145,9 +152,9 @@ First of all, I would lile to have the main takeaways of the presentation.
 <!--
 Recently, LLM agents have received increasing attention in social simulation.
 
-[click] Basically, what we need to do is write the prompt. For the simulation, we can define the agents’ profiles and characteristics, and then ask the LLMs to behave according to these definitions. The LLMs will then generate the agents’ actions, responses, and interactions based on the given prompts.
+[click] Basically, we begin by writing a prompt. For the simulation, we can define the agents’ profiles and characteristics and then ask the LLM to behave according to these definitions. The LLM will generate the agents’ actions, responses, and interactions based on the given prompts.
 
-[click] Furthermore, we can even write more detailed prompt to incorporate more advanced features like memory, planning, or reflection into the agent through prompts. These techniques can make agents even more similar to human with a quite flexible and easy to implement. We need not to handle complex mathmatical computation anymore and it just looks good, since several previous studies have argued that they successfully relaize the simulation.
+[click] Furthermore, we can write more detailed prompts to incorporate advanced features such as memory, planning, and reflection into an agent. These flexible, easy-to-implement techniques can make agents more human-like without requiring complex mathematical computations. Several previous studies have successfully used these techniques in simulations.
 -->
 
 
@@ -163,9 +170,9 @@ Recently, LLM agents have received increasing attention in social simulation.
 
 - Societal and representational biases
     - Explicit and implicit stereotypes related to race, gender, religion, and culture. (<span class="tooltip"><a href="https://www.pnas.org/doi/10.1073/pnas.2416228122">Bai et al., 2025</a><span class="tooltip-box">Bai, X., Wang, A., Sucholutsky, I., et al. (2025). Explicitly unbiased large language models still form biased associations. <em>PNAS</em>, 122(8), e2416228122.</span></span>; <span class="tooltip"><a href="https://doi.org/10.1162/coli_a_00524">Gallegos et al., 2024</a><span class="tooltip-box">Gallegos, I. O., Rossi, R. A., Barrow, J., et al. (2024). Bias and fairness in large language models: A survey. <em>Computational Linguistics</em>, 50(3), 1097–1179.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2403.14727">Kotek et al., 2024</a><span class="tooltip-box">Kotek, H., Sun, D. Q., Xiu, Z., et al. (2024). Protected group bias and stereotypes in large language models. <em>arXiv</em>.</span></span>)
-    - Models are typically trained to be “helpful and harmless”, thus filter conflictual, aggressive, or “dark” social dynamics even when such behaviors are realistic and essential for understanding phenomena(<span class="tooltip"><a href="https://www.pnas.org/doi/10.1073/pnas.2314021121">Bail, 2024</a><span class="tooltip-box">Bail, C. A. (2024). Can generative AI improve social science? <em>PNAS</em>, 121(21), e2314021121.</span></span>; <span class="tooltip"><a href="https://journals.sagepub.com/doi/10.1177/00491241251327130">Zhang et al., 2025</a><span class="tooltip-box">Zhang, S., Xu, J., &amp; Alvero, A. (2025). Generative AI meets open-ended survey responses: Research participant use of AI and homogenization. <em>Sociological Methods &amp; Research</em>.</span></span>).
+    - Models are typically trained to be “helpful and harmless”, thus filter conflictual, aggressive, or “dark” social dynamics even when such behaviors are realistic and essential for understanding phenomena (<span class="tooltip"><a href="https://www.pnas.org/doi/10.1073/pnas.2314021121">Bail, 2024</a><span class="tooltip-box">Bail, C. A. (2024). Can generative AI improve social science? <em>PNAS</em>, 121(21), e2314021121.</span></span>; <span class="tooltip"><a href="https://journals.sagepub.com/doi/10.1177/00491241251327130">Zhang et al., 2025</a><span class="tooltip-box">Zhang, S., Xu, J., &amp; Alvero, A. (2025). Generative AI meets open-ended survey responses: Research participant use of AI and homogenization. <em>Sociological Methods &amp; Research</em>.</span></span>).
 
-- Convergence towards the “Average Persona”
+- Convergence toward the “Average Persona”
     - LLM agents may produce responses that are plausible on average but fail to capture the full heterogeneity of real human populations. (<span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49">Argyle et al., 2023</a><span class="tooltip-box">Argyle, L. P., Busby, E. C., Fulda, N., et al. (2023). Out of one, many: Using language models to simulate human samples. <em>Political Analysis</em>, 31(3), 337–351.</span></span>; <span class="tooltip"><a href="https://www.nature.com/articles/s42256-025-00986-z">Wang et al., 2025</a><span class="tooltip-box">Wang, A., Morgenstern, J., &amp; Dickerson, J. P. (2025). Large language models that replace human participants can harmfully misportray and flatten identity groups. <em>Nature Machine Intelligence</em>, 7, 400–411.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2506.19806">Wu et al., 2025</a><span class="tooltip-box">Wu, Z., Peng, R., Ito, T., et al. (2025). LLM-based social simulations require a boundary. <em>arXiv</em>.</span></span>)
 
 - Challenges in reproducibility and interpretability of LLM agents
@@ -178,11 +185,11 @@ Recently, LLM agents have received increasing attention in social simulation.
 <!--
 However, there are still several important limitations when we use them for social simulation.
 
-[click] First, as you know, LLMs can have inherent biases. On the one hand, this raises doubts about whether LLM agents can really replicate different types of people, or whether they are mainly good at replicating the behavior of specific groups. On the other hand, because many models are trained to be helpful and harmless, they often avoid aggressive or harmful behaviors, even when these behaviors are important for understanding real social dynamics.
+[click] First, as you know, an LLM can have inherent biases. On the one hand, this raises doubts about whether LLM agents can accurately represent different types of people or are mainly effective at representing specific groups. On the other hand, because many models are trained to be helpful and harmless, they often avoid aggressive or harmful behaviors, even when these behaviors are important for understanding real social dynamics.
 
 [click] Also, LLM agents often represent a kind of generalized or average person, while real social phenomena usually depend on heterogeneity and variation among individuals.
 
-[click] Furthermore, LLMs also have limitations in reproducibility and interpretability. The outcome can be very different just because of a subtle change in the prompt. And it is hard for us to understand why, because the model still works like a black box if we only use prompts.
+[click] Furthermore, an LLM also presents challenges for reproducibility and interpretability. A subtle change in the prompt can produce a very different outcome, and it is difficult to understand why because the model remains a black box when we rely only on prompts.
 -->
 
 
@@ -190,32 +197,46 @@ However, there are still several important limitations when we use them for soci
 
 <div class="kicker">Introduction</div>
 
-## Mapping the "Mind" of LLMs
+## Mapping the "Mind" of an LLM
 
-<p class="support wide">The output of LLMs may be controlled by the intervention on its internal representations</p>
+<p class="support wide">An LLM's output may be controlled by intervening in its internal representations.</p>
 
 <div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
   <ul>
-    <li v-click="1"><a href="https://bbycroft.net/llm">Representation space</a> is high-dimensional space of internal activations produced while LLM processes the input.
+    <li v-click="1"><a href="https://bbycroft.net/llm">Representation space</a> is a high-dimensional space of internal activations produced while an LLM processes input.
       <ul>
-        <li v-click="2">Internal representations may encode the knowledge, concepts, style, and preferences of LLMs (<span class="tooltip"><a href="https://arxiv.org/abs/2310.02207">Gurnee &amp; Tegmark, 2023</a><span class="tooltip-box">Gurnee, W., &amp; Tegmark, M. (2023). Language models represent space and time. <em>arXiv</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2310.06824">Marks &amp; Tegmark, 2023</a><span class="tooltip-box">Marks, S., &amp; Tegmark, M. (2023). The geometry of truth: Emergent linear structure in large language model representations of true/false datasets. <em>arXiv</em>.</span></span>)</li>
+        <li v-click="2">Internal representations may encode an LLM's knowledge, concepts, style, and preferences (<span class="tooltip"><a href="https://arxiv.org/abs/2310.02207">Gurnee &amp; Tegmark, 2023</a><span class="tooltip-box">Gurnee, W., &amp; Tegmark, M. (2023). Language models represent space and time. <em>arXiv</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2310.06824">Marks &amp; Tegmark, 2023</a><span class="tooltip-box">Marks, S., &amp; Tegmark, M. (2023). The geometry of truth: Emergent linear structure in large language model representations of true/false datasets. <em>arXiv</em>.</span></span>)</li>
         <li v-click="3">Produce context-dependent and human-like behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2507.21509">Chen et al., 2025</a><span class="tooltip-box">Chen, R., Arditi, A., Sleight, H., et al. (2025). Persona vectors: Monitoring and controlling character traits in language models. <em>arXiv</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2402.01618">Konen et al., 2024</a><span class="tooltip-box">Konen, K., Jentzsch, S., Diallo, D., et al. (2024). Style vectors for steering generative large language models. <em>Findings of EACL 2024</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2308.10248">Turner et al., 2023</a><span class="tooltip-box">Turner, A. M., Thiergart, L., Leech, G., et al. (2023). Steering language models with activation engineering. <em>arXiv</em>.</span></span>)</li>
       </ul>
     </li>
-    <li v-click="4">Representation engineering enables the control of LLM agents by intervening in their internal representations
-    </li>
+    <li v-click="4" class="callout"><span class="callout-icon">💡</span><span>Representation engineering enables the control of LLM agents by intervening in their internal representations</span></li>
   </ul>
-  <img v-click="1" src="./image/golden_bridge.png" style="width:100%; border-radius:6px;" />
+  <div>
+    <img v-click="1" src="./image/golden_bridge.png" style="width:100%; border-radius:6px;" />
+    <ul class="caption-list">
+      <li v-click="1">Example of Anthropic decoding the vectors Claude uses to represent abstract concepts: researchers identified an internal feature representing the Golden Gate Bridge in Claude and showed that amplifying this feature could make the model behave as though it were the bridge (<span class="tooltip"><a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/">Templeton et al., 2024</a><span class="tooltip-box">Templeton, A., Conerly, T., Marcus, J., et al. (2024). Scaling monosemanticity: Extracting interpretable features from Claude 3 Sonnet. <em>Transformer Circuits Thread</em>.</span></span>).</li>
+    </ul>
+  </div>
 </div>
 
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
-Addressing these limitations requires a better understanding of LLMs and, if possible, making LLMs more controllable. This is because relying only on prompts seems unreliable. Recently, some studies have suggested that we may be able to control LLMs by changing specific internal features of the model.
+Addressing these limitations requires a better understanding of the LLM and, if possible, making it more controllable, because relying only on prompts appears unreliable. Recent studies suggest that we may be able to control an LLM by changing specific internal features of the model.
 
-[click] So here is an example to show how this idea works. For example, if we ask an LLM a question like, “What is your physical form?”, it will usually answer that it is an AI. For example, if we ask an LLM a question like, “What is your physical form?”, it will usually answer that it is an AI. The underlying mechanism is that the LLM performs a series of computations inside the neural network. And the results are determined by the model’s internal representations. Speicifically, some representations are connected to a specific concept, including the identidy of LLM think who they are. So, if we can find these representations and modify them, the LLM’s identity can also be changed. As shown in this example, the LLM may even consider itself to be the Golden Gate Bridge.
+[click] To understand the method, we need firstly have a basis understanding on how LLM works. Here is a great demo that help you to built a high level understanding of LLMs
 
-[click] In this term, we may control the LLMs through representation engineering. Compared to prompts, this gives us a promising way to control LLM agents more systematically.
+An LLM consists of many layers of neural networks. First, the input text is converted into numerical vectors, or embeddings. As these vectors pass through the network, they are updated at each layer, producing a set of high-dimensional activation vectors.
+
+The output of the final layer is then converted into a probability distribution over possible next tokens. The model selects one token, adds it to the sequence, and repeats the same process. In this way, it generates text one token at a time.
+
+The high-dimensional activation vectors formed at each layer can be understood as the model’s internal representations. The space in which these vectors are organized is called the representation space.
+
+This representation space reflects how the LLM processes and organizes information from text. Different inputs produce different activation patterns and occupy different positions within this space. At the same time, different LLMs may develop different representation spaces because of differences in their architectures, training data, and training processes.
+
+[click] So here is an example to show how this idea works. For example, if we ask an LLM a question like, “What is your physical form?”, it will usually answer that it is an AI. The underlying mechanism is that the LLM performs a series of computations inside the neural network, and the results are determined by the model’s internal representations. Specifically, some representations are connected to a specific concept, including the identity of who the LLM thinks it is. So, if we can find these representations and modify them, the LLM’s identity can also be changed. As shown in this example, the LLM may even consider itself to be the Golden Gate Bridge.
+
+[click] In this sense, we may control the LLM through representation engineering. Compared with prompting, this approach offers a promising way to control LLM agents more systematically.
 -->
 
 ---
@@ -224,7 +245,7 @@ Addressing these limitations requires a better understanding of LLMs and, if pos
 
 ## Activation Steering
 
-<p class="support wide">Identify specified representations and manipulate these representations during inference to control LLMs</p>
+<p class="support wide">Identify specific representations and manipulate them during inference to control an LLM.</p>
 
 <div style="display:grid; grid-template-columns:3.55fr 2fr; gap:40px; margin-top:28px; align-items:start;">
   <div>
@@ -237,7 +258,7 @@ Addressing these limitations requires a better understanding of LLMs and, if pos
   <div>
     <img src="./image/steering2.png" style="width:100%; border-radius:4px;" />
     <ul class="caption-list">
-      <li>Add a concept vector to the current hidden state, thereby shifting subsequent generation toward behaviors associated with the target concept.</li>
+      <li>Add a steering vector to the current hidden state, thereby shifting subsequent generation toward behaviors associated with the target concept.</li>
     </ul>
   </div>
 </div>
@@ -246,12 +267,12 @@ Addressing these limitations requires a better understanding of LLMs and, if pos
 
 <!--
 
-Specifically, a typical way of representation engineering is steering activation. 
+Specifically, a typical way of representation engineering is activation steering. 
 
 First, we need to identify a direction in the model’s representation space that corresponds to a target concept. A typical way to do this is to prepare contrastive prompts that mainly differ in one specific aspect.
-For example, we can prepare two almost same sentences. The only difference is the word “honest” versus “dishonest.” Because the inputs are different, the internal representations of the LLM will also be different. We can then expect that the difference between these two representations indicates how the LLM represents the concept of “honesty.”
+For example, we can prepare two almost identical sentences. The only difference is the word “honest” versus “dishonest.” Because the inputs are different, the internal representations of the LLM will also be different. We can then expect that the difference between these two representations indicates how the LLM represents the concept of “honesty.”
 
-Sometimes, these representations may have a linear direction. This means that if we add the concept vector to the hidden state, it can change the model’s internal processing. As a result, we may be able to guide the model’s later output toward the target behavior.
+Sometimes, these representations may have a linear direction. This means that if we add the steering vector to the hidden state, it can change the model’s internal processing. As a result, we may be able to guide the model’s later output toward the target behavior.
 -->
 
 ---
@@ -260,15 +281,22 @@ layout: section
 
 <div>
 
-<h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:60px; line-height:1.08; font-weight:800; color:#243033;">Application of steering activated LLM agents</h1>
+<h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; line-height:1.08; font-weight:800; color:#243033;">Application of Activation-steered LLM Agents</h1>
 
 <hr>
 
 <span class='text-gray-500 text-2xl'>
-Employ steering-activated LLM agents to implement social simulation of norms, improving <strong style="color:#4338ca;">reproducibility</strong> and <strong style="color:#4338ca;">interpretability</strong>.
+Employ activation-steered LLM agents to implement social simulation of norms, improving <strong style="color:#4338ca;">reproducibility</strong> and <strong style="color:#4338ca;">interpretability</strong>.
 </span>
 
 </div>
+
+<!--
+
+We believe that activation steering can address several challenges in social science applications of LLMs. In the following parts, we present several social simulation scenarios using activation-steered LLM agents to show how this approach can improve reproducibility and interpretability.
+
+
+-->
 
 ---
 
@@ -292,8 +320,7 @@ Employ steering-activated LLM agents to implement social simulation of norms, im
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
-Based on these intuitions, we can apply this method to investigate the norm question, that is, 
-How do norms emerge, stabilize, and change through interactions among agents?
+Here, we focus on the social simulation to address key question in social norm, that is, how do norms emerge, stabilize, and change through interactions among agents?
 
 [click] Again, as we just discussed, LLMs have limitations in reproducibility.
 
@@ -326,9 +353,9 @@ How do norms emerge, stabilize, and change through interactions among agents?
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
-Here, we cna find steering activation seems to be useful. And we have tried to make some application.
+Here, we consider activation steering seems to be useful, and we have tried some applications.
 
-[click] We use Llama-3.1-8B-Instruct and conduct steering activation on it.
+[click] We use Llama-3.1-8B-Instruct and conduct activation steering on it.
 
 [click:2] The first question is about personality. More specifically, I ask how the altruism of agents affects simulation outcomes. To examine this, I construct a steering vector that controls the degree of altruism, and then test whether changing this degree leads to different decisions in behavioral experiments.
 
@@ -339,9 +366,9 @@ Here, we cna find steering activation seems to be useful. And we have tried to m
 
 ---
 
-<div class="kicker">Research Question</div>
+<div class="kicker">Method</div>
 
-## Steering Activation that Controls the Altruism of Agents
+## Activation Steering that Controls the Altruism of Agents
 
 <v-clicks>
 
@@ -366,9 +393,9 @@ $$\mathbf{a}^{(l)}_\text{steered} = \mathbf{a}^{(l)} + \alpha \cdot \mathbf{v}^{
 <!--
 First, we investigate whether activation steering can be used to control the degree of altruism. This serves as a test of whether activation steering is effective for manipulating personality-related traits. 
 
-The process of steering activation just follows method we introduce.
+The process of activation steering follows the method we introduced.
 
-[click] We start from several contrastive scenario pairs that descibe a altruistic or selfish behaviors.
+[click] We start from several contrastive scenario pairs that describe altruistic or selfish behaviors.
 
 [click:2] Then, we compute the average difference between the activations for altruistic examples and selfish examples. This average difference becomes the altruism steering vector at a given layer.
 
@@ -409,7 +436,7 @@ clicks: 3
 
 <!--
 
-[click] We use LLMs to conduct several classic economic games where outcomes are usually related to altruism. In each case, the LLM agent is asked to make a decision and explain its reasoning. Then I use GPT-4 as an external evaluator to rate how altruistic the agent's decision is. And we consider it as the metric.
+[click] As the first application, we want to examine whether steering activation can control the persona of LLMs. Specificlly, we aim to contorl the altruism of LLM and examine wether the control works by using LLMs to conduct several classic economic games where outcomes are usually related to altruism. In each case, the LLM agent is asked to make a decision and explain its reasoning. Then I use GPT-4 as an external evaluator to rate how altruistic the agent's decision is. And we consider it as the metric.
 
 We adjust the LLM through activation steering and use the same setting to see whether there are any differences in the results.
 
@@ -428,12 +455,12 @@ clicks: 4
 
 <p class="support wide">Aim to control the potential bias of belief for the simulation of norm changes</p>
 
-<div v-click="1">
-
-- Context: *Whether payment should be shared or rotated among participants*
-    - Agents decide their payment behavior based on their preferences and the behaviors they observe from others.
-    - Over repeated interactions, such adaptive decision-making processes can facilitate the emergence, stabilization, and transformation of payment norms.
-
+<div class="card" v-click="1" style="border-bottom: 4px solid var(--blue);">
+  <h3>Context: <em>Whether payment should be shared or rotated among participants</em></h3>
+  <ul>
+    <li>Agents decide their payment behavior based on their preferences and the behaviors they observe from others.</li>
+    <li>Over repeated interactions, such adaptive decision-making processes can facilitate the emergence, stabilization, and transformation of payment norms.</li>
+  </ul>
 </div>
 
 <div style="display:grid; grid-template-columns:3.5fr 2fr; gap:10px; margin-top:28px; align-items:start;">
@@ -459,13 +486,13 @@ clicks: 4
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
 
 <!--
-We also consider another context. Here, our purpose is to investigate how norm changes. 
+We also consider another context. Here, our purpose is controling LLMs' preference and then investigate how norm changes.
 
 [click] Specifically, we assume a simple payment norm problem: whether payment should be shared among participants or rotated among them. Each agent decides its payment behavior based on its own preference and the behaviors it observes from others. Through repeated interaction, this type of decision process can produce the emergence or change of a payment norm.
 
-[click] The problem is that LLMs seem to have an original preference for a certain norm. If we ask the original LLM to make a choice several times, we find that it has a strong bias toward the shared-payment option. This bias may influence the later simulation results.
+[click] The problem is that LLMs seem to have an original preference for a certain norm. If we ask the original LLM to make a choice several times, we find that it has a strong bias toward the shared-payment option. This means that we cannot directly use the original model to study how the shared-payment norm emerges. We cannot tell whether the LLM agents developed a belief in this norm through interaction, or whether they were simply expressing a preference that was already built into the model.
 
-[click] And similarly, we can use steering activation to control the LLM preference by adjusting steering coefficient. As shown the figure, LLM with differenct steering activation shows different tendency and we can contorl it as we expected.
+[click]In this context, we need a way to control the LLM agents’ prior beliefs. Similarly, we can use activation steering to control the LLM's preference by adjusting the steering coefficient. As shown in the figure, the LLM shows different tendencies under different levels of activation steering, and we can control it as expected.
 
 -->
 
@@ -511,13 +538,15 @@ clicks: 4
 <div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
 
 <!--
-After confirming that activation steering can control individual payment preferences, we can incorporate them into the mutiple agent system.
+After confirming that activation steering can control individual payment preferences, we can incorporate them into the multi-agent system.
 
 [click] In this simulation, 50 agents are connected in a small-world network. In each round, agents decide whether to choose shared payment or rotated payment. Their choices depend on their own preference and the behavior they observe from neighboring agents connected in the network. 
 
-[click:2] We can find that different agent configurations lead to different outcomes. Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.
+[click] We can find that different agent configurations lead to different outcomes. Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.
 
-[click:3] Here, we change the agents’ preferences so that they are more likely to choose rotating payment.When the steering toward rotating payment is weak, the agents’ choices are relatively balanced. As a result, both norms may appear.However, when we make the preference for rotating payment strong enough, rotating payment can also become the main norm outcome.
+[click] Here, we change the agents’ preferences so that they are more likely to choose rotating payment.When the steering toward rotating payment is weak, the agents’ choices are relatively balanced. As a result, both norms may appear.
+
+[click] However, when we make the preference for rotating payment strong enough, rotating payment can also become the main norm outcome.
 
 
 
@@ -545,7 +574,7 @@ clicks: 4
         <li>Agents' commitment to norms is controlled by activation steering.</li>
       </ul>
     </li>
-    <li v-click="2">Changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs.
+    <li v-click="4">Changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs.
     </li>
   </ul>
   <div>
@@ -562,13 +591,20 @@ clicks: 4
 
 Beyond that, we also conduct simulation focusing on whether an increasing minority with a contrasting preference can affect norm change.
 
-[click] In this setting, the majority supports rotate payment, while the minority supports shared payment. There are still 50 agents, but now they have different preferences. I also use activation steering to control how strongly these agents are committed to this specific norm.
+[click] In this setting, we examine how the norm changes when the majority initially supports rotated payment, while the number of agents supporting shared payment gradually increases. There are still 50 agents, but now they have different preferences. I also use activation steering to control how strongly these agents are committed to this specific norm.
 
-[click] We are interested in how many minority agents can lead to a change in the norm. First, we consider the case where 10 agents initially prefer shared payment.　And we have weak and strong preference cases. We can see that, in the initial phase, there is no big difference between the weak case and the strong case. However, agents with weak commitment are more likely to be influenced by the observation that most others choose rotate payment. As a result, they tend to change their choice, and the norm gradually converges to the majority norm. In contrast, when the commitment is strong enough, the norm does not converge to the majority norm so easily.
+[click] We are interested in how many minority agents can lead to a change in the norm. First, we consider a case in which 10 agents initially prefer shared payment. We compare agents with weak and strong commitment to their initial norms.
 
-[click] And if we increased the number of minority, we will find that both weak and strong case can lead to a change in the norm.
+At the beginning, there is little difference between the two conditions. However, weakly committed agents are more likely to be influenced when they observe others choosing shared payment. Once some agents begin to switch, their choices influence others and may eventually lead to a change in the overall norm.
 
-[click] Thus, we can say that changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs. The main point here is that activation steering does not only control the agents’ initial preferences. It also seems to affect their later behavior, so that their behaviors remain consistent over several rounds in simulation.
+In contrast, when agents are strongly committed to their initial norms, their preferences are less likely to change. As a result, the shared-payment norm does not fully take over.
+
+[click] And if we increase the number of minority agents, we will find that both the weak and strong cases can lead to a change in the norm.
+
+[click] Thus, we can say that changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs. 
+
+This result is consistent with our expectations. The key point is that we were able to effectively control the agents’ initial preferences, and their behavior remained consistent with these preferences over multiple rounds of the simulation. This demonstrates the effectiveness of activation steering.
+
 -->
 
 
@@ -576,7 +612,7 @@ Beyond that, we also conduct simulation focusing on whether an increasing minori
 
 <div class="kicker">Summary</div>
 
-## Activation Steering in Social Simulation
+## Activation Steering in Social Science Research
 
 <p class="support wide"></p>
 
@@ -585,13 +621,13 @@ Beyond that, we also conduct simulation focusing on whether an increasing minori
     <h3>Activation steering represents a promising method for improving the reproducibility and interpretability of social simulations based on LLM agents</h3>
     <ul>
       <li>Activation steering enables the control of agent properties such as personality and belief</li>
-      <li>Reduces the influence of model- and prompt-level variations on simulation outcomes.</li>
-      <li>Enhances interpretability by clarifying the relationship between controlled conditions and simulation outcomes.</li>
+      <li>Enhances interpretability by clarifying the relationship between controlled conditions and outcomes.</li>
+      <li>More controllable and diverse silicon samples</li>
     </ul>
 </div>
 
 <div class="card rose" v-click="2">
-    <h3>Activation steering is not always effective </h3>
+    <h3>Activation steering is not always effective</h3>
     <ul>
       <li>Relevant concepts may be distributed across multiple layers and intertwined with other representations, making it difficult for a single steering vector to reliably control the model’s behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2505.22637">Braun et al., 2025</a><span class="tooltip-box">Braun, J., Eickhoff, C., Krueger, D., et al. (2025). Understanding (un)reliability of steering vectors in language models. <em>ICLR 2025 Workshop on Foundation Models in the Wild</em>.</span></span>).</li>
       <li>Activation steering is both context-sensitive and model-dependent.</li>
@@ -613,4 +649,3 @@ Thank you very much. I look forward to your questions and comments.
 
 
 -->
-
