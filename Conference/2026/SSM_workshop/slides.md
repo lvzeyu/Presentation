@@ -1,6 +1,6 @@
 ---
 theme: neversink
-title: Emergence and Evolution of Social Norms among LLM Agents
+title: Aligning the Personality and Preferences of LLMs through Representation Engineering
 info: Social Stratification and Mobility 3rd International Workshop
 drawings:
   persist: false
@@ -35,9 +35,9 @@ mermaid:
   <img class="title-qr" src="./assets/presentation-qr.svg" alt="Presentation QR code" />
   <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
   <div style="position:absolute; left:58px; right:200px; top:220px;">
-    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Emergence and Evolution of Social Norms among LLM Agents</h1>
+    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Aligning the Personality and Preferences of LLMs through Representation Engineering</h1>
     <p style="font-size:26px; margin-top:18px; color:#000; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
-    <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700; display:flex; align-items:center; gap:8px;">Zeyu Lyu <a href="https://lvzeyu.github.io/" target="_blank" style="display:inline-flex; color:#6b7280;"><mdi-web style="font-size:20px;" /></a></p>
+    <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700; display:flex; align-items:center; gap:8px;">Zeyu Lyu <a href="https://lvzeyu.github.io/" target="_blank" style="display:inline-flex; color:#6b7280;"><mdi-web style="font-size:20px;" /></a><a href="mailto:lyu.zeyu.e8@tohoku.ac.jp" style="display:inline-flex; color:#6b7280;"><mdi-email-outline style="font-size:20px;" /></a></p>
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
     Social Stratification and Mobility 3rd International Workshop, The University of Tokyo<br>
@@ -73,14 +73,14 @@ mermaid:
   </div>
 </div>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>02</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>02</span></div>
 
 <!--
 First of all, I would like to have the main takeaways of the presentation.
 
-[click] First, we want to show why reproducibility and interpretability are important challenges when we use LLM agents for social simulation. And here we aim to address how activation steering can be considered as a promising method to control agent behavior and thus address these issues.
+[click] First, we want to show why reproducibility and interpretability are important challenges when we apply LLM agents in social science. And here we aim to address how activation steering can be considered as a promising method to control agent behavior and thus address these issues.
 
-[click] Also, we used this method to simulate social norms. In particular, I will show how activation steering can help us control personality-related and belief-related properties of agents in social simulation.
+[click] Also, we implent this method to conduct social simulation related to social norm. With this application example, I want to show how activation steering can help us control personality-related and belief-related properties of agents in social simulation.
 
 -->
 
@@ -110,9 +110,16 @@ First of all, I would like to have the main takeaways of the presentation.
   </div>
 </div>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
+<!--
 
+LLMs have opened up many new methodological possibilities for social science. In particular, LLM agents can serve as “silicon samples” to simulate human responses in surveys and experiments. 
+
+[click] By assigning an LLM specific demographic or persona characteristics, researchers can prompt it to act as a particular type of respondent. We can then ask it the same questions used in social surveys and compare its responses with those of human participants. This allows us to examine whether the LLM produces answers that are consistent with its assigned characteristics.
+
+[click] LLM agents can also participate in social surveys and psychological experiments as simulated subjects. Indeed, several studies have suggested that LLM agents can produce human-like responses in social surveys and experiments.
+-->
 
 
 ---
@@ -140,7 +147,7 @@ First of all, I would like to have the main takeaways of the presentation.
   <img v-click="1" src="./image/Generative_AI.png" style="width:70%; border-radius:6px;" />
 </div>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
 Recently, LLM agents have received increasing attention in social simulation.
@@ -173,7 +180,7 @@ Recently, LLM agents have received increasing attention in social simulation.
     - The black-box nature creates difficulties in verifying the reliability and validity of results.
 </v-clicks>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
 However, there are still several important limitations when we use them for social simulation.
@@ -212,10 +219,20 @@ However, there are still several important limitations when we use them for soci
   </div>
 </div>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
 Addressing these limitations requires a better understanding of the LLM and, if possible, making it more controllable, because relying only on prompts appears unreliable. Recent studies suggest that we may be able to control an LLM by changing specific internal features of the model.
+
+[click] To understand the method, we need firstly have a basis understanding on how LLM works. Here is a great demo that help you to built a high level understanding of LLMs
+
+An LLM consists of many layers of neural networks. First, the input text is converted into numerical vectors, or embeddings. As these vectors pass through the network, they are updated at each layer, producing a set of high-dimensional activation vectors.
+
+The output of the final layer is then converted into a probability distribution over possible next tokens. The model selects one token, adds it to the sequence, and repeats the same process. In this way, it generates text one token at a time.
+
+The high-dimensional activation vectors formed at each layer can be understood as the model’s internal representations. The space in which these vectors are organized is called the representation space.
+
+This representation space reflects how the LLM processes and organizes information from text. Different inputs produce different activation patterns and occupy different positions within this space. At the same time, different LLMs may develop different representation spaces because of differences in their architectures, training data, and training processes.
 
 [click] So here is an example to show how this idea works. For example, if we ask an LLM a question like, “What is your physical form?”, it will usually answer that it is an AI. The underlying mechanism is that the LLM performs a series of computations inside the neural network, and the results are determined by the model’s internal representations. Specifically, some representations are connected to a specific concept, including the identity of who the LLM thinks it is. So, if we can find these representations and modify them, the LLM’s identity can also be changed. As shown in this example, the LLM may even consider itself to be the Golden Gate Bridge.
 
@@ -246,7 +263,7 @@ Addressing these limitations requires a better understanding of the LLM and, if 
   </div>
 </div>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
 
@@ -274,6 +291,13 @@ Employ activation-steered LLM agents to implement social simulation of norms, im
 
 </div>
 
+<!--
+
+We believe that activation steering can address several challenges in social science applications of LLMs. In the following parts, we present several social simulation scenarios using activation-steered LLM agents to show how this approach can improve reproducibility and interpretability.
+
+
+-->
+
 ---
 
 <div class="kicker">Research Question</div>
@@ -293,11 +317,10 @@ Employ activation-steered LLM agents to implement social simulation of norms, im
     - The black-box nature of LLMs makes it difficult to determine whether norms emerge from interaction-driven dynamics or from the model’s pre-existing internal biases
 </v-clicks>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
-Based on these intuitions, we can apply this method to investigate the norm question, that is, 
-How do norms emerge, stabilize, and change through interactions among agents?
+Here, we focus on the social simulation to address key question in social norm, that is, how do norms emerge, stabilize, and change through interactions among agents?
 
 [click] Again, as we just discussed, LLMs have limitations in reproducibility.
 
@@ -327,10 +350,10 @@ How do norms emerge, stabilize, and change through interactions among agents?
 </div>
 
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
-Here, we can find that activation steering seems to be useful, and we have tried some applications.
+Here, we consider activation steering seems to be useful, and we have tried some applications.
 
 [click] We use Llama-3.1-8B-Instruct and conduct activation steering on it.
 
@@ -365,7 +388,7 @@ $$\mathbf{a}^{(l)}_\text{steered} = \mathbf{a}^{(l)} + \alpha \cdot \mathbf{v}^{
 
 
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
 First, we investigate whether activation steering can be used to control the degree of altruism. This serves as a test of whether activation steering is effective for manipulating personality-related traits. 
@@ -409,11 +432,11 @@ clicks: 3
   <img v-show="$clicks >= 3" src="./image/figure3a_altruism_ratings_by_game-3.png" style="width:100%; border-radius:6px;" />
 </div>
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>04</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
 
 <!--
 
-[click] We use LLMs to conduct several classic economic games where outcomes are usually related to altruism. In each case, the LLM agent is asked to make a decision and explain its reasoning. Then I use GPT-4 as an external evaluator to rate how altruistic the agent's decision is. And we consider it as the metric.
+[click] As the first application, we want to examine whether steering activation can control the persona of LLMs. Specificlly, we aim to contorl the altruism of LLM and examine wether the control works by using LLMs to conduct several classic economic games where outcomes are usually related to altruism. In each case, the LLM agent is asked to make a decision and explain its reasoning. Then I use GPT-4 as an external evaluator to rate how altruistic the agent's decision is. And we consider it as the metric.
 
 We adjust the LLM through activation steering and use the same setting to see whether there are any differences in the results.
 
@@ -460,16 +483,16 @@ clicks: 4
 
 
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>06</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
 
 <!--
-We also consider another context. Here, our purpose is to investigate how norm changes. 
+We also consider another context. Here, our purpose is controling LLMs' preference and then investigate how norm changes.
 
 [click] Specifically, we assume a simple payment norm problem: whether payment should be shared among participants or rotated among them. Each agent decides its payment behavior based on its own preference and the behaviors it observes from others. Through repeated interaction, this type of decision process can produce the emergence or change of a payment norm.
 
-[click] The problem is that LLMs seem to have an original preference for a certain norm. If we ask the original LLM to make a choice several times, we find that it has a strong bias toward the shared-payment option. This bias may influence the later simulation results.
+[click] The problem is that LLMs seem to have an original preference for a certain norm. If we ask the original LLM to make a choice several times, we find that it has a strong bias toward the shared-payment option. This means that we cannot directly use the original model to study how the shared-payment norm emerges. We cannot tell whether the LLM agents developed a belief in this norm through interaction, or whether they were simply expressing a preference that was already built into the model.
 
-[click] And similarly, we can use activation steering to control the LLM's preference by adjusting the steering coefficient. As shown in the figure, the LLM shows different tendencies under different levels of activation steering, and we can control it as expected.
+[click]In this context, we need a way to control the LLM agents’ prior beliefs. Similarly, we can use activation steering to control the LLM's preference by adjusting the steering coefficient. As shown in the figure, the LLM shows different tendencies under different levels of activation steering, and we can control it as expected.
 
 -->
 
@@ -512,16 +535,18 @@ clicks: 4
 
 
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>06</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
 
 <!--
 After confirming that activation steering can control individual payment preferences, we can incorporate them into the multi-agent system.
 
 [click] In this simulation, 50 agents are connected in a small-world network. In each round, agents decide whether to choose shared payment or rotated payment. Their choices depend on their own preference and the behavior they observe from neighboring agents connected in the network. 
 
-[click:2] We can find that different agent configurations lead to different outcomes. Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.
+[click] We can find that different agent configurations lead to different outcomes. Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.
 
-[click:3] Here, we change the agents’ preferences so that they are more likely to choose rotating payment.When the steering toward rotating payment is weak, the agents’ choices are relatively balanced. As a result, both norms may appear.However, when we make the preference for rotating payment strong enough, rotating payment can also become the main norm outcome.
+[click] Here, we change the agents’ preferences so that they are more likely to choose rotating payment.When the steering toward rotating payment is weak, the agents’ choices are relatively balanced. As a result, both norms may appear.
+
+[click] However, when we make the preference for rotating payment strong enough, rotating payment can also become the main norm outcome.
 
 
 
@@ -549,7 +574,7 @@ clicks: 4
         <li>Agents' commitment to norms is controlled by activation steering.</li>
       </ul>
     </li>
-    <li v-click="2">Changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs.
+    <li v-click="4">Changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs.
     </li>
   </ul>
   <div>
@@ -560,19 +585,26 @@ clicks: 4
 
 
 
-<div class="footer"><span>Emergence and Evolution of Social Norms among LLM Agents</span><span>06</span></div>
+<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
 
 <!--
 
 Beyond that, we also conduct simulation focusing on whether an increasing minority with a contrasting preference can affect norm change.
 
-[click] In this setting, the majority supports rotate payment, while the minority supports shared payment. There are still 50 agents, but now they have different preferences. I also use activation steering to control how strongly these agents are committed to this specific norm.
+[click] In this setting, we examine how the norm changes when the majority initially supports rotated payment, while the number of agents supporting shared payment gradually increases. There are still 50 agents, but now they have different preferences. I also use activation steering to control how strongly these agents are committed to this specific norm.
 
-[click] We are interested in how many minority agents can lead to a change in the norm. First, we consider the case where 10 agents initially prefer shared payment. We have weak and strong preference cases. We can see that, in the initial phase, there is no big difference between the weak case and the strong case. However, agents with weak commitment are more likely to be influenced by the observation that most others choose rotate payment. As a result, they tend to change their choice, and the norm gradually converges to the majority norm. In contrast, when the commitment is strong enough, the norm does not converge to the majority norm so easily.
+[click] We are interested in how many minority agents can lead to a change in the norm. First, we consider a case in which 10 agents initially prefer shared payment. We compare agents with weak and strong commitment to their initial norms.
+
+At the beginning, there is little difference between the two conditions. However, weakly committed agents are more likely to be influenced when they observe others choosing shared payment. Once some agents begin to switch, their choices influence others and may eventually lead to a change in the overall norm.
+
+In contrast, when agents are strongly committed to their initial norms, their preferences are less likely to change. As a result, the shared-payment norm does not fully take over.
 
 [click] And if we increase the number of minority agents, we will find that both the weak and strong cases can lead to a change in the norm.
 
-[click] Thus, we can say that changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs. The main point here is that activation steering does not only control the agents’ initial preferences. It also seems to affect their later behavior, so that their behaviors remain consistent over several rounds in simulation.
+[click] Thus, we can say that changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs. 
+
+This result is consistent with our expectations. The key point is that we were able to effectively control the agents’ initial preferences, and their behavior remained consistent with these preferences over multiple rounds of the simulation. This demonstrates the effectiveness of activation steering.
+
 -->
 
 
@@ -580,7 +612,7 @@ Beyond that, we also conduct simulation focusing on whether an increasing minori
 
 <div class="kicker">Summary</div>
 
-## Activation Steering in Social Simulation
+## Activation Steering in Social Science Research
 
 <p class="support wide"></p>
 
@@ -589,8 +621,8 @@ Beyond that, we also conduct simulation focusing on whether an increasing minori
     <h3>Activation steering represents a promising method for improving the reproducibility and interpretability of social simulations based on LLM agents</h3>
     <ul>
       <li>Activation steering enables the control of agent properties such as personality and belief</li>
-      <li>Reduces the influence of model- and prompt-level variations on simulation outcomes.</li>
-      <li>Enhances interpretability by clarifying the relationship between controlled conditions and simulation outcomes.</li>
+      <li>Enhances interpretability by clarifying the relationship between controlled conditions and outcomes.</li>
+      <li>More controllable and diverse silicon samples</li>
     </ul>
 </div>
 
