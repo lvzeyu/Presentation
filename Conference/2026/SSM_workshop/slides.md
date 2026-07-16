@@ -264,7 +264,7 @@ layout: section
 
 <div>
 
-<h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:60px; line-height:1.08; font-weight:800; color:#243033;">Application of Activation-steered LLM Agents</h1>
+<h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; line-height:1.08; font-weight:800; color:#243033;">Application of Activation-steered LLM Agents</h1>
 
 <hr>
 
