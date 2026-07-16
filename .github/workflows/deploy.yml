@@ -68,6 +68,14 @@ jobs:
         working-directory: ./Conference/2026/INAS
         run: nr build --base /${{github.event.repository.name}}/Conference/2026/INAS/
 
+      - name: Install dependencies for SSM_workshop
+        working-directory: ./Conference/2026/SSM_workshop
+        run: ni
+
+      - name: Build SSM_workshop
+        working-directory: ./Conference/2026/SSM_workshop
+        run: nr build --base /${{github.event.repository.name}}/Conference/2026/SSM_workshop/
+
       - name: Create output directory structure
         run: |
           mkdir -p public/Tutorial/2026/JAMS_2026
@@ -80,6 +88,8 @@ jobs:
           cp -r ./Other/2026/otree_hosting/dist/* public/Other/2026/otree_hosting/
           mkdir -p public/Conference/2026/INAS
           cp -r ./Conference/2026/INAS/dist/* public/Conference/2026/INAS/
+          mkdir -p public/Conference/2026/SSM_workshop
+          cp -r ./Conference/2026/SSM_workshop/dist/* public/Conference/2026/SSM_workshop/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

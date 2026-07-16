@@ -348,3 +348,47 @@ h1, h2, h3, p { margin: 0; }
 
 /* Hide Slidev's goto dialog until opened with G key */
 #slidev-goto-dialog.-top-20 { display: none; }
+
+/* ── Hover tooltip: wrap text in <span class="tooltip">…<span class="tooltip-box">info</span></span> ── */
+.tooltip {
+  position: relative;
+  border-bottom: 1px dashed var(--blue);
+  cursor: help;
+}
+
+.tooltip .tooltip-box {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 220px;
+  max-width: 340px;
+  padding: 12px 16px;
+  background: var(--dark);
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 12px 28px rgba(31, 41, 55, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+  z-index: 50;
+}
+
+.tooltip .tooltip-box::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--dark);
+}
+
+.tooltip:hover .tooltip-box {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
