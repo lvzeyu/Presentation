@@ -56,4 +56,16 @@ export default function setupImageLightbox(_context: AppContext) {
     if (event.key === 'Escape')
       closeLightbox()
   })
+
+  function externalizeLinks(root: ParentNode) {
+    root.querySelectorAll('.slidev-layout a[href]').forEach((link) => {
+      link.setAttribute('target', '_blank')
+      link.setAttribute('rel', 'noopener noreferrer')
+    })
+  }
+
+  externalizeLinks(document)
+
+  const linkObserver = new MutationObserver(() => externalizeLinks(document))
+  linkObserver.observe(document.body, { childList: true, subtree: true })
 }

@@ -349,6 +349,27 @@ h1, h2, h3, p { margin: 0; }
 /* Hide Slidev's goto dialog until opened with G key */
 #slidev-goto-dialog.-top-20 { display: none; }
 
+/* ── Callout: highlighted panel for a key takeaway bullet ── */
+.callout {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 22px !important;
+  padding: 20px 26px;
+  background: var(--blue-soft);
+  border-left: 5px solid var(--blue);
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(67, 56, 202, 0.1);
+  color: var(--ink);
+}
+
+.callout .callout-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
 /* ── Hover tooltip: wrap text in <span class="tooltip">…<span class="tooltip-box">info</span></span> ── */
 .tooltip {
   position: relative;
