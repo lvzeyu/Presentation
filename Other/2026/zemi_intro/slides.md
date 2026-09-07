@@ -27,9 +27,9 @@ mdc: true
     <div class="hero-mark">LAB INTRODUCTION · 2026</div>
     <h1 style="font-family:'Noto Serif JP',Georgia,serif; font-size:60px; font-weight:800; color:#243033; line-height:1.08; margin:0;">Computational Humanities<br>& Social Sciences Lab</h1>
   </div>
-  <div style="position:absolute; left:62px; bottom:58px; z-index:2; color:#374151; font-size:23px; font-weight:700; line-height:1.48;">
+  <div style="position:absolute; left:62px; bottom:58px; z-index:2; color:#374151; font-size:26px; font-weight:700; line-height:1.42;">
     Graduate School and Faculty of Arts and Letters, Tohoku University<br>
-    <span style="font-size:19px; color:#6b7280;">Zeyu Lyu</span>
+    <span style="font-size:22px; color:#6b7280;">Zeyu Lyu</span>
     <div style="display:flex; gap:14px; margin-top:8px; line-height:1;">
       <a href="https://lvzeyu.github.io/" aria-label="Homepage" title="Homepage" style="display:inline-flex; color:#2563eb;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3"></path></svg></a>
       <a href="https://scholar.google.com/citations?user=W1k3wDIAAAAJ" aria-label="Google Scholar" title="Google Scholar" style="display:inline-flex; color:#2563eb;"><svg width="23" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2 10 10-5 10 5-10 5L2 10Z"></path><path d="M6 12.2V16c2.9 2.7 9.1 2.7 12 0v-3.8M22 10v6"></path></svg></a>

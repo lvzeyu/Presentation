@@ -409,28 +409,6 @@ h1, h2, h3, p { margin: 0; }
 /* ── Lab introduction additions ── */
 .slidev-layout::after { display: none; }
 
-.title-page::before {
-  content: "";
-  position: absolute;
-  width: 520px;
-  height: 520px;
-  right: -120px;
-  bottom: -210px;
-  border: 72px solid var(--blue-soft);
-  border-radius: 50%;
-}
-
-.title-page::after {
-  content: "";
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  right: 250px;
-  top: -122px;
-  background: var(--green-soft);
-  transform: rotate(28deg);
-}
-
 .hero-mark {
   display: inline-block;
   margin-bottom: 22px;
