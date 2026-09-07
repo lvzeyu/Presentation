@@ -260,6 +260,7 @@ The lab applies survey data to empirical sociology, scholarly records to science
     <tr><td><b>NASAAI Masngut</b></td><td>D2 · <a href="https://syde.tohoku.ac.jp/english/">SYDE</a> · <a href="https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm">MEXT</a></td><td>Disaster Sociology; Public Opinion on Nuclear Energy</td></tr>
     <tr><td><b>Hanhan Sun</b></td><td>D1 · <a href="https://web.tohoku.ac.jp/diare/">DIARE</a> · <a href="https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm">MEXT</a></td><td>Feminism; Gender Issues in Social Media</td></tr>
     <tr><td><b>Dongxin Yan</b></td><td>D1</td><td>Cultural Sociology</td></tr>
+    <tr><td><b>Rintaro Iwamura</b></td><td>M1</td><td>Polarization; Social Simulation</td></tr>
   </tbody>
 </table>
 
