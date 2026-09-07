@@ -1,0 +1,87 @@
+% English extended abstract. All manuscript text is kept in this file.
+\documentclass[onecolumn]{main}
+
+\input{paper-config.tex}
+
+\begin{document}
+\maketitle
+
+\section{Background and Motivation}
+Large language model (LLM) agents have shown considerable potential as “silicon samples” in social science research. By assigning demographic profiles or social roles in prompts, researchers can ask models to answer survey questions, participate in behavioral experiments, or interact in social simulations. Existing studies have demonstrated that LLMs can produce responses similar to those of humans and emulate human behavior \citep{argyle2023,park2023}. However, these approaches are not without limitations. First, LLMs inherit societal and representational biases from their training data and thus may produce biased outputs that misrepresent the preferences and behaviors of human populations \citep{bai2025}. Second, LLMs tend to converge toward an ``average persona'': their outputs may resemble human responses in aggregate while flattening differences within and across groups, thereby potentially biasing observed outcomes and underrepresenting the behavioral heterogeneity that is essential to collective dynamics \citep{wang2025,wu2025}. Third, the behavior of LLM agents remains difficult to interpret. Their responses are highly sensitive to prompt formulation and generation settings, while the underlying mechanisms governing their decisions remain largely opaque. This lack of interpretability complicates causal attribution, making it difficult to distinguish behavioral patterns that emerge from the modeled interaction process from those that merely reflect pre-existing preferences of the underlying model \citep{loya2023}.
+
+Social science is concerned with the underlying mechanisms of human behavior and social phenomena while accounting for heterogeneity across populations and contexts. Such investigations require research findings to be reproducible and interpretable. However, the aforementioned limitations make these goals difficult to achieve, particularly because prompt-based applications of LLMs provide limited control over, and limited interpretability of, the models' outputs. To address these limitations, this study examines how representation engineering can be used to intervene in the internal activation space of an LLM, thereby enabling more controllable and interpretable agent behavior. This approach is motivated by the observation that LLMs encode information in high-dimensional activation spaces and that specific directions within these spaces may correspond to meaningful conceptual constructs \citep{zou2023repe,park2024linear}. By identifying and manipulating such directions, researchers can systematically modulate an agent's internal state rather than relying solely on external prompting. This allows for the construction of LLM-based agents with tunable preferences and traits, enabling more controlled and interpretable applications in social science research.
+
+
+
+\section{Representation Engineering and Research Design}
+
+Representation engineering intervenes in the internal activation space through which an LLM organizes information during inference \citep{turner2023}. Specifically, activation steering is a widely applicable method that identifies a vector in the model's activation space corresponding to a target construct and adds it to the model's hidden state during inference. This intervention can be applied to any LLM with accessible activations, and it can be used to manipulate a wide range of constructs, including personality traits, social preferences, and moral values \citep{liu2026cobra}.
+
+Specifically, we construct a contrastive dataset comprising $N$ pairs of positive and negative examples, $x_i^{+}$ and $x_i^{-}$, associated with the target construct. We then feed these examples into the model and extract their residual-stream activations at layer $l$, from which we compute the mean difference vector $\mathbf{v}^{(l)}$ representing the direction in which the model encodes the target construct at that layer.
+
+\begin{equation}
+  \mathbf{v}^{(l)} = \frac{1}{N}\sum_{i=1}^{N}
+  \left[\mathbf{a}^{(l)}(x_i^{+})-\mathbf{a}^{(l)}(x_i^{-})\right].
+\end{equation}
+
+\begin{equation}
+  \mathbf{a}^{(l)}_{\mathrm{steered}}
+  = \mathbf{a}^{(l)} + \alpha\mathbf{v}^{(l)}.
+\end{equation}
+
+During inference, the vector is added to the hidden state with scalar coefficient $\alpha$:
+positive and negative coefficients move generation toward opposite poles of the construct, while coefficient magnitude controls intervention strength. In this way, the steering vector enables a controllable and interpretable manipulation of the model's internal state, allowing us to construct LLM-based agents with tunable preferences and traits.
+
+We apply this method to social simulations examining how social norms emerge and change through social influence and interaction. A central challenge in simulations involving agents’ behavioral tendencies and decision-making is introducing controlled heterogeneity across agents. Without such heterogeneity, it is difficult to determine whether collective outcomes are driven by social influence or by the model’s pre-existing preferences. We use activation steering to construct a controlled agent-level treatment that introduces tunable individual preferences into the simulation.
+
+\section{Preliminary Results and Implications}
+
+This study examines the effectiveness of activation steering in modulating LLM agents' social preferences. We then use these steered agents to build a social simulation model that investigates the emergence and change of social norms through social influence and interaction.
+
+
+In our validation, we examine LLM agents individually and observe their behavior in simulated environments, showing that activation steering can effectively and consistently modify agents' social preferences. In particular, by adjusting the coefficient of the steering vector, we can smoothly transition between different social preferences, achieving fine-grained control over agent behavior. This controllable individual-level heterogeneity provides a powerful tool for social simulation: introducing diverse social preferences allows us to more clearly examine how social influence shapes collective behavior and how variation in individual characteristics contributes to the emergence and evolution of social norms.
+
+Additionally, our social simulations examine populations that vary in size and in the strength of agents' preferences, showing how the social influence that emerges from their interaction dynamically drives the emergence and change of social norms. We find that the interaction between individuals' commitment strength to a given norm and the observed distribution of preferences in the population determines the pace and direction of norm change: when strongly committed agents reach a critical mass, they stabilize the existing norm and resist the adoption of alternative preferences.
+
+Beyond that, we also note several limitations of the current approach. A target construct may be distributed across multiple layers, entangled with other features, or only partially captured by a single linear steering direction, so that an estimated vector may not fully isolate the intended construct. Steering effects can vary across prompts, models, and layers, and individual agents may occasionally move opposite to the intended direction even when the average effect across a population is as expected \citep{braun2025}. Future work should therefore validate each steering vector for the specific model and setting in which it is applied, and test whether the same interventions and resulting norm dynamics transfer across model families and simulation designs.
+
+
+\begin{thebibliography}{99}
+\setlength{\bibhang}{0.5in}
+
+\bibitem[Argyle et al.(2023)]{argyle2023}
+Argyle, L. P., Busby, E. C., Fulda, N., Gubler, J. R., Rytting, C., \& Wingate, D. (2023). Out of one, many: Using language models to simulate human samples. \textit{Political Analysis, 31}(3), 337--351. \url{https://doi.org/10.1017/pan.2023.2}
+
+\bibitem[Bai et al.(2025)]{bai2025}
+Bai, X., Wang, A., Sucholutsky, I., \& Griffiths, T. L. (2025). Explicitly unbiased large language models still form biased associations. \textit{Proceedings of the National Academy of Sciences, 122}(8), Article e2416228122. \url{https://doi.org/10.1073/pnas.2416228122}
+
+\bibitem[Braun et al.(2025)]{braun2025}
+Braun, J., Eickhoff, C., Krueger, D., Bahrainian, S. A., \& Krasheninnikov, D. (2025). \textit{Understanding (un)reliability of steering vectors in language models} [Preprint]. arXiv. \url{https://doi.org/10.48550/arXiv.2505.22637}
+
+\bibitem[Liu et al.(2026)]{liu2026cobra}
+Liu, X., Shang, H., \& Jin, H. (2026). CoBRA: Programming cognitive bias in social agents using classic social science experiments. In \textit{Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems} (pp. 1--30). Association for Computing Machinery. \url{https://doi.org/10.1145/3772318.3790804}
+
+\bibitem[Loya et al.(2023)]{loya2023}
+Loya, M., Sinha, D., \& Futrell, R. (2023). Exploring the sensitivity of LLMs' decision-making capabilities: Insights from prompt variations and hyperparameters. In \textit{Findings of the Association for Computational Linguistics: EMNLP 2023} (pp. 3711--3716). Association for Computational Linguistics. \url{https://doi.org/10.18653/v1/2023.findings-emnlp.241}
+
+\bibitem[Park et al.(2023)]{park2023}
+Park, J. S., O'Brien, J., Cai, C. J., Morris, M. R., Liang, P., \& Bernstein, M. S. (2023). Generative agents: Interactive simulacra of human behavior. In \textit{Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology} (Article 2, pp. 1--22). Association for Computing Machinery. \url{https://doi.org/10.1145/3586183.3606763}
+
+\bibitem[Park et al.(2024)]{park2024linear}
+Park, K., Choe, Y. J., \& Veitch, V. (2024). The linear representation hypothesis and the geometry of large language models. In \textit{Proceedings of the 41st International Conference on Machine Learning} (pp. 39643--39666). PMLR.
+
+\bibitem[Turner et al.(2023)]{turner2023}
+Turner, A. M., Thiergart, L., Leech, G., Udell, D., Vazquez, J. J., Mini, U., \& MacDiarmid, M. (2023). \textit{Steering language models with activation engineering} [Preprint]. arXiv. \url{https://doi.org/10.48550/arXiv.2308.10248}
+
+\bibitem[Wang et al.(2025)]{wang2025}
+Wang, A., Morgenstern, J., \& Dickerson, J. P. (2025). Large language models that replace human participants can harmfully misportray and flatten identity groups. \textit{Nature Machine Intelligence, 7}, 400--411. \url{https://doi.org/10.1038/s42256-025-00986-z}
+
+\bibitem[Wu et al.(2025)]{wu2025}
+Wu, Z., Peng, R., Ito, T., Onizuka, M., \& Xiao, C. (2025). \textit{LLM-based social simulations require a boundary} [Preprint]. arXiv. \url{https://doi.org/10.48550/arXiv.2506.19806}
+
+\bibitem[Zou et al.(2023)]{zou2023repe}
+Zou, A., Phan, L., Chen, S., Campbell, J., Guo, P., Ren, R., Pan, A., Yin, X., Mazeika, M., Dombrowski, A.-K., Goel, S., Li, N., Byun, M. J., Wang, Z., Mallen, A., Basart, S., Koyejo, S., Song, D., Fredrikson, M., \dots{} Hendrycks, D. (2023). \textit{Representation engineering: A top-down approach to AI transparency} [Preprint]. arXiv. \url{https://doi.org/10.48550/arXiv.2310.01405}
+
+\end{thebibliography}
+
+\end{document}

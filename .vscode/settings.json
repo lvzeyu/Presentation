@@ -1,0 +1,25 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "project-make-lualatex",
+      "command": "make",
+      "args": [
+        "-s",
+        "FORCE=1"
+      ],
+      "cwd": "%DIR%"
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Project Makefile: LuaLaTeX (force rebuild)",
+      "tools": [
+        "project-make-lualatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "Project Makefile: LuaLaTeX (force rebuild)",
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab"
+}
