@@ -1,0 +1,53 @@
+\begin{thebibliography}{}
+
+\bibitem[Anthis et~al., 2025]{anthis2025}
+Anthis, J.~R., Liu, R., Richardson, S.~M., et~al. (2025).
+\newblock {LLM} social simulations are a promising research method.
+\newblock In {\em Proceedings of the 42nd International Conference on Machine Learning}.
+
+\bibitem[Argyle et~al., 2023]{argyle2023}
+Argyle, L.~P., Busby, E.~C., Fulda, N., Gubler, J.~R., Rytting, C., and Wingate, D. (2023).
+\newblock Out of one, many: Using language models to simulate human samples.
+\newblock {\em Political Analysis}, 31(3):337--351.
+
+\bibitem[Bail, 2024]{bail2024}
+Bail, C.~A. (2024).
+\newblock Can generative {AI} improve social science?
+\newblock {\em Proceedings of the National Academy of Sciences}, 121(21):e2314021121.
+
+\bibitem[Bisbee et~al., 2024]{bisbee2024}
+Bisbee, J., Clinton, J.~D., Dorff, C., Kenkel, B., and Larson, J.~M. (2024).
+\newblock Synthetic replacements for human survey data? the perils of large language models.
+\newblock {\em Political Analysis}, 32(4):401--416.
+
+\bibitem[Da~Silva et~al., 2025]{dasilva2025}
+Da~Silva, P.~Q., Sethuraman, H., Rajagopal, D., Hajishirzi, H., and Kumar, S. (2025).
+\newblock Steering off course: Reliability challenges in steering language models.
+\newblock In {\em Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)}, pages 19856--19882. Association for Computational Linguistics.
+
+\bibitem[Konen et~al., 2024]{konen2024}
+Konen, K., Jentzsch, S., Diallo, D., Schumann, P., Denzler, J., and Eger, S. (2024).
+\newblock Style vectors for steering generative large language models.
+\newblock In {\em Findings of the Association for Computational Linguistics: EACL 2024}, pages 782--802.
+
+\bibitem[Loya et~al., 2023]{loya2023}
+Loya, M., Sinha, D., and Futrell, R. (2023).
+\newblock Exploring the sensitivity of {LLMs}' decision-making capabilities: Insights from prompt variations and hyperparameters.
+\newblock In {\em Findings of the Association for Computational Linguistics: EMNLP 2023}, pages 3711--3716.
+
+\bibitem[Park et~al., 2023]{park2023}
+Park, J.~S., O'Brien, J.~C., Cai, C.~J., Morris, M.~R., Liang, P., and Bernstein, M.~S. (2023).
+\newblock Generative agents: Interactive simulacra of human behavior.
+\newblock In {\em Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology}.
+
+\bibitem[Turner et~al., 2023]{turner2023}
+Turner, A.~M., Thiergart, L., Leech, G., Udell, D., Vazquez, J.~J., Mini, U., and MacDiarmid, M. (2023).
+\newblock Steering language models with activation engineering.
+\newblock {\em arXiv preprint arXiv:2308.10248}.
+
+\bibitem[Wang et~al., 2025]{wang2025}
+Wang, A., Morgenstern, J., and Dickerson, J.~P. (2025).
+\newblock Large language models that replace human participants can harmfully misportray and flatten identity groups.
+\newblock {\em Nature Machine Intelligence}, 7:400--411.
+
+\end{thebibliography}
