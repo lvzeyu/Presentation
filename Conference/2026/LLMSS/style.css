@@ -37,7 +37,8 @@
   pointer-events: none;
 }
 
-.slidev-layout img:not(.logo):not(.title-qr) {
+.slidev-layout img:not(.logo):not(.title-qr),
+.slidev-layout svg.zoomable {
   cursor: zoom-in;
 }
 
@@ -67,6 +68,14 @@
   background: white;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
   object-fit: contain;
+}
+
+.image-lightbox svg {
+  height: auto;
+  padding: 28px;
+  box-sizing: content-box;
+  background: var(--paper);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
 }
 
 /* ── Markdown heading → claim style ── */

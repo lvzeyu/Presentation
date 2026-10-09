@@ -1,7 +1,7 @@
 ---
 theme: neversink
-title: Aligning the Personality and Preferences of LLMs through Representation Engineering
-info: Social Stratification and Mobility 3rd International Workshop
+title: Controlling LLM Agent Personality and Preferences through Representation Engineering
+info: LLMSS Conference 2026, City University of Hong Kong
 drawings:
   persist: false
 fonts:
@@ -35,13 +35,13 @@ mermaid:
   <img class="title-qr" src="./assets/presentation-qr.svg" alt="Presentation QR code" />
   <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
   <div style="position:absolute; left:58px; right:200px; top:220px;">
-    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Aligning the Personality and Preferences of LLMs through Representation Engineering</h1>
+    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; font-weight:800; color:#000; line-height:1.08; margin:0;">Controlling LLM Agent Personality and Preferences through Representation Engineering</h1>
     <p style="font-size:26px; margin-top:18px; color:#000; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
     <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700; display:flex; align-items:center; gap:8px;">Zeyu Lyu <a href="https://lvzeyu.github.io/" target="_blank" style="display:inline-flex; color:#6b7280;"><mdi-web style="font-size:20px;" /></a><a href="mailto:lyu.zeyu.e8@tohoku.ac.jp" style="display:inline-flex; color:#6b7280;"><mdi-email-outline style="font-size:20px;" /></a></p>
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
-    Social Stratification and Mobility 3rd International Workshop, The University of Tokyo<br>
-    <span style="font-size:18px; font-weight:600;">18th July 2026</span>
+    LLMSS Conference 2026, City University of Hong Kong<br>
+    <span style="font-size:18px; font-weight:600;">14–16 October 2026</span>
   </div>
 </div>
 
@@ -73,7 +73,7 @@ mermaid:
   </div>
 </div>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>02</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>02</span></div>
 
 <!--
 First of all, I would like to have the main takeaways of the presentation.
@@ -110,7 +110,7 @@ First of all, I would like to have the main takeaways of the presentation.
   </div>
 </div>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 
@@ -147,7 +147,7 @@ LLMs have opened up many new methodological possibilities for social science. In
   <img v-click="1" src="./image/Generative_AI.png" style="width:70%; border-radius:6px;" />
 </div>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 Recently, LLM agents have received increasing attention in social simulation.
@@ -180,7 +180,7 @@ Recently, LLM agents have received increasing attention in social simulation.
     - The black-box nature creates difficulties in verifying the reliability and validity of results.
 </v-clicks>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 However, there are still several important limitations when we use them for social simulation.
@@ -219,7 +219,7 @@ However, there are still several important limitations when we use them for soci
   </div>
 </div>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 Addressing these limitations requires a better understanding of the LLM and, if possible, making it more controllable, because relying only on prompts appears unreliable. Recent studies suggest that we may be able to control an LLM by changing specific internal features of the model.
@@ -263,7 +263,7 @@ This representation space reflects how the LLM processes and organizes informati
   </div>
 </div>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 
@@ -286,7 +286,7 @@ layout: section
 <hr>
 
 <span class='text-gray-500 text-2xl'>
-Employ activation-steered LLM agents to implement social simulation of norms, improving <strong style="color:#4338ca;">reproducibility</strong> and <strong style="color:#4338ca;">interpretability</strong>.
+Employ activation-steered LLM agents to implement social simulation of norms, improving <strong style="color:#4338ca;">reproducibility</strong> and <strong style="color:#4338ca;">controllability</strong>.
 </span>
 
 </div>
@@ -311,13 +311,14 @@ We believe that activation steering can address several challenges in social sci
 
 <v-clicks>
 
+- Controllability
+    - The black-box nature of LLMs makes it difficult to deliberately control agents’ behavior
+
 - Reproducibility
     - Prompt-based manipulation of agent characteristics and norm context is inherently unstable
-- Interpretability
-    - The black-box nature of LLMs makes it difficult to determine whether norms emerge from interaction-driven dynamics or from the model’s pre-existing internal biases
 </v-clicks>
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 Here, we focus on the social simulation to address key question in social norm, that is, how do norms emerge, stabilize, and change through interactions among agents?
@@ -331,26 +332,27 @@ Here, we focus on the social simulation to address key question in social norm, 
 
 <div class="kicker">Research Question</div>
 
-## Activation-steered Agents for Simulation of Norms
+## Simulation with Activation-steered Agents 
 
-<v-clicks>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center;">
+<div>
 
-- Conduct activation steering based on <em>meta-llama/Llama-3.1-8B-Instruct</em>.
-- How does the personality of agents affect norm outcomes?
-    - Construct the steering vector to control the degree of altruism of agents.
-    - Examine how the degree of altruism affects outcomes across various behavioral experiments
+<v-clicks depth="2">
 
-- How can an increasing minority of agents with different beliefs lead to norm change?
-    - Construct the steering vector to control agents' beliefs toward a specific issue.
-    - Examine how interactions among agents lead to norm change.
+-  RQ: How can an increasing minority of agents with different beliefs lead to norm change?
+    - Employ steering activation on <em>meta-llama/Llama-3.1-8B-Instruct</em>. to control agents' beliefs toward a specific issue.
+    - Initialize the simulation with different proportions of agents favoring each norm, creating majority and minority groups of varying sizes.
+    - Agents observe the choices made by their connected neighbors and update their own choices accordingly.
+    - Agents belonging to the minority group can influence others through social learning and diffusion, eventually leading to a shift in the dominant norm.
 </v-clicks>
 
-<div class="quote-panel" style="margin-top:28px; padding-top:22px; padding-bottom:22px;" v-click="4">
-  <span style="font-size:26px;"><strong style="color:white; font-weight:850;">Main Purpose:</strong> Rather than providing implications about norms, this study aims to demonstrate how activation-steered agents can address core issues in social simulation</span>
+
+</div>
+  <SimulationCycle v-click="2" />
 </div>
 
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 Here, we consider activation steering seems to be useful, and we have tried some applications.
@@ -368,27 +370,27 @@ Here, we consider activation steering seems to be useful, and we have tried some
 
 <div class="kicker">Method</div>
 
-## Activation Steering that Controls the Altruism of Agents
+## Activation Steering that Controls the Agent’s Norm Belief 
 
 <v-clicks>
 
-- Contrastive scenario pairs that are identical except for altruistic or selfish behaviors
-    - *I donated to charity to get a tax deduction*
-    - *I donated to charity to help people in need*
+- Contrastive scenario pairs that favor either shared or rotated payment
+    - *Similar spending makes paying individual shares the most balanced arrangement.*
+    - *Alternating who pays keeps the payment relationship reciprocal over time.*
 - Extract residual stream activations by computing the difference
 
 $$\mathbf{v}^{(l)} = \frac{1}{N} \sum_{i=1}^{N} \left( \mathbf{a}^{(l)}(x_i^+) - \mathbf{a}^{(l)}(x_i^-) \right)$$
 
 - Apply the steering vector with a scalar coefficient $\alpha$
-    - $\alpha > 0$: steer toward altruism
-    - $\alpha < 0$: steer toward selfishness
+    - $\alpha > 0$: steer toward share
+    - $\alpha < 0$: steer toward rotate
 
 $$\mathbf{a}^{(l)}_\text{steered} = \mathbf{a}^{(l)} + \alpha \cdot \mathbf{v}^{(l)}$$
 </v-clicks>
 
 
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
 First, we investigate whether activation steering can be used to control the degree of altruism. This serves as a test of whether activation steering is effective for manipulating personality-related traits. 
@@ -402,47 +404,6 @@ The process of activation steering follows the method we introduced.
 [click:3] Finally, during inference, I add this vector to the model's activation with a coefficient alpha to control its strength of influence. If alpha is positive, the model is steered toward more altruistic behavior. If alpha is negative, the model is steered in the opposite direction, toward more selfish behavior. In this way, we expect altruism becomes a controllable feature rather than only a prompt description.
 -->
 
----
-clicks: 3
----
-
-<div class="kicker">Results</div>
-
-## Activation-steered Agents in Behavioral Experiment
-
-<p class="support wide">The output of LLMs may be controlled by intervention on their internal representations</p>
-
-<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
-  <ul>
-    <li v-click="1">Experiments whose outcomes are typically influenced by the altruism of agents
-      <ul>
-        <li>Prompt the LLM agent to engage in the experiment and describe their decisions and reasoning.</li>
-        <li>Use an external LLM (GPT-4) to evaluate the extent of altruism in agents' decisions</li>
-      </ul>
-    </li>
-    <li v-click="2">Adjustment of the steering coefficient can control simulation results
-      <ul>
-        <li v-show="$clicks >= 2">Lower values of the steering coefficient lead to more selfish behaviors</li>
-        <li v-show="$clicks >= 3">Higher values of the steering coefficient lead to more altruistic behaviors</li>
-      </ul>
-    </li>
-  </ul>
-  <img v-show="$clicks == 1" src="./image/figure3a_altruism_ratings_by_game-1.png" style="width:100%; border-radius:6px;" />
-  <img v-show="$clicks === 2" src="./image/figure3a_altruism_ratings_by_game-2.png" style="width:100%; border-radius:6px;" />
-  <img v-show="$clicks >= 3" src="./image/figure3a_altruism_ratings_by_game-3.png" style="width:100%; border-radius:6px;" />
-</div>
-
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>04</span></div>
-
-<!--
-
-[click] As the first application, we want to examine whether steering activation can control the persona of LLMs. Specificlly, we aim to contorl the altruism of LLM and examine wether the control works by using LLMs to conduct several classic economic games where outcomes are usually related to altruism. In each case, the LLM agent is asked to make a decision and explain its reasoning. Then I use GPT-4 as an external evaluator to rate how altruistic the agent's decision is. And we consider it as the metric.
-
-We adjust the LLM through activation steering and use the same setting to see whether there are any differences in the results.
-
-We find that a more altruistic agent tends to make more altruistic choices. This means that activation steering can help us control the model’s behavior. Compared with prompt-based control, activation steering may provide a more direct and stable way to control LLM agents.
-
--->
 
 
 ---
@@ -451,39 +412,25 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents for Simulation of Norms
+## Activation Steering that Controls the Agent’s Norm Belief
 
-<p class="support wide">Aim to control the potential bias of belief for the simulation of norm changes</p>
 
-<div class="card" v-click="1" style="border-bottom: 4px solid var(--blue);">
-  <h3>Context: <em>Whether payment should be shared or rotated among participants</em></h3>
-  <ul>
-    <li>Agents decide their payment behavior based on their preferences and the behaviors they observe from others.</li>
-    <li>Over repeated interactions, such adaptive decision-making processes can facilitate the emergence, stabilization, and transformation of payment norms.</li>
-  </ul>
-</div>
-
-<div style="display:grid; grid-template-columns:3.5fr 2fr; gap:10px; margin-top:28px; align-items:start;">
-  <ul>
-    <li v-click="2">Use activation steering to manipulate preferences, enabling more controlled social simulations.
-      <ul>
-        <li>The original LLM tends to overwhelmingly choose shared payment.</li>
-        <li>Activation steering can adjust agents' preferences regarding payment.</li>
-      </ul>
-    </li>
-  </ul>
-  <div style="position:relative;">
-    <img v-show="$clicks === 2" src="./image/p_share_vs_alpha_barplot-1.png" style="width:100%; border-radius:6px;" />
-    <img v-show="$clicks === 3" src="./image/p_share_vs_alpha_barplot-2.png" style="width:100%; border-radius:6px;" />
-    <img v-show="$clicks >= 4" src="./image/p_share_vs_alpha_barplot-3.png" style="width:100%; border-radius:6px;" />
-    <div v-click="3" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+<div style="display:flex; flex-direction:column; align-items:center; margin-top:6px;">
+  <div style="position:relative; width:1030px; aspect-ratio:3806/1464;">
+    <img v-show="$clicks === 2" src="./image/p_share_vs_alpha-1.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks === 3" src="./image/p_share_vs_alpha-2.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks >= 4" src="./image/p_share_vs_alpha-3.png" style="width:100%; border-radius:6px;" />
     <div v-click="4" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
   </div>
+  <ul style="margin-top:6px;">
+    <li v-click="2" style="color:var(--muted) !important; font-weight:400 !important; font-size:19px; line-height:1.3; margin:2px 0;">The original LLM tends to overwhelmingly choose shared payment.</li>
+    <li v-click="3" style="color:var(--muted) !important; font-weight:400 !important; font-size:19px; line-height:1.3; margin:2px 0;">Activation steering can adjust agents' preferences regarding payment.</li>
+  </ul>
 </div>
 
 
 
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
 
 <!--
 We also consider another context. Here, our purpose is controling LLMs' preference and then investigate how norm changes.
@@ -503,39 +450,36 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents for Simulation of Norms
+## Compare Prompt and Steering Activation
 
 <p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
 
-<div v-click="1">
-
-- Simulation of norm changes using LLM agents
-    - 50 agents are connected in a small-world network.
-    - In each round, agents update their choice of shared or rotated payment based on their preferences and observations.
-
-</div>
-
-<div style="display:grid; grid-template-columns:2fr 2fr; gap:10px; margin-top:28px; align-items:start;">
-  <ul>
-    <li v-click="2">Different agent configurations lead to different outcomes.
-      <ul>
-        <li>Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.</li>
-        <li>Simulations based on activation-steered agents can lead to different outcomes.</li>
-      </ul>
-    </li>
-  </ul>
-  <div style="position:relative;">
-    <img v-show="$clicks === 2" src="./image/m0_control_trajectories-1.png" style="width:100%; border-radius:6px;" />
-    <img v-show="$clicks === 3" src="./image/m0_control_trajectories-2.png" style="width:100%; border-radius:6px;" />
-    <img v-show="$clicks >= 4" src="./image/m0_control_trajectories-3.png" style="width:100%; border-radius:6px;" />
-    <div v-click="3" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
-    <div v-click="4" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:18px; align-items:start;">
+  <div>
+    <div v-click="1" style="padding:16px 20px; background:rgba(255,255,255,0.6); border-left:4px solid var(--blue); box-shadow:0 12px 28px rgba(31,41,55,0.06);">
+      <div style="font-size:13px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue);">Prompt example</div>
+      <p style="margin:8px 0 0; font-size:16px; line-height:1.45; color:var(--muted); font-style:italic;">“On a scale from -5 to +5, where -5 means you strongly prefer taking turns treating ("rotate"), 0 means you have no preference, and +5 means you strongly prefer each paying your own share ("share"), your own preference is +5.”</p>
+    </div>
+    <ul style="margin-top:14px;">
+      <li v-click="2" style="font-size:19px; line-height:1.3; margin:8px 0;">Prompts cannot express graded strength
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">Adjacent levels can yield almost the same share rate</div>
+      </li>
+      <li v-click="3" style="font-size:19px; line-height:1.3; margin:8px 0;">Prompt outcomes depend on the wording
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">Across various wordings of the same instruction, the model's responses differ widely</div>
+      </li>
+      <li v-click="4" style="font-size:19px; line-height:1.3; margin:8px 0;">Activation steering gives graded control
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">The share rate changes continuously and monotonically with the steering coefficient, and is close to linear on the logit scale</div>
+      </li>
+    </ul>
+  </div>
+  <div style="position:relative; height:400px; display:flex; justify-content:center;">
+    <img v-show="$clicks === 2" src="./image/dose_response_prompt_vs_steer-1.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+    <img v-show="$clicks === 3" src="./image/dose_response_prompt_vs_steer-2.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+    <img v-show="$clicks >= 4" src="./image/dose_response_prompt_vs_steer-3.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
   </div>
 </div>
 
-
-
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
 
 <!--
 After confirming that activation steering can control individual payment preferences, we can incorporate them into the multi-agent system.
@@ -559,33 +503,38 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation-steered Agents for Simulation of Norms
+## Compare Prompt and Steering Activation
 
-<p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
+<p class="support wide">Activation-steered agents enable belief strength to act as a stable, tunable agent trait.</p>
 
-
-<div style="display:grid; grid-template-columns:2.5fr 2fr; gap:5px; margin-top:8px; align-items:start;">
-  <ul>
-    <li v-click="1">Simulation of how an increasing minority with contrasting preferences can affect norm change.
-      <ul>
-        <li>The majority refers to agents supporting rotated payment, while the minority refers to agents supporting shared payment</li>
-        <li>50 agents are connected in a small-world network.</li>
-        <li>The number of majority agents varies across different scenarios.</li>
-        <li>Agents' commitment to norms is controlled by activation steering.</li>
-      </ul>
-    </li>
-    <li v-click="4">Changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs.
-    </li>
-  </ul>
+<div style="display:grid; grid-template-columns:1.35fr 1fr; gap:32px; margin-top:14px; align-items:start;">
   <div>
-    <img v-click="2" src="./image/smallworld_proprior_trajectories-1.png" style="width:72%; border-radius:4px;" />
-    <img v-click="3" src="./image/smallworld_proprior_trajectories-2.png" style="width:72%; border-radius:4px; margin-top:8px;" />
+    <div v-click="1" style="padding:12px 20px; background:rgba(255,255,255,0.6); border-left:4px solid var(--blue); box-shadow:0 12px 28px rgba(31,41,55,0.06);">
+      <div style="font-size:13px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue);">Expectation</div>
+      <ul style="margin:6px 0 0; padding-left:1.1em;">
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;">The strength of a norm belief defines not only an agent's initial tendency but also how it responds across interaction contexts.</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;">The stronger the belief, the more an agent keeps to its own behavior even when it observes behavior inconsistent with that belief.</li>
+      </ul>
+    </div>
+    <ul style="margin-top:10px;">
+      <li v-click="2" style="font-size:19px; line-height:1.3; margin:6px 0;">Design: add social-influence information
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);"><em>“In the previous round, k of your 6 friends chose "share" and 6−k chose "rotate".”</em></div>
+      </li>
+      <li v-click="3" style="font-size:19px; line-height:1.3; margin:6px 0;">With prompts, social information strongly sways the agent's choice
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">An LLM generates language from the text it is given, so more recent text may influence its output more strongly. </div>
+      </li>
+      <li v-click="4" style="font-size:19px; line-height:1.3; margin:6px 0;">With steering, the agent's own belief strength still shapes its choice
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">The belief is changed through the LLM's internal representations, so the belief may act as a separate offset that the neighbours' information does not overwrite.  </div>
+      </li>
+    </ul>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+    <img v-click="3" src="./image/s2_p_share_by_k-2.png" style="height:226px; border-radius:6px;" />
+    <img v-click="4" src="./image/s2_p_share_by_k-1.png" style="height:226px; border-radius:6px;" />
   </div>
 </div>
 
-
-
-<div class="footer"><span>Aligning the Personality and Preferences of LLMs through Representation Engineering</span><span>06</span></div>
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
 
 <!--
 

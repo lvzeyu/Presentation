@@ -27,13 +27,25 @@ export default function setupImageLightbox(_context: AppContext) {
 
   function closeLightbox() {
     overlay?.classList.remove('is-open')
+    overlay?.querySelector('svg')?.remove()
     document.body.classList.remove('image-lightbox-open')
   }
 
-  function openLightbox(source: HTMLImageElement) {
+  function openLightbox(source: HTMLImageElement | SVGSVGElement) {
     const elements = ensureOverlay()
-    elements.zoomedImage.src = source.currentSrc || source.src
-    elements.zoomedImage.alt = source.alt || ''
+    elements.overlay.querySelector('svg')?.remove()
+    elements.zoomedImage.hidden = source instanceof SVGSVGElement
+    if (source instanceof SVGSVGElement) {
+      // Inline diagrams are cloned so they keep the deck's fonts when enlarged
+      const { width, height } = source.viewBox.baseVal
+      const clone = source.cloneNode(true) as SVGSVGElement
+      clone.style.width = `min(88vw, calc(84vh * ${width / height}))`
+      elements.overlay.appendChild(clone)
+    }
+    else {
+      elements.zoomedImage.src = source.currentSrc || source.src
+      elements.zoomedImage.alt = source.alt || ''
+    }
     elements.overlay.classList.add('is-open')
     document.body.classList.add('image-lightbox-open')
   }
@@ -43,7 +55,7 @@ export default function setupImageLightbox(_context: AppContext) {
     if (!(target instanceof Element))
       return
 
-    const image = target.closest('.slidev-layout img') as HTMLImageElement | null
+    const image = target.closest('.slidev-layout img, .slidev-layout svg.zoomable') as HTMLImageElement | SVGSVGElement | null
     if (!image || image.classList.contains('logo') || image.classList.contains('title-qr'))
       return
 
