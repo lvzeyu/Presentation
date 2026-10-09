@@ -76,6 +76,14 @@ jobs:
         working-directory: ./Conference/2026/SSM_workshop
         run: nr build --base /${{github.event.repository.name}}/Conference/2026/SSM_workshop/
 
+      - name: Install dependencies for LLMSS
+        working-directory: ./Conference/2026/LLMSS
+        run: ni
+
+      - name: Build LLMSS
+        working-directory: ./Conference/2026/LLMSS
+        run: nr build --base /${{github.event.repository.name}}/Conference/2026/LLMSS/
+
       - name: Create output directory structure
         run: |
           mkdir -p public/Tutorial/2026/JAMS_2026
@@ -90,6 +98,8 @@ jobs:
           cp -r ./Conference/2026/INAS/dist/* public/Conference/2026/INAS/
           mkdir -p public/Conference/2026/SSM_workshop
           cp -r ./Conference/2026/SSM_workshop/dist/* public/Conference/2026/SSM_workshop/
+          mkdir -p public/Conference/2026/LLMSS
+          cp -r ./Conference/2026/LLMSS/dist/* public/Conference/2026/LLMSS/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

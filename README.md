@@ -14,6 +14,7 @@
 |------|----------|------|
 | Emergence and Evolution of Social Norms among LLM Agents (INAS 2026) | [GitHub Pages](https://lvzeyu.github.io/Presentation/Conference/2026/INAS/) | [Conference/2026/INAS/](Conference/2026/INAS/) |
 | Aligning the Personality and Preferences of LLMs through Representation Engineering (SSM Workshop 2026) | [GitHub Pages](https://lvzeyu.github.io/Presentation/Conference/2026/SSM_workshop/) | [Conference/2026/SSM_workshop/](Conference/2026/SSM_workshop/) |
+| Controlling LLM Agent Personality and Preferences through Representation Engineering (LLMSS 2026) | [GitHub Pages](https://lvzeyu.github.io/Presentation/Conference/2026/LLMSS/) | [Conference/2026/LLMSS/](Conference/2026/LLMSS/) |
 
 ### 2025
 
