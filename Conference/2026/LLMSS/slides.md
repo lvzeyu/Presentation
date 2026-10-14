@@ -370,7 +370,7 @@ Here, we consider activation steering seems to be useful, and we have tried some
 
 <div class="kicker">Method</div>
 
-## Activation Steering that Controls the Agent’s Norm Belief 
+## RepE that Controls the Agent’s Norm Belief
 
 <v-clicks>
 
@@ -412,10 +412,10 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Activation Steering that Controls the Agent’s Norm Belief
+## RepE that Controls the Agent’s Norm Belief
 
 
-<div style="display:flex; flex-direction:column; align-items:center; margin-top:6px;">
+<div style="display:flex; flex-direction:column; align-items:center; margin-top:50px;">
   <div style="position:relative; width:1030px; aspect-ratio:3806/1464;">
     <img v-show="$clicks === 2" src="./image/p_share_vs_alpha-1.png" style="width:100%; border-radius:6px;" />
     <img v-show="$clicks === 3" src="./image/p_share_vs_alpha-2.png" style="width:100%; border-radius:6px;" />
@@ -450,9 +450,9 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Compare Prompt and Steering Activation
+## RepE Enables Graded Control of Agent's Norm Belief
 
-<p class="support wide">Activation-steered agents enable a controllable simulation setting and influence simulation outcomes.</p>
+<p class="support wide">Activation-steered agents enable a controllable simulation setting.</p>
 
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:18px; align-items:start;">
   <div>
@@ -503,7 +503,7 @@ clicks: 4
 
 <div class="kicker">Results</div>
 
-## Compare Prompt and Steering Activation
+## Belief Stability Under Social Influence
 
 <p class="support wide">Activation-steered agents enable belief strength to act as a stable, tunable agent trait.</p>
 
@@ -554,6 +554,57 @@ In contrast, when agents are strongly committed to their initial norms, their pr
 
 This result is consistent with our expectations. The key point is that we were able to effectively control the agents’ initial preferences, and their behavior remained consistent with these preferences over multiple rounds of the simulation. This demonstrates the effectiveness of activation steering.
 
+-->
+
+
+
+
+
+---
+clicks: 2
+---
+
+<div class="kicker">Results</div>
+
+## RepE Stabilizes Tipping Points Across Prompts
+
+<p class="support wide">Tipping points differ between prompt-based and steered agents.</p>
+
+<div style="display:grid; grid-template-columns:1fr 1.2fr; gap:32px; margin-top:14px; align-items:start;">
+  <div>
+    <div style="padding:12px 20px; background:rgba(255,255,255,0.6); border-left:4px solid var(--blue); box-shadow:0 12px 28px rgba(31,41,55,0.06);">
+      <div style="font-size:13px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue);">Simulation setting</div>
+      <ul style="margin:6px 0 0; padding-left:1.1em;">
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>m agents:</strong> support "share", strong commitment</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>50−m agents:</strong> support "rotate", weak commitment</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>Network:</strong> Agents are connected in a small-world network and can observe the behavior of connected agents.</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>Different Prompts:</strong> several prompts that vary in scenario and task description</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>Outcome:</strong> the minimum number of minority agents needed for behavioral diffusion to make the initially minority norm the majority choice (= tipping point)</li>
+      </ul>
+    </div>
+    <ul style="margin-top:14px;">
+      <li v-click="1" style="font-size:19px; line-height:1.35; margin:8px 0;"><span style="font-weight:700;">Steer Activation:</span> <span style="font-weight:300;">the tipping point stays stable across simulation based on different prompts.</span></li>
+      <li v-click="2" style="font-size:19px; line-height:1.35; margin:8px 0;"><span style="font-weight:700;">Prompt-based:</span> <span style="font-weight:300;">the tipping point can differ substantially between simulation based on different prompts.</span></li>
+    </ul>
+  </div>
+  <div style="position:relative; height:400px; display:flex; justify-content:center; align-items:center;">
+    <img v-show="$clicks === 1" src="./image/s6_tip_box_1_steer.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+    <img v-show="$clicks >= 2" src="./image/s6_tip_box_2_prompts.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+  </div>
+</div>
+
+<div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
+
+<!--
+Here, we compare activation steering with prompt-based control across several prompts that vary in their scenarios and task descriptions.
+
+In each simulation, m agents support shared payment with strong commitment, while the remaining 50 minus m agents support rotated payment with weak commitment. The agents are connected in a small-world network, so they can observe the behavior of connected agents before making their own decisions.
+
+Our outcome is the tipping point: the minimum number of minority agents needed for behavioral diffusion to make the initially minority norm the majority choice.
+
+[click] With activation steering, the tipping point remains stable across simulations based on different prompts.
+
+[click] With prompt-based control, the tipping point can differ substantially between simulations based on different prompts. This suggests that activation steering produces more consistent behavioral conditions across changes in prompt wording and context.
 -->
 
 
