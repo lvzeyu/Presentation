@@ -45,7 +45,7 @@ mermaid:
 
 ---
 
-<div class="kicker">Role</div>
+<div class="kicker">Potential</div>
 
 ## LLM Agents as a Silicon Sample
 
@@ -80,10 +80,9 @@ LLMs have opened up many new methodological possibilities for social science. In
 [click] LLM agents can also participate in social surveys and psychological experiments as simulated subjects. Indeed, several studies have suggested that LLM agents can produce human-like responses in social surveys and experiments.
 -->
 
-
 ---
 
-<div class="kicker">Role</div>
+<div class="kicker">Potential</div>
 
 ## LLM Agents in Social Simulation
 
@@ -151,3 +150,165 @@ However, there are still several important limitations when we use them for soci
 [click] Furthermore, an LLM also presents challenges for reproducibility and interpretability. A subtle change in the prompt can produce a very different outcome, and it is difficult to understand why because the model remains a black box when we rely only on prompts.
 -->
 
+---
+
+<div class="kicker">Limitations</div>
+
+<h2 class="pnas-title">Can LLMs Reproduce Social Science Findings? (<span class="tooltip"><a href="https://doi.org/10.1073/pnas.2538145123">Xie et al. 2026</a><span class="tooltip-box">Xie, Yueqi, Lemeng Liang, Shuzhen Li, et al. 2026. “Evaluating the Statistical Realism of LLM-Generated Social Science Data.” <em>Proceedings of the National Academy of Sciences</em> 123(19). https://doi.org/10.1073/pnas.2538145123.</span></span>)</h2>
+
+<div class="pnas-slide">
+  <div class="pnas-copy">
+    <div v-click="1" class="pnas-point">
+      <strong>Test population-level realism</strong>
+      <span>15 LLMs generate synthetic respondents from 7 real surveys in the US, China, and UK.</span>
+    </div>
+    <div v-click="2" class="pnas-point">
+      <strong>Compare five statistical patterns</strong>
+      <span>Distributions, associations, outcome predictions, and life-event sequences.</span>
+    </div>
+    <div v-click="3" class="pnas-point">
+      <strong>Systematic gaps remain</strong>
+      <span>Responses cluster around “typical” people; associations are exaggerated; life courses lose diversity.</span>
+    </div>
+    <div v-click="4" class="pnas-takeaway">
+      <span class="pnas-takeaway-label">Core takeaway</span>
+      <strong>LLM-generated synthetic data often fail to reproduce empirical patterns found in social science research.</strong>
+    </div>
+  </div>
+  <div class="pnas-figures">
+    <figure v-click="1">
+      <img src="./image/pnas.2538145123fig01.jpg" alt="SSDataBench workflow and five statistical patterns" />
+      <figcaption>Fig. 1 · Benchmark design and five tests</figcaption>
+    </figure>
+    <figure v-click="3">
+      <img src="./image/pnas.2538145123fig02.jpg" alt="Pass rates for 15 language models across datasets and statistical patterns" />
+      <figcaption>Fig. 2 · Pass rates across models and datasets</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="footer"><span>LLMs as Silicon Samples: Roles and Limitations</span><span>05</span></div>
+
+<!--
+Xie and colleagues ask whether synthetic respondents reproduce the population-level statistics that social scientists actually analyze.
+
+[click] Their SSDataBench compares 15 language models with seven established surveys from the United States, China, and the United Kingdom. The first figure shows how they generate synthetic respondents and compare them with real data. Click the figure to zoom in.
+
+[click] They test five kinds of patterns, from simple distributions and associations to the order of life events.
+
+[click] The heat map shows low pass rates overall. Distributions and life-event sequences are especially difficult to reproduce. Model outputs concentrate on typical profiles and often exaggerate relationships between variables. Click the heat map to zoom in.
+
+[click] The key point is that plausible individual answers do not guarantee valid population-level data. The results apply to the paper's sparse-conditioning setup; richer context or training on survey data may improve realism.
+-->
+---
+
+<div class="kicker">Future</div>
+
+<h2 class="research-role-title">Paradigram and Target of (Computational) Social Science</h2>
+
+<div class="research-role-slide">
+  <div class="research-role-copy">
+    <div v-click="1" class="research-role-point">
+      <strong>Computational social science (CSS) is a combinatinon of social science and computer scinece, while they have different traditions in paradigrams </strong>
+      <span><span class="tooltip"><a href="https://doi.org/10.1038/s41586-021-03659-0">Hofman et al. (2021)</a><span class="tooltip-box">Hofman, J. M., Watts, D. J., Athey, S., et al. (2021). Integrating explanation and prediction in computational social science. <em>Nature</em>, 595, 181–188.</span></span> distinguish explanation from prediction.</span>
+    </div>
+    <div v-click="2" class="research-role-point">
+      <strong>Social science: explanation</strong>
+      <span>Identify and estimate the effects of changing a social situation.</span>
+    </div>
+    <div v-click="2" class="research-role-point">
+      <strong>Computer science: prediction</strong>
+      <span>Forecast outcomes in new observations or similar situations.</span>
+    </div>
+    <div v-click="3" class="research-role-point">
+      <strong>Integrative framework for CSS</strong>
+      <span>Combine causal understanding with prediction under interventions and distributional change.</span>
+    </div>
+    <div v-click="4" class="research-role-takeaway">
+      <span>LLM agents appliation in CSS</span>
+      <strong>Current evaluations seem to emphasize prediction more than explanation.</strong>
+    </div>
+  </div>
+  <div class="research-role-visuals">
+    <div v-click="1" class="research-role-table-wrap">
+      <div class="research-role-table-title">Four modes of empirical modelling · <span class="tooltip"><a href="https://doi.org/10.1038/s41586-021-03659-0">Hofman et al. (2021)</a><span class="tooltip-box">Hofman, J. M., Watts, D. J., Athey, S., et al. (2021). Integrating explanation and prediction in computational social science. <em>Nature</em>, 595, 181–188.</span></span></div>
+      <div class="research-role-table">
+        <div class="research-role-table-head research-role-corner"></div>
+        <div class="research-role-table-head">No intervention or distributional changes</div>
+        <div class="research-role-table-head">Under interventions or distributional changes</div>
+        <div class="research-role-row-label">Focus on specific features or effects</div>
+        <div class="research-role-cell"><strong>1 · Descriptive</strong><span>Describe past or present situations; neither causal nor predictive.</span></div>
+        <div class="research-role-cell"><strong>2 · Explanatory</strong><span>Estimate effects of changing a situation; many effects are small.</span></div>
+        <div class="research-role-row-label">Focus on predicting outcomes</div>
+        <div class="research-role-cell"><strong>3 · Predictive</strong><span>Forecast similar future situations; predictions may break under change.</span></div>
+        <div class="research-role-cell research-role-integrative"><strong>4 · Integrative</strong><span>Predict outcomes and estimate effects in unseen situations.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer"><span>LLMs as Silicon Samples: Roles and Limitations</span><span>06</span></div>
+
+<!--
+Hofman and colleagues describe two traditions that bring different strengths to computational social science.
+
+[click] Their framework organizes empirical modelling by whether researchers focus on particular effects or outcomes, and whether conditions remain stable or change. The table on the right summarizes its four quadrants.
+
+[click] Social science has traditionally emphasized explanation: what happens when a situation changes, and how large are the effects? Computer science has emphasized prediction: how well can a model forecast outcomes in new observations? These are priorities, not exclusive disciplinary boundaries.
+
+[click] Hofman and colleagues propose integrative modelling, which combines both aims to predict under interventions and distribution shifts. This is the fourth quadrant in the table.
+
+[click] For LLM agents, this suggests a question: are we evaluating only their predictive fit, or also whether they help explain effects when social conditions change?
+-->
+
+---
+
+<div class="kicker">Future</div>
+
+<h2 class="interpret-title">Interpretability and Controllability in CSS</h2>
+
+<div class="interpret-slide">
+  <div class="interpret-copy">
+    <div v-click="1" class="interpret-point interpret-panel">
+      <strong>Why do they matter for social science?</strong>
+      <span>Explaining a result requires identifying a mechanism and controlling the simulation conditions and interventions that test it.</span>
+    </div>
+    <div class="interpret-methods">
+      <div v-click="2" class="interpret-parent">
+        <strong>Recent efforts for enhancing interpretability and controllability of LLMs</strong>
+        <span>Interpretability asks which concepts are represented in an LLM's internal states; controllability asks whether targeted changes to those states alter behavior.</span>
+      </div>
+      <div v-click="3" class="interpret-point interpret-method">
+        <strong>Sparse autoencoders (SAEs)</strong>
+        <span>Decompose hidden activations into sparse, potentially interpretable features—for example, a feature associated with risk preference—which can be inspected and adjusted (<span class="tooltip"><a href="https://arxiv.org/html/2609.16436v1">Fan et al., 2026</a><span class="tooltip-box">Fan, J. G., Murugan, A., Krishnan, S., &amp; Nagaraj, A. (2026). Interpreting and steering LLM agents for social simulations. <em>arXiv</em>:2609.16436.</span></span>).</span>
+      </div>
+      <div v-click="4" class="interpret-point interpret-method">
+        <strong>Steer Activation</strong>
+        <span>Identify a direction for a defined social construct in model activations, then intervene along it to test how the agent's decision changes (<span class="tooltip"><a href="https://arxiv.org/html/2609.16436v1">Fan et al., 2026</a><span class="tooltip-box">Fan, J. G., Murugan, A., Krishnan, S., &amp; Nagaraj, A. (2026). Interpreting and steering LLM agents for social simulations. <em>arXiv</em>:2609.16436.</span></span>; <span class="tooltip"><a href="https://doi.org/10.1177/00811750261421220">Ma, 2026</a><span class="tooltip-box">Ma, J. (2026). Computational basis of large language models' decision making in social simulation. <em>Sociological Methodology</em>, 56(1), 31–61.</span></span>).</span>
+      </div>
+    </div>
+  </div>
+  <div class="interpret-figures">
+    <figure v-click="3">
+      <img src="./image/sae.jpg" alt="SAE pipeline for encoding hidden states into sparse features and steering a response" />
+      <figcaption>SAE · discovering and steering sparse features</figcaption>
+    </figure>
+    <figure v-click="4">
+      <img src="./image/probe2.jpg" alt="Representation engineering pipeline using a linear probe to score and steer an altruism direction" />
+      <figcaption>Representation engineering · probe-based steering</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="footer"><span>LLMs as Silicon Samples: Roles and Limitations</span><span>07</span></div>
+
+<!--
+[click] Social science asks why outcomes arise and what changes under an intervention. A credible simulation therefore needs well-defined conditions and interventions.
+
+[click] We also need to inspect what the LLM itself represents and test whether changing its internal state alters decisions.
+
+[click] Fan and colleagues use sparse autoencoders to break complex activations into a small set of active features. The upper figure shows how an SAE feature is inspected and modified. An SAE feature is not automatically a human psychological mechanism.
+
+[click] Representation engineering takes a more targeted route: learn a direction for a predefined construct, then add or subtract it during generation. The lower figure shows probe-based steering. Ma studies social variables in a dictator game.
+
+-->

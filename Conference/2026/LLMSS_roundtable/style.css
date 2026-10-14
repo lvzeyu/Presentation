@@ -23,21 +23,7 @@
   position: relative;
 }
 
-.slidev-layout::after {
-  content: "";
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 70px;
-  height: 70px;
-  background: white url("./assets/presentation-qr.svg") center / 62px 62px no-repeat;
-  border: 1px solid rgba(36, 48, 51, 0.16);
-  box-shadow: 0 6px 16px rgba(31, 41, 55, 0.08);
-  z-index: 20;
-  pointer-events: none;
-}
-
-.slidev-layout img:not(.logo):not(.title-qr),
+.slidev-layout img:not(.logo),
 .slidev-layout svg.zoomable {
   cursor: zoom-in;
 }
@@ -178,17 +164,6 @@ h1, h2, h3, p { margin: 0; }
   right: 58px;
   height: 104px;
   width: auto;
-}
-
-.title-qr {
-  position: absolute;
-  top: 52px;
-  right: 184px;
-  width: 88px;
-  height: 88px;
-  background: white;
-  border: 1px solid rgba(36, 48, 51, 0.16);
-  box-shadow: 0 6px 16px rgba(31, 41, 55, 0.08);
 }
 
 /* ── Title slide wrapper (escapes layout padding) ── */
@@ -421,4 +396,444 @@ h1, h2, h3, p { margin: 0; }
 .tooltip:hover .tooltip-box {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ── PNAS evidence slide ── */
+.slidev-layout h2.pnas-title {
+  font-size: 40px;
+}
+
+.pnas-title .tooltip {
+  white-space: nowrap;
+  font-family: "Inter", "Noto Sans JP", "Noto Sans SC", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.pnas-title .tooltip .tooltip-box {
+  top: calc(100% + 8px);
+  bottom: auto;
+  left: 0;
+  min-width: 410px;
+  max-width: 410px;
+  transform: translateY(-6px);
+}
+
+.pnas-title .tooltip:hover .tooltip-box {
+  transform: translateY(0);
+}
+
+.pnas-title .tooltip .tooltip-box::after {
+  top: -12px;
+  left: 24px;
+  border-top-color: transparent;
+  border-bottom-color: var(--dark);
+}
+
+.pnas-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 30px;
+  margin-top: 24px;
+  height: 490px;
+}
+
+.pnas-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pnas-point {
+  border-left: 3px solid var(--blue);
+  padding: 0 0 0 16px;
+  margin-bottom: 17px;
+}
+
+.pnas-point strong,
+.pnas-point span {
+  display: block;
+}
+
+.pnas-point strong {
+  font-size: 21px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.pnas-point span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.36;
+}
+
+.pnas-takeaway {
+  margin-top: auto;
+  padding: 17px 20px;
+  border-left: 5px solid var(--blue);
+  border-radius: 9px;
+  background: var(--blue-soft);
+  box-shadow: 0 8px 20px rgba(67, 56, 202, 0.08);
+}
+
+.pnas-takeaway-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pnas-takeaway strong {
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 850;
+}
+
+.pnas-figures {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.pnas-figures figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  margin: 0;
+  padding: 9px 10px 7px;
+  overflow: hidden;
+  border: 1px solid var(--faint);
+  border-radius: 8px;
+  background: white;
+}
+
+.pnas-figures img {
+  display: block;
+  max-width: 100%;
+  max-height: 205px;
+  object-fit: contain;
+}
+
+.pnas-figures figcaption {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+/* ── Research roles: Hofman et al. framework ── */
+.slidev-layout h2.research-role-title {
+  font-size: 43px;
+}
+
+.research-role-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr);
+  gap: 26px;
+  height: 490px;
+  margin-top: 24px;
+}
+
+.research-role-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.research-role-point {
+  border-left: 3px solid var(--blue);
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.research-role-point strong,
+.research-role-point > span {
+  display: block;
+}
+
+.research-role-point strong {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.research-role-point > span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.36;
+}
+
+.research-role-point .tooltip .tooltip-box {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+.research-role-point .tooltip .tooltip-box::after {
+  top: -12px;
+  border-top-color: transparent;
+  border-bottom-color: var(--dark);
+}
+
+.research-role-takeaway {
+  margin-top: auto;
+  padding: 16px 19px;
+  border-left: 5px solid var(--blue);
+  border-radius: 9px;
+  background: var(--blue-soft);
+  box-shadow: 0 8px 20px rgba(67, 56, 202, 0.08);
+}
+
+.research-role-takeaway span {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.research-role-takeaway strong {
+  font-size: 21px;
+  line-height: 1.28;
+  font-weight: 850;
+}
+
+.research-role-visuals {
+  min-width: 0;
+  min-height: 0;
+}
+
+.research-role-table-wrap {
+  min-width: 0;
+  height: 100%;
+  border: 1px solid var(--faint);
+  border-radius: 8px;
+  background: white;
+  padding: 16px;
+}
+
+.research-role-table-title {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.research-role-table-title .tooltip .tooltip-box {
+  top: calc(100% + 8px);
+  bottom: auto;
+  left: 0;
+  transform: translateY(-6px);
+}
+
+.research-role-table-title .tooltip:hover .tooltip-box {
+  transform: translateY(0);
+}
+
+.research-role-table-title .tooltip .tooltip-box::after {
+  top: -12px;
+  left: 24px;
+  border-top-color: transparent;
+  border-bottom-color: var(--dark);
+}
+
+.research-role-table {
+  display: grid;
+  grid-template-columns: 145px repeat(2, minmax(0, 1fr));
+  grid-template-rows: 70px repeat(2, minmax(0, 1fr));
+  height: calc(100% - 34px);
+  border: 1px solid #cbd5e1;
+}
+
+.research-role-table > div {
+  padding: 13px 12px;
+  border-right: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.research-role-table > div:nth-child(3n) {
+  border-right: 0;
+}
+
+.research-role-table > div:nth-last-child(-n+3) {
+  border-bottom: 0;
+}
+
+.research-role-table-head {
+  display: flex;
+  align-items: center;
+  background: var(--blue-soft);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.research-role-row-label {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.research-role-cell strong,
+.research-role-cell span {
+  display: block;
+}
+
+.research-role-cell strong {
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.research-role-cell span {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.32;
+}
+
+.research-role-integrative {
+  background: #e9f6f3;
+}
+
+/* ── Interpretability and controllability in CSS ── */
+.slidev-layout h2.interpret-title {
+  font-size: 43px;
+}
+
+.interpret-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 28px;
+  height: 500px;
+  margin-top: 21px;
+}
+
+.interpret-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.interpret-point {
+  border-left: 3px solid var(--blue);
+  padding-left: 13px;
+  margin-bottom: 12px;
+}
+
+.interpret-panel {
+  border-left: 5px solid var(--green);
+  border-radius: 8px;
+  background: #e9f6f3;
+  padding: 13px 16px;
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.08);
+}
+
+.interpret-methods {
+  margin-top: 5px;
+}
+
+.interpret-parent {
+  border-left: 5px solid var(--blue);
+  border-radius: 7px;
+  background: var(--blue-soft);
+  padding: 10px 14px;
+  margin-bottom: 13px;
+}
+
+.interpret-parent strong,
+.interpret-parent > span {
+  display: block;
+}
+
+.interpret-parent strong {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.interpret-parent > span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.interpret-method {
+  margin-left: 21px;
+  border-left: 2px solid #a5b4fc;
+  padding-left: 13px;
+}
+
+.interpret-method strong {
+  font-size: 18px;
+}
+
+.interpret-point strong,
+.interpret-point > span {
+  display: block;
+}
+
+.interpret-point strong {
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.interpret-point > span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.interpret-point .tooltip .tooltip-box {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+.interpret-point .tooltip .tooltip-box::after {
+  top: -12px;
+  border-top-color: transparent;
+  border-bottom-color: var(--dark);
+}
+
+.interpret-figures {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.interpret-figures figure {
+  margin: 0;
+  text-align: center;
+}
+
+.interpret-figures figure > img {
+  display: block;
+  width: 100%;
+  max-height: 245px;
+  object-fit: contain;
+}
+
+.interpret-figures figcaption {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.2;
 }
