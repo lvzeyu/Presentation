@@ -224,11 +224,7 @@ However, there are still several important limitations when we use them for soci
 <!--
 Addressing these limitations requires a better understanding of the LLM and, if possible, making it more controllable, because relying only on prompts appears unreliable. Recent studies suggest that we may be able to control an LLM by changing specific internal features of the model.
 
-[click] To understand the method, we need firstly have a basis understanding on how LLM works. Here is a great demo that help you to built a high level understanding of LLMs
-
-An LLM consists of many layers of neural networks. First, the input text is converted into numerical vectors, or embeddings. As these vectors pass through the network, they are updated at each layer, producing a set of high-dimensional activation vectors.
-
-The output of the final layer is then converted into a probability distribution over possible next tokens. The model selects one token, adds it to the sequence, and repeats the same process. In this way, it generates text one token at a time.
+[click] An LLM consists of many layers of neural networks. First, the input text is converted into numerical vectors, or embeddings. As these vectors pass through the network, they are updated at each layer, producing a set of high-dimensional activation vectors.
 
 The high-dimensional activation vectors formed at each layer can be understood as the model’s internal representations. The space in which these vectors are organized is called the representation space.
 
@@ -293,7 +289,7 @@ Employ activation-steered LLM agents to implement social simulation of norms, im
 
 <!--
 
-We believe that activation steering can address several challenges in social science applications of LLMs. In the following parts, we present several social simulation scenarios using activation-steered LLM agents to show how this approach can improve reproducibility and interpretability.
+We believe that activation steering can address several challenges in social science applications of LLMs. In the following parts, we present an example using activation-steered LLM agents to show how this approach can improve reproducibility and interpretability.
 
 
 -->
@@ -323,9 +319,9 @@ We believe that activation steering can address several challenges in social sci
 <!--
 Here, we focus on the social simulation to address key question in social norm, that is, how do norms emerge, stabilize, and change through interactions among agents?
 
-[click] Again, as we just discussed, LLMs have limitations in reproducibility.
+[click] Again, as we just discussed, LLMs have limitations in controllability and reproducibility.
 
-[click] Furthmore, in a norm emerges in a simulation, we need to ask where it comes from. While due to the limitation in interpretablity, we can not figure out is it really produced by interaction among agents, or is it already built into the model's internal bias? 
+
 -->
 
 ---
@@ -355,15 +351,17 @@ Here, we focus on the social simulation to address key question in social norm, 
 <div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
-Here, we consider activation steering seems to be useful, and we have tried some applications.
+We use activation-steered agents to simulate how a social norm can change through interaction.
 
-[click] We use Llama-3.1-8B-Instruct and conduct activation steering on it.
+[click] The question is whether a growing minority of agents with different beliefs can shift the dominant norm.
 
-[click:2] The first question is about personality. More specifically, I ask how the altruism of agents affects simulation outcomes. To examine this, I construct a steering vector that controls the degree of altruism, and then test whether changing this degree leads to different decisions in behavioral experiments.
+[click:2] We use Llama-3.1-8B-Instruct and apply activation steering to control each agent's belief about a particular issue.
 
-[click:3] The second question is about norm change. Here, I focus on a setting where a minority group has beliefs that differ from the majority. I construct a steering vector to control agents' belief-related preferences, and then examine how interactions among agents can produce changes in the collective norm.
+[click:3] We initialize the simulation with different proportions of agents favoring each norm. This creates majority and minority groups of varying sizes.
 
-[click:4] While I want to claim that our main purpose is not to give implications of norms here. Rather, I want to show that activation-steered agents can help address the reproducibility and interpretability problems that appear when we use LLM agents for social simulation.
+[click:4] During the simulation, agents observe the choices of their connected neighbors and update their own choices accordingly.
+
+[click:5] Through social learning and diffusion, agents in the minority may influence others and eventually shift the dominant norm. Here, the aim is to see whether controlling agents' initial beliefs makes that process more reproducible and easier to examine.
 -->
 
 ---
@@ -393,15 +391,13 @@ $$\mathbf{a}^{(l)}_\text{steered} = \mathbf{a}^{(l)} + \alpha \cdot \mathbf{v}^{
 <div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>04</span></div>
 
 <!--
-First, we investigate whether activation steering can be used to control the degree of altruism. This serves as a test of whether activation steering is effective for manipulating personality-related traits. 
+The procedure follows the activation-steering method I introduced earlier.
 
-The process of activation steering follows the method we introduced.
+[click] First, we prepare pairs of contrasting scenarios. One favors paying individual shares because everyone's spending is similar. The other favors taking turns because alternating who pays can keep the relationship over time.
 
-[click] We start from several contrastive scenario pairs that describe altruistic or selfish behaviors.
+[click:2] Next, we compare the model's residual stream activations for these two kinds of scenarios. We average the differences across pairs to obtain a steering vector at each layer. The direction shown here points toward shared payment.
 
-[click:2] Then, we compute the average difference between the activations for altruistic examples and selfish examples. This average difference becomes the altruism steering vector at a given layer.
-
-[click:3] Finally, during inference, I add this vector to the model's activation with a coefficient alpha to control its strength of influence. If alpha is positive, the model is steered toward more altruistic behavior. If alpha is negative, the model is steered in the opposite direction, toward more selfish behavior. In this way, we expect altruism becomes a controllable feature rather than only a prompt description.
+[click:3] Finally, we add the steering vector to the model's activation during inference and scale it by alpha. A positive alpha makes shared payment more likely, while a negative alpha steers the agent toward rotated payment. Varying alpha lets us adjust the agent's initial preference in a controlled way before running the social simulation.
 -->
 
 
@@ -433,14 +429,15 @@ clicks: 4
 <div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
 
 <!--
-We also consider another context. Here, our purpose is controling LLMs' preference and then investigate how norm changes.
+We examine whether activation steering changes the model's preference in a simple payment decision
 
-[click] Specifically, we assume a simple payment norm problem: whether payment should be shared among participants or rotated among them. Each agent decides its payment behavior based on its own preference and the behaviors it observes from others. Through repeated interaction, this type of decision process can produce the emergence or change of a payment norm.
+[click] First, consider the model at alpha equal to zero, with no steering applied.
 
-[click] The problem is that LLMs seem to have an original preference for a certain norm. If we ask the original LLM to make a choice several times, we find that it has a strong bias toward the shared-payment option. This means that we cannot directly use the original model to study how the shared-payment norm emerges. We cannot tell whether the LLM agents developed a belief in this norm through interaction, or whether they were simply expressing a preference that was already built into the model.
+[click] The original model chooses shared payment in 82 percent of trials. That is already a strong preference. If we ignored it, we might mistake the model's built-in tendency for a norm produced by interaction among agents.
 
-[click]In this context, we need a way to control the LLM agents’ prior beliefs. Similarly, we can use activation steering to control the LLM's preference by adjusting the steering coefficient. As shown in the figure, the LLM shows different tendencies under different levels of activation steering, and we can control it as expected.
+[click] As we increase alpha, shared payment generally becomes more common. A modest negative alpha reduces the share rate, although sharing is still the majority choice.
 
+[click] With stronger negative steering, the share rate falls below 50 percent and rotated payment becomes more common. We can therefore set different starting preferences for agents before examining how their interactions affect the collective norm.
 -->
 
 
@@ -482,16 +479,15 @@ clicks: 4
 <div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
 
 <!--
-After confirming that activation steering can control individual payment preferences, we can incorporate them into the multi-agent system.
+We also compare the agent with Prompt-based and RepE method.
 
-[click] In this simulation, 50 agents are connected in a small-world network. In each round, agents decide whether to choose shared payment or rotated payment. Their choices depend on their own preference and the behavior they observe from neighboring agents connected in the network. 
+[click] The first way is to state a preference directly in the prompt. We give the agent a number from minus five, meaning a strong preference for taking turns, to plus five, meaning a strong preference for sharing the bill.
 
-[click] We can find that different agent configurations lead to different outcomes. Due to the biased preference toward shared payment, agents based on the original LLM always converge to a shared payment norm.
+[click] If this scale worked as intended, each step would change the agent's choice gradually. But the graph shows flat stretches and sudden jumps: neighboring numbers can lead to almost the same share-payment rate.
 
-[click] Here, we change the agents’ preferences so that they are more likely to choose rotating payment.When the steering toward rotating payment is weak, the agents’ choices are relatively balanced. As a result, both norms may appear.
+[click] The wording matters too. Each of these additional curves uses a different phrasing of the same preference instruction. At a given number, they can produce very different rates of shared payment.
 
-[click] However, when we make the preference for rotating payment strong enough, rotating payment can also become the main norm outcome.
-
+[click] So How about activation steering. As we increase the steering coefficient, the share-payment rate rises steadily. In this comparison, steering gives us a more predictable way to set different strengths of preference across agents.
 
 
 -->
@@ -538,21 +534,16 @@ clicks: 4
 
 <!--
 
-Beyond that, we also conduct simulation focusing on whether an increasing minority with a contrasting preference can affect norm change.
+We also examine whether that preference still matters in the social influence contexts.
 
-[click] In this setting, we examine how the norm changes when the majority initially supports rotated payment, while the number of agents supporting shared payment gradually increases. There are still 50 agents, but now they have different preferences. I also use activation steering to control how strongly these agents are committed to this specific norm.
+[click] We expect a stronger belief to make an agent less likely to abandon its preferred payment norm, even when its neighbors choose differently. In other words, belief strength should shape the agent's response to social influence, not only its first choice.
 
-[click] We are interested in how many minority agents can lead to a change in the norm. First, we consider a case in which 10 agents initially prefer shared payment. We compare agents with weak and strong commitment to their initial norms.
+[click] To test this, we tell each agent how its neighbors chose in the previous round. We vary how many neighbors chose shared payment, from zero to six, and measure the agent's own choice.
 
-At the beginning, there is little difference between the two conditions. However, weakly committed agents are more likely to be influenced when they observe others choosing shared payment. Once some agents begin to switch, their choices influence others and may eventually lead to a change in the overall norm.
+[click] With prompt-defined preferences, agents choose shared payment more often as more neighbors choose it. But the curves rise in much the same way across the stated preference levels. The prompts do not clearly distinguish how agents with stronger versus weaker existing beliefs respond to social influence.
 
-In contrast, when agents are strongly committed to their initial norms, their preferences are less likely to change. As a result, the shared-payment norm does not fully take over.
 
-[click] And if we increase the number of minority agents, we will find that both the weak and strong cases can lead to a change in the norm.
-
-[click] Thus, we can say that changes in social norms are driven by both the increasing presence of a minority group and the strength of its commitment to alternative beliefs. 
-
-This result is consistent with our expectations. The key point is that we were able to effectively control the agents’ initial preferences, and their behavior remained consistent with these preferences over multiple rounds of the simulation. This demonstrates the effectiveness of activation steering.
+[click] With activation steering, the response depends more clearly on belief strength. Strongly steered agents tend to keep their preferred choice even when neighbors disagree, while more weakly steered agents respond to what their neighbors do. Belief strength therefore acts as a more stable and tunable agent trait.
 
 -->
 
@@ -596,15 +587,13 @@ clicks: 2
 <div class="footer"><span>Controlling LLM Agent Personality and Preferences through Representation Engineering</span><span>06</span></div>
 
 <!--
-Here, we compare activation steering with prompt-based control across several prompts that vary in their scenarios and task descriptions.
+Finally, we examine whether the differences we observed at the level of individual agents lead to different outcomes at the collective level.
 
-In each simulation, m agents support shared payment with strong commitment, while the remaining 50 minus m agents support rotated payment with weak commitment. The agents are connected in a small-world network, so they can observe the behavior of connected agents before making their own decisions.
+In each run, 50 agents are connected in a small-world network. Of these, m agents strongly favor shared payment, while the other 50 minus m weakly favor rotated payment. Agents observe their neighbors' choices before making their own. We increase m and record the smallest number at which shared payment spreads enough to become the majority choice. That number is the tipping point. We describe this same simulation task using different ways.
 
-Our outcome is the tipping point: the minimum number of minority agents needed for behavioral diffusion to make the initially minority norm the majority choice.
+[click] For steered agents, results stay fairly close across prompt versions. The threshold is relatively stable when we change the wording of the simulation.
 
-[click] With activation steering, the tipping point remains stable across simulations based on different prompts.
-
-[click] With prompt-based control, the tipping point can differ substantially between simulations based on different prompts. This suggests that activation steering produces more consistent behavioral conditions across changes in prompt wording and context.
+[click] For prompt-controlled agents, we describe the same task scenario with different prompts. The tipping point varies substantially across them; in some runs, no tipping occurs even with 35 committed agents. This sensitivity to prompt wording changes the simulated outcome, while activation steering gives us more consistent starting conditions.
 -->
 
 
