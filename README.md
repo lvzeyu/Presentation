@@ -56,6 +56,7 @@
 | 発表 | スライド | 資料 |
 |------|----------|------|
 | 院ゼミガイダンス | [GitHub Pages](https://lvzeyu.github.io/Presentation/Other/2026/zemi_guidance/) | [Other/2026/zemi_guidance/](Other/2026/zemi_guidance/) |
+| 研究室紹介 | [GitHub Pages](https://lvzeyu.github.io/Presentation/Other/2026/zemi_intro/) | [Other/2026/zemi_intro/](Other/2026/zemi_intro/) |
 | 計算的手法によりウェルビーイングを測る (人文社会科学特別科目) | [GitHub Pages](https://lvzeyu.github.io/Presentation/Other/2026/well_being_lecture/) | [Other/2026/well_being_lecture/](Other/2026/well_being_lecture/) |
 | oTreeではじめる社会科学実験入門 — サーバーで oTree を動かす | [GitHub Pages](https://lvzeyu.github.io/Presentation/Other/2026/otree_hosting/) | [Other/2026/otree_hosting/](Other/2026/otree_hosting/) |
 

@@ -44,6 +44,14 @@ jobs:
         working-directory: ./Other/2026/zemi_guidance
         run: nr build --base /${{github.event.repository.name}}/Other/2026/zemi_guidance/
 
+      - name: Install dependencies for zemi_intro
+        working-directory: ./Other/2026/zemi_intro
+        run: ni
+
+      - name: Build zemi_intro
+        working-directory: ./Other/2026/zemi_intro
+        run: nr build --base /${{github.event.repository.name}}/Other/2026/zemi_intro/
+
       - name: Install dependencies for well_being_lecture
         working-directory: ./Other/2026/well_being_lecture
         run: ni
@@ -98,6 +106,8 @@ jobs:
           cp -r ./Tutorial/2026/JAMS_2026/dist/* public/Tutorial/2026/JAMS_2026/
           mkdir -p public/Other/2026/zemi_guidance
           cp -r ./Other/2026/zemi_guidance/dist/* public/Other/2026/zemi_guidance/
+          mkdir -p public/Other/2026/zemi_intro
+          cp -r ./Other/2026/zemi_intro/dist/* public/Other/2026/zemi_intro/
           mkdir -p public/Other/2026/well_being_lecture
           cp -r ./Other/2026/well_being_lecture/dist/* public/Other/2026/well_being_lecture/
           mkdir -p public/Other/2026/otree_hosting
