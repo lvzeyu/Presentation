@@ -1,0 +1,640 @@
+---
+theme: neversink
+title: Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering
+info: 智能与计算传播学会 2026, Guangzhou
+drawings:
+  persist: false
+fonts:
+  sans: 'Inter, Noto Sans JP, Noto Sans SC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+  serif: 'Noto Serif JP, Noto Serif SC, serif'
+  mono: 'Roboto Mono, monospace'
+  provider: google
+  weights: '300,400,500,600,700,800'
+aspectRatio: 16/9
+canvasWidth: 1280
+transition: slide-left
+color: navy-light
+colorSchema: light
+css: unocss
+mdc: true
+mermaid:
+  theme: neutral
+  themeVariables:
+    primaryColor: '#eef2ff'
+    primaryTextColor: '#4338ca'
+    primaryBorderColor: '#6366f1'
+    lineColor: '#6366f1'
+    secondaryColor: '#f0fdfa'
+    tertiaryColor: '#fff'
+---
+
+<style src="./style.css"></style>
+
+<!-- Title slide: HTML needed for absolute-positioned layout -->
+<div class="title-page">
+  <img class="title-qr" src="./assets/presentation-qr.svg" alt="Presentation QR code" />
+  <img class="logo" src="./assets/tohokuuniversitylogo.png" alt="Tohoku University" />
+  <div style="position:absolute; left:58px; right:200px; top:220px;">
+    <h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:44px; font-weight:800; color:#000; line-height:1.08; margin:0;">Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</h1>
+    <p style="font-size:26px; margin-top:18px; color:#000; font-weight:700; line-height:1.4;">Graduate School of Arts and Letters, Tohoku University</p>
+    <p style="font-size:22px; margin-top:10px; color:#111827; font-weight:700; display:flex; align-items:center; gap:8px;">Zeyu Lyu <a href="https://lvzeyu.github.io/" target="_blank" style="display:inline-flex; color:#6b7280;"><mdi-web style="font-size:20px;" /></a><a href="mailto:lyu.zeyu.e8@tohoku.ac.jp" style="display:inline-flex; color:#6b7280;"><mdi-email-outline style="font-size:20px;" /></a></p>
+  </div>
+  <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
+    智能与计算传播学会 2026, Guangzhou<br>
+    <span style="font-size:18px; font-weight:600;">14–16 October 2026</span>
+  </div>
+</div>
+
+<!--
+
+-->
+
+---
+
+<div class="kicker">Overview</div>
+
+## Key Takeaways
+
+<p class="support wide">This presentation covers [1] improving the reproducibility and interpretability of LLM-agent applications in social science and [2] simulating the formation and transformation of social norms through the systematic control of LLM agents.</p>
+
+<div class="two-column">
+  <div class="card" v-click="1">
+    <h3>Reproducibility & Interpretability</h3>
+    <ul>
+      <li>Reproducibility and interpretability are significant challenges in the application of LLM agents in social science.</li>
+      <li>Use activation steering to control the behavior and decision-making of LLM agents.</li>
+    </ul>
+  </div>
+  <div class="card green" v-click="2">
+    <h3>Simulation of Social Norms: An Example</h3>
+    <ul>
+      <li>Activation-steered agents for controlling personality and preference in social simulation.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>02</span></div>
+
+<!--
+First of all, I would like to have the main takeaways of the presentation.
+
+[click] First, we want to show why reproducibility and interpretability are important challenges when we apply LLM agents in social science. And here we aim to address how activation steering can be considered as a promising method to control agent behavior and thus address these issues.
+
+[click] Also, we implent this method to conduct social simulation related to social norm. With this application example, I want to show how activation steering can help us control personality-related and belief-related properties of agents in social simulation.
+
+-->
+
+---
+
+<div class="kicker">Introduction</div>
+
+## LLM Agents as a Silicon Sample
+
+<p class="support wide">LLM agents show potential for simulating human responses in social surveys and experiments.</p>
+
+<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="1">Replicate the responses of human populations in social surveys
+      <ul>
+        <li>An LLM can be prompted to act as a respondent with specific demographic characteristics and generate consistent answers. (<span class="tooltip"><a href="https://aclanthology.org/2026.acl-long.1927/">Ahnert et al., 2026</a><span class="tooltip-box">Ahnert, G., Haensch, A.-C., Plank, B., &amp; Strohmaier, M. (2026). Survey response generation: Generating closed-ended survey responses in-silico with large language models. <em>ACL 2026</em>.</span></span>, <span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49">Argyle et al., 2023</a><span class="tooltip-box">Argyle, L. P., Busby, E. C., Fulda, N., et al. (2023). Out of one, many: Using language models to simulate human samples. <em>Political Analysis</em>, 31(3), 337–351.</span></span>, <span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/synthetic-replacements-for-human-survey-data-the-perils-of-large-language-models/B92267DC26195C7F36E63EA04A47D2FE">Bisbee et al., 2024</a><span class="tooltip-box">Bisbee, J., Clinton, J. D., Dorff, C., et al. (2024). Synthetic replacements for human survey data? The perils of large language models. <em>Political Analysis</em>, 32(4), 401–416.</span></span>)</li>
+      </ul>
+    </li>
+    <li v-click="2">Generate human-like responses in social science surveys and psychological experiments
+      <ul>
+        <li>LLM predictions show high correlation with original treatment effects in social science experiments conducted with human population (<span class="tooltip"><a href="https://www.nature.com/articles/s43588-025-00840-7">Cui et al., 2025</a><span class="tooltip-box">Cui, Z., Li, N., &amp; Zhou, H. (2025). A large-scale replication of scenario-based experiments in psychology and management using large language models. <em>Nature Computational Science</em>, 5, 627–634.</span></span>, <span class="tooltip"><a href="https://www.nature.com/articles/s41586-026-10742-x">Hewitt et al., 2026</a><span class="tooltip-box">Hewitt, L., Ashokkumar, A., Ghezae, I., et al. (2026). Large language models can predict the results of social science experiments. <em>Nature</em>.</span></span>)</li>
+      </ul>
+    </li>
+  </ul>
+  <div style="display:flex; flex-direction:column; gap:64px;">
+    <img v-click="1" src="./image/silcon_sample_survey.png" style="width:80%; border-radius:6px;" />
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+
+LLMs have opened up many new methodological possibilities for social science. In particular, LLM agents can serve as “silicon samples” to simulate human responses in surveys and experiments. 
+
+[click] By assigning an LLM specific demographic or persona characteristics, researchers can prompt it to act as a particular type of respondent. We can then ask it the same questions used in social surveys and compare its responses with those of human participants. This allows us to examine whether the LLM produces answers that are consistent with its assigned characteristics.
+
+[click] LLM agents can also participate in social surveys and psychological experiments as simulated subjects. Indeed, several studies have suggested that LLM agents can produce human-like responses in social surveys and experiments.
+-->
+
+
+---
+
+<div class="kicker">Introduction</div>
+
+## LLM Agents in Social Simulation
+
+<p class="support wide">LLM agents show great promise for social simulation by providing an efficient way to model heterogeneous individuals, generate realistic interactions, and explore complex social dynamics.</p>
+
+<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="1">LLM agents are promising for social simulation
+      <ul>
+        <li>Produce context-dependent, human-like behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2504.02234">Anthis et al., 2025</a><span class="tooltip-box">Anthis, J. R., Liu, R., Richardson, S. M., et al. (2025). LLM social simulations are a promising research method. <em>ICML 2025</em>.</span></span>, <span class="tooltip"><a href="https://dl.acm.org/doi/10.1145/3586183.3606763">Park et al., 2023</a><span class="tooltip-box">Park, J. S., O'Brien, J. C., Cai, C. J., et al. (2023). Generative agents: Interactive simulacra of human behavior. <em>UIST 2023</em>.</span></span>)</li>
+      </ul>
+    </li>
+    <li v-click="2">Prompt-based application of LLM agents
+      <ul>
+        <li>Define agents' characteristics and behaviors through simple prompts</li>
+        <li>Incorporate human-like cognitive processes such as memory, planning, and reflection through prompts (<span class="tooltip"><a href="https://arxiv.org/abs/2305.10250">Zhong et al., 2024</a><span class="tooltip-box">Zhong, W., Guo, L., Gao, Q., et al. (2024). MemoryBank: Enhancing large language models with long-term memory. <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>, 38(17), 19724–19731.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2210.03629">Yao et al., 2023</a><span class="tooltip-box">Yao, S., Zhao, J., Yu, D., et al. (2023). ReAct: Synergizing reasoning and acting in language models. <em>International Conference on Learning Representations</em>.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2305.04091">Wang et al., 2023</a><span class="tooltip-box">Wang, L., Xu, W., Lan, Y., et al. (2023). Plan-and-solve prompting: Improving zero-shot chain-of-thought reasoning by large language models. <em>Proceedings of ACL 2023</em>.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2303.17651">Madaan et al., 2023</a><span class="tooltip-box">Madaan, A., Tandon, N., Gupta, P., et al. (2023). Self-refine: Iterative refinement with self-feedback. <em>Advances in Neural Information Processing Systems</em>.</span></span>)</li>
+      </ul>
+    </li>
+  </ul>
+  <img v-click="1" src="./image/Generative_AI.png" style="width:70%; border-radius:6px;" />
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+Recently, LLM agents have received increasing attention in social simulation.
+
+[click] Basically, we begin by writing a prompt. For the simulation, we can define the agents’ profiles and characteristics and then ask the LLM to behave according to these definitions. The LLM will generate the agents’ actions, responses, and interactions based on the given prompts.
+
+[click] Furthermore, we can write more detailed prompts to incorporate advanced features such as memory, planning, and reflection into an agent. These flexible, easy-to-implement techniques can make agents more human-like without requiring complex mathematical computations. Several previous studies have successfully used these techniques in simulations.
+-->
+
+
+---
+
+<div class="kicker">Introduction</div>
+
+## Limitations of LLM Agents
+
+<p class="support wide">Despite their promise, LLM agents remain difficult to reproduce, control, and explain.</p>
+
+<v-clicks>
+
+- Societal and representational biases
+    - Explicit and implicit stereotypes related to race, gender, religion, and culture. (<span class="tooltip"><a href="https://www.pnas.org/doi/10.1073/pnas.2416228122">Bai et al., 2025</a><span class="tooltip-box">Bai, X., Wang, A., Sucholutsky, I., et al. (2025). Explicitly unbiased large language models still form biased associations. <em>PNAS</em>, 122(8), e2416228122.</span></span>; <span class="tooltip"><a href="https://doi.org/10.1162/coli_a_00524">Gallegos et al., 2024</a><span class="tooltip-box">Gallegos, I. O., Rossi, R. A., Barrow, J., et al. (2024). Bias and fairness in large language models: A survey. <em>Computational Linguistics</em>, 50(3), 1097–1179.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2403.14727">Kotek et al., 2024</a><span class="tooltip-box">Kotek, H., Sun, D. Q., Xiu, Z., et al. (2024). Protected group bias and stereotypes in large language models. <em>arXiv</em>.</span></span>)
+    - Models are typically trained to be “helpful and harmless”, thus filter conflictual, aggressive, or “dark” social dynamics even when such behaviors are realistic and essential for understanding phenomena (<span class="tooltip"><a href="https://www.pnas.org/doi/10.1073/pnas.2314021121">Bail, 2024</a><span class="tooltip-box">Bail, C. A. (2024). Can generative AI improve social science? <em>PNAS</em>, 121(21), e2314021121.</span></span>; <span class="tooltip"><a href="https://journals.sagepub.com/doi/10.1177/00491241251327130">Zhang et al., 2025</a><span class="tooltip-box">Zhang, S., Xu, J., &amp; Alvero, A. (2025). Generative AI meets open-ended survey responses: Research participant use of AI and homogenization. <em>Sociological Methods &amp; Research</em>.</span></span>).
+
+- Convergence toward the “Average Persona”
+    - LLM agents may produce responses that are plausible on average but fail to capture the full heterogeneity of real human populations. (<span class="tooltip"><a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/out-of-one-many-using-language-models-to-simulate-human-samples/035D7C8A55B237942FB6DBAD7CAA4E49">Argyle et al., 2023</a><span class="tooltip-box">Argyle, L. P., Busby, E. C., Fulda, N., et al. (2023). Out of one, many: Using language models to simulate human samples. <em>Political Analysis</em>, 31(3), 337–351.</span></span>; <span class="tooltip"><a href="https://www.nature.com/articles/s42256-025-00986-z">Wang et al., 2025</a><span class="tooltip-box">Wang, A., Morgenstern, J., &amp; Dickerson, J. P. (2025). Large language models that replace human participants can harmfully misportray and flatten identity groups. <em>Nature Machine Intelligence</em>, 7, 400–411.</span></span>; <span class="tooltip"><a href="https://arxiv.org/abs/2506.19806">Wu et al., 2025</a><span class="tooltip-box">Wu, Z., Peng, R., Ito, T., et al. (2025). LLM-based social simulations require a boundary. <em>arXiv</em>.</span></span>)
+
+- Challenges in reproducibility and interpretability of LLM agents
+    - Sensitive to the prompt formulation (<span class="tooltip"><a href="https://arxiv.org/abs/2509.13397">Cummins, 2025</a><span class="tooltip-box">Cummins, J. (2025). The threat of analytic flexibility in using large language models to simulate human data. <em>arXiv</em>.</span></span>, <span class="tooltip"><a href="https://aclanthology.org/2023.findings-emnlp.241/">Loya et al., 2023</a><span class="tooltip-box">Loya, M., Sinha, D., &amp; Futrell, R. (2023). Exploring the sensitivity of LLMs' decision-making capabilities: Insights from prompt variations and hyperparameters. <em>Findings of ACL: EMNLP 2023</em>.</span></span>)
+    - The black-box nature creates difficulties in verifying the reliability and validity of results.
+</v-clicks>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+However, there are still several important limitations when we use them for social simulation.
+
+[click] First, as you know, an LLM can have inherent biases. On the one hand, this raises doubts about whether LLM agents can accurately represent different types of people or are mainly effective at representing specific groups. On the other hand, because many models are trained to be helpful and harmless, they often avoid aggressive or harmful behaviors, even when these behaviors are important for understanding real social dynamics.
+
+[click] Also, LLM agents often represent a kind of generalized or average person, while real social phenomena usually depend on heterogeneity and variation among individuals.
+
+[click] Furthermore, an LLM also presents challenges for reproducibility and interpretability. A subtle change in the prompt can produce a very different outcome, and it is difficult to understand why because the model remains a black box when we rely only on prompts.
+-->
+
+
+---
+
+<div class="kicker">Introduction</div>
+
+## Mapping the "Mind" of an LLM
+
+<p class="support wide">An LLM's output may be controlled by intervening in its internal representations.</p>
+
+<div style="display:grid; grid-template-columns:3fr 2fr; gap:60px; margin-top:28px; align-items:start;">
+  <ul>
+    <li v-click="1"><a href="https://bbycroft.net/llm">Representation space</a> is a high-dimensional space of internal activations produced while an LLM processes input.
+      <ul>
+        <li v-click="2">Internal representations may encode an LLM's knowledge, concepts, style, and preferences (<span class="tooltip"><a href="https://arxiv.org/abs/2310.02207">Gurnee &amp; Tegmark, 2023</a><span class="tooltip-box">Gurnee, W., &amp; Tegmark, M. (2023). Language models represent space and time. <em>arXiv</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2310.06824">Marks &amp; Tegmark, 2023</a><span class="tooltip-box">Marks, S., &amp; Tegmark, M. (2023). The geometry of truth: Emergent linear structure in large language model representations of true/false datasets. <em>arXiv</em>.</span></span>)</li>
+        <li v-click="3">Produce context-dependent and human-like behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2507.21509">Chen et al., 2025</a><span class="tooltip-box">Chen, R., Arditi, A., Sleight, H., et al. (2025). Persona vectors: Monitoring and controlling character traits in language models. <em>arXiv</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2402.01618">Konen et al., 2024</a><span class="tooltip-box">Konen, K., Jentzsch, S., Diallo, D., et al. (2024). Style vectors for steering generative large language models. <em>Findings of EACL 2024</em>.</span></span>, <span class="tooltip"><a href="https://arxiv.org/abs/2308.10248">Turner et al., 2023</a><span class="tooltip-box">Turner, A. M., Thiergart, L., Leech, G., et al. (2023). Steering language models with activation engineering. <em>arXiv</em>.</span></span>)</li>
+      </ul>
+    </li>
+    <li v-click="4" class="callout"><span class="callout-icon">💡</span><span>Representation engineering enables the control of LLM agents by intervening in their internal representations</span></li>
+  </ul>
+  <div>
+    <img v-click="1" src="./image/golden_bridge.png" style="width:100%; border-radius:6px;" />
+    <ul class="caption-list">
+      <li v-click="1">Example of Anthropic decoding the vectors Claude uses to represent abstract concepts: researchers identified an internal feature representing the Golden Gate Bridge in Claude and showed that amplifying this feature could make the model behave as though it were the bridge (<span class="tooltip"><a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/">Templeton et al., 2024</a><span class="tooltip-box">Templeton, A., Conerly, T., Marcus, J., et al. (2024). Scaling monosemanticity: Extracting interpretable features from Claude 3 Sonnet. <em>Transformer Circuits Thread</em>.</span></span>).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+Addressing these limitations requires a better understanding of the LLM and, if possible, making it more controllable, because relying only on prompts appears unreliable. Recent studies suggest that we may be able to control an LLM by changing specific internal features of the model.
+
+[click] An LLM consists of many layers of neural networks. First, the input text is converted into numerical vectors, or embeddings. As these vectors pass through the network, they are updated at each layer, producing a set of high-dimensional activation vectors.
+
+The high-dimensional activation vectors formed at each layer can be understood as the model’s internal representations. The space in which these vectors are organized is called the representation space.
+
+This representation space reflects how the LLM processes and organizes information from text. Different inputs produce different activation patterns and occupy different positions within this space. At the same time, different LLMs may develop different representation spaces because of differences in their architectures, training data, and training processes.
+
+[click] So here is an example to show how this idea works. For example, if we ask an LLM a question like, “What is your physical form?”, it will usually answer that it is an AI. The underlying mechanism is that the LLM performs a series of computations inside the neural network, and the results are determined by the model’s internal representations. Specifically, some representations are connected to a specific concept, including the identity of who the LLM thinks it is. So, if we can find these representations and modify them, the LLM’s identity can also be changed. As shown in this example, the LLM may even consider itself to be the Golden Gate Bridge.
+
+[click] In this sense, we may control the LLM through representation engineering. Compared with prompting, this approach offers a promising way to control LLM agents more systematically.
+-->
+
+---
+
+<div class="kicker">Introduction</div>
+
+## Activation Steering
+
+<p class="support wide">Identify specific representations and manipulate them during inference to control an LLM.</p>
+
+<div style="display:grid; grid-template-columns:3.55fr 2fr; gap:40px; margin-top:28px; align-items:start;">
+  <div>
+    <img src="./image/steering1.png" style="width:100%; border-radius:4px;" />
+    <ul class="caption-list">
+      <li>Construct paired prompts that differ along exactly one conceptual dimension.</li>
+      <li>Record the representations in the model and compute the difference between the two conditions</li>
+    </ul>
+  </div>
+  <div>
+    <img src="./image/steering2.png" style="width:100%; border-radius:4px;" />
+    <ul class="caption-list">
+      <li>Add a steering vector to the current hidden state, thereby shifting subsequent generation toward behaviors associated with the target concept.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+
+Specifically, a typical way of representation engineering is activation steering. 
+
+First, we need to identify a direction in the model’s representation space that corresponds to a target concept. A typical way to do this is to prepare contrastive prompts that mainly differ in one specific aspect.
+For example, we can prepare two almost identical sentences. The only difference is the word “honest” versus “dishonest.” Because the inputs are different, the internal representations of the LLM will also be different. We can then expect that the difference between these two representations indicates how the LLM represents the concept of “honesty.”
+
+Sometimes, these representations may have a linear direction. This means that if we add the steering vector to the hidden state, it can change the model’s internal processing. As a result, we may be able to guide the model’s later output toward the target behavior.
+-->
+
+---
+layout: section
+---
+
+<div>
+
+<h1 style="font-family:'Noto Serif JP','Noto Serif SC',serif; font-size:55px; line-height:1.08; font-weight:800; color:#243033;">Application of Activation-steered LLM Agents</h1>
+
+<hr>
+
+<span class='text-gray-500 text-2xl'>
+Employ activation-steered LLM agents to implement social simulation of norms, improving <strong style="color:#4338ca;">reproducibility</strong> and <strong style="color:#4338ca;">controllability</strong>.
+</span>
+
+</div>
+
+<!--
+
+We believe that activation steering can address several challenges in social science applications of LLMs. In the following parts, we present an example using activation-steered LLM agents to show how this approach can improve reproducibility and interpretability.
+
+
+-->
+
+---
+
+<div class="kicker">Research Question</div>
+
+## Issues in the Simulation of Norms with LLM Agents
+
+<div class="quote-panel">
+  <p>Key research question in the social simulation of norms</p>
+  <span style="font-size:24px;">How do norms emerge, stabilize, and change through interactions among agents?</span>
+</div>
+
+<v-clicks>
+
+- Controllability
+    - The black-box nature of LLMs makes it difficult to deliberately control agents’ behavior
+
+- Reproducibility
+    - Prompt-based manipulation of agent characteristics and norm context is inherently unstable
+</v-clicks>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+Here, we focus on the social simulation to address key question in social norm, that is, how do norms emerge, stabilize, and change through interactions among agents?
+
+[click] Again, as we just discussed, LLMs have limitations in controllability and reproducibility.
+
+
+-->
+
+---
+
+<div class="kicker">Research Question</div>
+
+## Simulation with Activation-steered Agents 
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center;">
+<div>
+
+<v-clicks depth="2">
+
+-  RQ: How can an increasing minority of agents with different beliefs lead to norm change?
+    - Employ steering activation on <em>meta-llama/Llama-3.1-8B-Instruct</em>. to control agents' beliefs toward a specific issue.
+    - Initialize the simulation with different proportions of agents favoring each norm, creating majority and minority groups of varying sizes.
+    - Agents observe the choices made by their connected neighbors and update their own choices accordingly.
+    - Agents belonging to the minority group can influence others through social learning and diffusion, eventually leading to a shift in the dominant norm.
+</v-clicks>
+
+
+</div>
+  <SimulationCycle v-click="2" />
+</div>
+
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+We use activation-steered agents to simulate how a social norm can change through interaction.
+
+[click] The question is whether a growing minority of agents with different beliefs can shift the dominant norm.
+
+[click:2] We use Llama-3.1-8B-Instruct and apply activation steering to control each agent's belief about a particular issue.
+
+[click:3] We initialize the simulation with different proportions of agents favoring each norm. This creates majority and minority groups of varying sizes.
+
+[click:4] During the simulation, agents observe the choices of their connected neighbors and update their own choices accordingly.
+
+[click:5] Through social learning and diffusion, agents in the minority may influence others and eventually shift the dominant norm. Here, the aim is to see whether controlling agents' initial beliefs makes that process more reproducible and easier to examine.
+-->
+
+---
+
+<div class="kicker">Method</div>
+
+## RepE that Controls the Agent’s Norm Belief
+
+<v-clicks>
+
+- Contrastive scenario pairs that favor either shared or rotated payment
+    - *Similar spending makes paying individual shares the most balanced arrangement.*
+    - *Alternating who pays keeps the payment relationship reciprocal over time.*
+- Extract residual stream activations by computing the difference
+
+$$\mathbf{v}^{(l)} = \frac{1}{N} \sum_{i=1}^{N} \left( \mathbf{a}^{(l)}(x_i^+) - \mathbf{a}^{(l)}(x_i^-) \right)$$
+
+- Apply the steering vector with a scalar coefficient $\alpha$
+    - $\alpha > 0$: steer toward share
+    - $\alpha < 0$: steer toward rotate
+
+$$\mathbf{a}^{(l)}_\text{steered} = \mathbf{a}^{(l)} + \alpha \cdot \mathbf{v}^{(l)}$$
+</v-clicks>
+
+
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>04</span></div>
+
+<!--
+The procedure follows the activation-steering method I introduced earlier.
+
+[click] First, we prepare pairs of contrasting scenarios. One favors paying individual shares because everyone's spending is similar. The other favors taking turns because alternating who pays can keep the relationship over time.
+
+[click:2] Next, we compare the model's residual stream activations for these two kinds of scenarios. We average the differences across pairs to obtain a steering vector at each layer. The direction shown here points toward shared payment.
+
+[click:3] Finally, we add the steering vector to the model's activation during inference and scale it by alpha. A positive alpha makes shared payment more likely, while a negative alpha steers the agent toward rotated payment. Varying alpha lets us adjust the agent's initial preference in a controlled way before running the social simulation.
+-->
+
+
+
+---
+clicks: 4
+---
+
+<div class="kicker">Results</div>
+
+## RepE that Controls the Agent’s Norm Belief
+
+
+<div style="display:flex; flex-direction:column; align-items:center; margin-top:50px;">
+  <div style="position:relative; width:1030px; aspect-ratio:3806/1464;">
+    <img v-show="$clicks === 2" src="./image/p_share_vs_alpha-1.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks === 3" src="./image/p_share_vs_alpha-2.png" style="width:100%; border-radius:6px;" />
+    <img v-show="$clicks >= 4" src="./image/p_share_vs_alpha-3.png" style="width:100%; border-radius:6px;" />
+    <div v-click="4" style="position:absolute; width:0; height:0; overflow:hidden;"></div>
+  </div>
+  <ul style="margin-top:6px;">
+    <li v-click="2" style="color:var(--muted) !important; font-weight:400 !important; font-size:19px; line-height:1.3; margin:2px 0;">The original LLM tends to overwhelmingly choose shared payment.</li>
+    <li v-click="3" style="color:var(--muted) !important; font-weight:400 !important; font-size:19px; line-height:1.3; margin:2px 0;">Activation steering can adjust agents' preferences regarding payment.</li>
+  </ul>
+</div>
+
+
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>06</span></div>
+
+<!--
+We examine whether activation steering changes the model's preference in a simple payment decision
+
+[click] First, consider the model at alpha equal to zero, with no steering applied.
+
+[click] The original model chooses shared payment in 82 percent of trials. That is already a strong preference. If we ignored it, we might mistake the model's built-in tendency for a norm produced by interaction among agents.
+
+[click] As we increase alpha, shared payment generally becomes more common. A modest negative alpha reduces the share rate, although sharing is still the majority choice.
+
+[click] With stronger negative steering, the share rate falls below 50 percent and rotated payment becomes more common. We can therefore set different starting preferences for agents before examining how their interactions affect the collective norm.
+-->
+
+
+---
+clicks: 4
+---
+
+<div class="kicker">Results</div>
+
+## RepE Enables Graded Control of Agent's Norm Belief
+
+<p class="support wide">Activation-steered agents enable a controllable simulation setting.</p>
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:18px; align-items:start;">
+  <div>
+    <div v-click="1" style="padding:16px 20px; background:rgba(255,255,255,0.6); border-left:4px solid var(--blue); box-shadow:0 12px 28px rgba(31,41,55,0.06);">
+      <div style="font-size:13px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue);">Prompt example</div>
+      <p style="margin:8px 0 0; font-size:16px; line-height:1.45; color:var(--muted); font-style:italic;">“On a scale from -5 to +5, where -5 means you strongly prefer taking turns treating ("rotate"), 0 means you have no preference, and +5 means you strongly prefer each paying your own share ("share"), your own preference is +5.”</p>
+    </div>
+    <ul style="margin-top:14px;">
+      <li v-click="2" style="font-size:19px; line-height:1.3; margin:8px 0;">Prompts cannot express graded strength
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">Adjacent levels can yield almost the same share rate</div>
+      </li>
+      <li v-click="3" style="font-size:19px; line-height:1.3; margin:8px 0;">Prompt outcomes depend on the wording
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">Across various wordings of the same instruction, the model's responses differ widely</div>
+      </li>
+      <li v-click="4" style="font-size:19px; line-height:1.3; margin:8px 0;">Activation steering gives graded control
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">The share rate changes continuously and monotonically with the steering coefficient, and is close to linear on the logit scale</div>
+      </li>
+    </ul>
+  </div>
+  <div style="position:relative; height:400px; display:flex; justify-content:center;">
+    <img v-show="$clicks === 2" src="./image/dose_response_prompt_vs_steer-1.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+    <img v-show="$clicks === 3" src="./image/dose_response_prompt_vs_steer-2.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+    <img v-show="$clicks >= 4" src="./image/dose_response_prompt_vs_steer-3.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>06</span></div>
+
+<!--
+We also compare the agent with Prompt-based and RepE method.
+
+[click] The first way is to state a preference directly in the prompt. We give the agent a number from minus five, meaning a strong preference for taking turns, to plus five, meaning a strong preference for sharing the bill.
+
+[click] If this scale worked as intended, each step would change the agent's choice gradually. But the graph shows flat stretches and sudden jumps: neighboring numbers can lead to almost the same share-payment rate.
+
+[click] The wording matters too. Each of these additional curves uses a different phrasing of the same preference instruction. At a given number, they can produce very different rates of shared payment.
+
+[click] So How about activation steering. As we increase the steering coefficient, the share-payment rate rises steadily. In this comparison, steering gives us a more predictable way to set different strengths of preference across agents.
+
+
+-->
+
+
+---
+clicks: 4
+---
+
+<div class="kicker">Results</div>
+
+## Belief Stability Under Social Influence
+
+<p class="support wide">Activation-steered agents enable belief strength to act as a stable, tunable agent trait.</p>
+
+<div style="display:grid; grid-template-columns:1.35fr 1fr; gap:32px; margin-top:14px; align-items:start;">
+  <div>
+    <div v-click="1" style="padding:12px 20px; background:rgba(255,255,255,0.6); border-left:4px solid var(--blue); box-shadow:0 12px 28px rgba(31,41,55,0.06);">
+      <div style="font-size:13px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue);">Expectation</div>
+      <ul style="margin:6px 0 0; padding-left:1.1em;">
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;">The strength of a norm belief defines not only an agent's initial tendency but also how it responds across interaction contexts.</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;">The stronger the belief, the more an agent keeps to its own behavior even when it observes behavior inconsistent with that belief.</li>
+      </ul>
+    </div>
+    <ul style="margin-top:10px;">
+      <li v-click="2" style="font-size:19px; line-height:1.3; margin:6px 0;">Design: add social-influence information
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);"><em>“In the previous round, k of your 6 friends chose "share" and 6−k chose "rotate".”</em></div>
+      </li>
+      <li v-click="3" style="font-size:19px; line-height:1.3; margin:6px 0;">With prompts, social information strongly sways the agent's choice
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">An LLM generates language from the text it is given, so more recent text may influence its output more strongly. </div>
+      </li>
+      <li v-click="4" style="font-size:19px; line-height:1.3; margin:6px 0;">With steering, the agent's own belief strength still shapes its choice
+        <div style="margin-top:2px; font-size:16px; line-height:1.4; font-weight:400; color:var(--muted);">The belief is changed through the LLM's internal representations, so the belief may act as a separate offset that the neighbours' information does not overwrite.  </div>
+      </li>
+    </ul>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+    <img v-click="3" src="./image/s2_p_share_by_k-2.png" style="height:226px; border-radius:6px;" />
+    <img v-click="4" src="./image/s2_p_share_by_k-1.png" style="height:226px; border-radius:6px;" />
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>06</span></div>
+
+<!--
+
+We also examine whether that preference still matters in the social influence contexts.
+
+[click] We expect a stronger belief to make an agent less likely to abandon its preferred payment norm, even when its neighbors choose differently. In other words, belief strength should shape the agent's response to social influence, not only its first choice.
+
+[click] To test this, we tell each agent how its neighbors chose in the previous round. We vary how many neighbors chose shared payment, from zero to six, and measure the agent's own choice.
+
+[click] With prompt-defined preferences, agents choose shared payment more often as more neighbors choose it. But the curves rise in much the same way across the stated preference levels. The prompts do not clearly distinguish how agents with stronger versus weaker existing beliefs respond to social influence.
+
+
+[click] With activation steering, the response depends more clearly on belief strength. Strongly steered agents tend to keep their preferred choice even when neighbors disagree, while more weakly steered agents respond to what their neighbors do. Belief strength therefore acts as a more stable and tunable agent trait.
+
+-->
+
+
+
+
+
+---
+clicks: 2
+---
+
+<div class="kicker">Results</div>
+
+## RepE Stabilizes Tipping Points Across Prompts
+
+<p class="support wide">Tipping points differ between prompt-based and steered agents.</p>
+
+<div style="display:grid; grid-template-columns:1fr 1.2fr; gap:32px; margin-top:14px; align-items:start;">
+  <div>
+    <div style="padding:12px 20px; background:rgba(255,255,255,0.6); border-left:4px solid var(--blue); box-shadow:0 12px 28px rgba(31,41,55,0.06);">
+      <div style="font-size:13px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue);">Simulation setting</div>
+      <ul style="margin:6px 0 0; padding-left:1.1em;">
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>m agents:</strong> support "share", strong commitment</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>50−m agents:</strong> support "rotate", weak commitment</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>Network:</strong> Agents are connected in a small-world network and can observe the behavior of connected agents.</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>Different Prompts:</strong> several prompts that vary in scenario and task description</li>
+        <li style="font-size:16px !important; line-height:1.4 !important; font-weight:400 !important; color:var(--muted) !important; margin:4px 0;"><strong>Outcome:</strong> the minimum number of minority agents needed for behavioral diffusion to make the initially minority norm the majority choice (= tipping point)</li>
+      </ul>
+    </div>
+    <ul style="margin-top:14px;">
+      <li v-click="1" style="font-size:19px; line-height:1.35; margin:8px 0;"><span style="font-weight:700;">Steer Activation:</span> <span style="font-weight:300;">the tipping point stays stable across simulation based on different prompts.</span></li>
+      <li v-click="2" style="font-size:19px; line-height:1.35; margin:8px 0;"><span style="font-weight:700;">Prompt-based:</span> <span style="font-weight:300;">the tipping point can differ substantially between simulation based on different prompts.</span></li>
+    </ul>
+  </div>
+  <div style="position:relative; height:400px; display:flex; justify-content:center; align-items:center;">
+    <img v-show="$clicks === 1" src="./image/s6_tip_box_1_steer.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+    <img v-show="$clicks >= 2" src="./image/s6_tip_box_2_prompts.png" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:6px;" />
+  </div>
+</div>
+
+<div class="footer"><span>Toward More Reproducible and Interpretable LLM-Based Social Agents Through Representation Engineering</span><span>06</span></div>
+
+<!--
+Finally, we examine whether the differences we observed at the level of individual agents lead to different outcomes at the collective level.
+
+In each run, 50 agents are connected in a small-world network. Of these, m agents strongly favor shared payment, while the other 50 minus m weakly favor rotated payment. Agents observe their neighbors' choices before making their own. We increase m and record the smallest number at which shared payment spreads enough to become the majority choice. That number is the tipping point. We describe this same simulation task using different ways.
+
+[click] For steered agents, results stay fairly close across prompt versions. The threshold is relatively stable when we change the wording of the simulation.
+
+[click] For prompt-controlled agents, we describe the same task scenario with different prompts. The tipping point varies substantially across them; in some runs, no tipping occurs even with 35 committed agents. This sensitivity to prompt wording changes the simulated outcome, while activation steering gives us more consistent starting conditions.
+-->
+
+
+---
+
+<div class="kicker">Summary</div>
+
+## Activation Steering in Social Science Research
+
+<p class="support wide"></p>
+
+
+<div class="card" v-click="1">
+    <h3>Activation steering represents a promising method for improving the reproducibility and interpretability of social simulations based on LLM agents</h3>
+    <ul>
+      <li>Activation steering enables the control of agent properties such as personality and belief</li>
+      <li>Enhances interpretability by clarifying the relationship between controlled conditions and outcomes.</li>
+      <li>More controllable and diverse silicon samples</li>
+    </ul>
+</div>
+
+<div class="card rose" v-click="2">
+    <h3>Activation steering is not always effective</h3>
+    <ul>
+      <li>Relevant concepts may be distributed across multiple layers and intertwined with other representations, making it difficult for a single steering vector to reliably control the model’s behavior (<span class="tooltip"><a href="https://arxiv.org/abs/2505.22637">Braun et al., 2025</a><span class="tooltip-box">Braun, J., Eickhoff, C., Krueger, D., et al. (2025). Understanding (un)reliability of steering vectors in language models. <em>ICLR 2025 Workshop on Foundation Models in the Wild</em>.</span></span>).</li>
+      <li>Activation steering is both context-sensitive and model-dependent.</li>
+    </ul>
+  </div>
+
+<!--
+Let me summarize the presentation.
+
+[click] The main message is that activation steering can be a useful method for social simulation with LLM agents. It allows us to control agent properties, such as altruism or belief-related preferences, through internal representations rather than only through prompts. This can reduce the influence of prompt-level variation and make the relationship between experimental conditions and simulation outcomes more interpretable.
+
+In the examples I showed today, changing the steering coefficient changed individual decisions in behavioral games, adjusted payment preferences, and produced different collective norm outcomes in multi-agent simulations. So activation steering gives us a way to connect micro-level agent control with macro-level social patterns.
+
+[click] At the same time, activation steering is not a complete solution. Some concepts may be distributed across multiple layers or mixed with other representations, so a single steering vector may not always control behavior reliably. The effect is also context-sensitive and model-dependent.
+
+So my conclusion is that activation-steered agents should be seen as a promising methodological tool, not as a universal fix. They can help us build more controlled and interpretable social simulations, but they also require careful validation for each model, concept, and simulation setting.
+
+Thank you very much. I look forward to your questions and comments.
+
+
+-->

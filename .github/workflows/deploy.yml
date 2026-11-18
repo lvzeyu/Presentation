@@ -92,6 +92,14 @@ jobs:
         working-directory: ./Conference/2026/LLMSS_roundtable
         run: nr build --base /${{github.event.repository.name}}/Conference/2026/LLMSS_roundtable/
 
+      - name: Install dependencies for Computational_communication_CN
+        working-directory: ./Conference/2026/Computational_communication_CN/Slides
+        run: ni
+
+      - name: Build Computational_communication_CN
+        working-directory: ./Conference/2026/Computational_communication_CN/Slides
+        run: nr build --base /${{github.event.repository.name}}/Conference/2026/Computational_communication_CN/Slides/
+
       - name: Create output directory structure
         run: |
           mkdir -p public/Tutorial/2026/JAMS_2026
@@ -110,6 +118,8 @@ jobs:
           cp -r ./Conference/2026/LLMSS/dist/* public/Conference/2026/LLMSS/
           mkdir -p public/Conference/2026/LLMSS_roundtable
           cp -r ./Conference/2026/LLMSS_roundtable/dist/* public/Conference/2026/LLMSS_roundtable/
+          mkdir -p public/Conference/2026/Computational_communication_CN/Slides
+          cp -r ./Conference/2026/Computational_communication_CN/Slides/dist/* public/Conference/2026/Computational_communication_CN/Slides/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
