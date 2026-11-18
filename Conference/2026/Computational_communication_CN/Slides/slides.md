@@ -41,7 +41,7 @@ mermaid:
   </div>
   <div style="position:absolute; left:58px; right:58px; bottom:54px; color:#374151; font-size:20px; font-weight:700; line-height:1.4;">
     智能与计算传播学会 2026, Guangzhou<br>
-    <span style="font-size:18px; font-weight:600;">14–16 October 2026</span>
+    <span style="font-size:18px; font-weight:600;">2026 Nov 22</span>
   </div>
 </div>
 
